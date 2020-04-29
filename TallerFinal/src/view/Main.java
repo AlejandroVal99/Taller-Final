@@ -9,5 +9,17 @@ public class Main extends PApplet{
 		PApplet.main("view.Main");
 
 	}
+	
+	public void settings() {
+		size(400,400); 
+		
+	}
+	public void setup() {
+		
+	}
+	public void draw() {
+
+		
+	}
 
 }
