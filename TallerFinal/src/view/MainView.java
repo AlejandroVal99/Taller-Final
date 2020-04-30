@@ -18,6 +18,8 @@ public class MainView extends PApplet{
 		
 	}
 	public void draw() {
+		
+		background(0, 20, 0); 
 
 		
 	}
