@@ -18,5 +18,14 @@ public class RegisterContro {
 		logic.test1();
 		
 	}
+	
+	public void moverPersonaje(char k) {
+		logic.moverPersonaje(k);
+		
+	}
+	
+	public void creo() {
+		logic.creo();
+	}
 
 }

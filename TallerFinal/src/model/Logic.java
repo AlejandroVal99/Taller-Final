@@ -17,10 +17,19 @@ public class Logic {
 		
 	}
 	
-	public void test1() {
+	public void creo() {
 		usuario = new User(app, "daniel", "hola123"); 
+	}
+	
+	
+	public void test1() {
 		usuario.pintar();
-		System.out.println("fuck");
+		
+	}
+	
+
+	public void moverPersonaje(char k) {
+		usuario.moverse(k);
 		
 		
 	}

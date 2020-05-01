@@ -4,9 +4,9 @@ import processing.core.PApplet;
 
 public class Hierva extends Pokemon{
 
-	public Hierva(String name, PApplet app, int daño1, int daño2, int xp, int nivel) {
+	public Hierva(String name, PApplet app, int daño1, int daño2, int xp, int nivel, int posx, int posy) {
 		// TODO Auto-generated constructor stub
-		super(name, app, daño1, daño2,xp, nivel ); 
+		super(name, app, daño1, daño2,xp, nivel, posx, posy ); 
 	}
 
 	@Override
@@ -17,6 +17,12 @@ public class Hierva extends Pokemon{
 
 	@Override
 	public void pintar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void run() {
 		// TODO Auto-generated method stub
 		
 	}

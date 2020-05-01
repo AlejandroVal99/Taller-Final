@@ -12,22 +12,48 @@ public class User implements Comparable<User>{
 	 String password, nickname; 
 	 Date fechadeRegistro; 
 	 LinkedList<Pokemon> pokedex; 
+	 int posx = 200
+	 ,posy = 200; 
 	
 	public User(PApplet app, String nickname, String password){
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
 		
+		
 	}
 	
 	public void pintar() {
-		System.out.println("cree un usuario");
+		app.ellipse(posx, posy, 20, 20);
 		
 	}
 	public void capturarPokemon() {
 		
 	}
 	public void moverse(char k) {
+		
+		switch (k) {
+		case 'a':
+			posx-=10; 
+			break;
+		case 's':
+			posy+=10; 
+			break;
+			
+		case 'd':
+			posx+=10; 
+			break;
+			
+		case 'w':
+			posy-=10; 
+			break;
+			
+			
+			
+
+		default:
+			break;
+		}
 		
 	}
 	public void atacar() {
@@ -79,6 +105,24 @@ public class User implements Comparable<User>{
 	public void setPokedex(LinkedList<Pokemon> pokedex) {
 		this.pokedex = pokedex;
 	}
+
+	public int getPosx() {
+		return posx;
+	}
+
+	public void setPosx(int posx) {
+		this.posx = posx;
+	}
+
+	public int getPosy() {
+		return posy;
+	}
+
+	public void setPosy(int posy) {
+		this.posy = posy;
+	}
+	
+	
 	
 	
 
