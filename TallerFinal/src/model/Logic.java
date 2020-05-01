@@ -1,9 +1,30 @@
 package model;
 
-public class Logic {
+import processing.core.PApplet;
 
-	public Logic() {
-		// TODO Auto-generated constructor stub
+
+public class Logic {
+	PApplet app; 
+	User usuario; 
+
+
+	public Logic(PApplet app) {
+		this.app= app; 
+		
+		
+		
+		
+		
 	}
+	
+	public void test1() {
+		usuario = new User(app, "daniel", "hola123"); 
+		usuario.pintar();
+		System.out.println("fuck");
+		
+		
+	}
+	
+	
 
 }

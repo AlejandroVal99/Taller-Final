@@ -1,9 +1,22 @@
 package conntroller;
 
-public class RegisterContro {
+import model.Logic;
+import processing.core.PApplet;
 
-	public RegisterContro() {
-		// TODO Auto-generated constructor stub
+public class RegisterContro {
+	
+	Logic logic;
+	PApplet app; 
+
+	public RegisterContro( PApplet app) {
+		this.app= app; 
+		logic = new Logic(app); 
+		
+	}
+	
+	public void test() {
+		logic.test1();
+		
 	}
 
 }

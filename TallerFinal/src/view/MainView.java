@@ -1,8 +1,11 @@
 package view;
 
+import conntroller.RegisterContro;
 import processing.core.PApplet;
 
 public class MainView extends PApplet{
+	
+	RegisterContro register; 
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,6 +18,8 @@ public class MainView extends PApplet{
 		
 	}
 	public void setup() {
+		register = new RegisterContro(this); 
+		register.test();
 		
 	}
 	public void draw() {
