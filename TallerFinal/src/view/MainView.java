@@ -2,11 +2,15 @@ package view;
 
 import conntroller.RegisterContro;
 import processing.core.PApplet;
+import controlP5.*; 
+import view.*; 
 
 public class MainView extends PApplet{
 	
 	RegisterContro register; 
 	int screen ; 
+	private ControlP5 cp5; 
+	RegisterScreen regisScreen; 
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -19,8 +23,14 @@ public class MainView extends PApplet{
 		
 	}
 	public void setup() {
+		cp5= new ControlP5(this); 
 		register = new RegisterContro(this); 
+		regisScreen = new RegisterScreen(this); 
 		register.creo();
+		regisScreen.inputs();
+		
+		
+	
 		
 		
 	}
@@ -38,6 +48,7 @@ public class MainView extends PApplet{
 			break;
 		case 2:
 			background(0, 200, 30); 
+			
 		
 			break;
 		case 3:
@@ -173,5 +184,7 @@ switch (screen) {
 		}
 		
 	}
+	
+
 
 }
