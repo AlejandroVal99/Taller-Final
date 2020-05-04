@@ -5,15 +5,15 @@ import processing.core.PApplet;
 public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 	protected PApplet app; 
 	protected String name; 
-	protected int daño1, daño2, xp, nivel, posx, posy; 
+	protected int dano1, dano2, xp, nivel, posx, posy; 
 
-	public Pokemon(String name, PApplet app, int daño1,
-			int daño2, int xp, int nivel, int posx, int posy) {
+	public Pokemon(String name, PApplet app, int dano1,
+			int dano2, int xp, int nivel, int posx, int posy) {
 
 		this.app= app; 
 		this.name= name; 
-		this.daño1 = daño1; 
-		this.daño2= daño2; 
+		this.dano1 = dano1; 
+		this.dano2= dano2; 
 		this.xp= xp; 
 		this.nivel= nivel; 
 		this.posx= posx; 
@@ -33,19 +33,19 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
     	
     }
 
-	public int getDaño1() {
+	public int getDano1() {
 		return daño1;
 	}
 
-	public void setDaño1(int daño1) {
-		this.daño1 = daño1;
+	public void setDaño1(int dano1) {
+		this.dano1 = dano1;
 	}
 
-	public int getDaño2() {
-		return daño2;
+	public int getDano2() {
+		return dano2;
 	}
 
-	public void setDaño2(int daño2) {
+	public void setDano2(int dano2) {
 		this.daño2 = daño2;
 	}
 
