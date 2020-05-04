@@ -6,6 +6,8 @@ import processing.core.PApplet;
 public class Logic {
 	PApplet app; 
 	User usuario; 
+	LinkedList<User> usuarios;
+	
 
 
 	public Logic(PApplet app) {

@@ -4,9 +4,9 @@ import processing.core.PApplet;
 
 public class Fuego extends Pokemon{
 
-	public Fuego(String name, PApplet app, int daño1, int daño2, int xp, int nivel, int posx, int posy) {
+	public Fuego(String name, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy) {
 		// TODO Auto-generated constructor stub
-		super(name, app, daño1, daño2,xp, nivel, posx, posy ); 
+		super(name, app, dano1, dano2,xp, nivel, posx, posy ); 
 	}
 
 	@Override

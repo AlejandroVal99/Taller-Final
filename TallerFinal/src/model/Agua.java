@@ -4,8 +4,8 @@ import processing.core.PApplet;
 
 public class Agua extends Pokemon{
 
-	public Agua(String name, PApplet app, int daño1, int daño2, int xp, int nivel, int posx, int posy) {
-		super(name, app, daño1, daño2, xp, nivel, posx, posy);
+	public Agua(String name, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy) {
+		super(name, app, dano1, dano2, xp, nivel, posx, posy);
 		// TODO Auto-generated constructor stub
 	}
 
