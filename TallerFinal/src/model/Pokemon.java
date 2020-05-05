@@ -4,14 +4,15 @@ import processing.core.PApplet;
 
 public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 	protected PApplet app; 
-	protected String name; 
+	protected String name, tipo; 
 	protected int dano1, dano2, xp, nivel, posx, posy; 
 
-	public Pokemon(String name, PApplet app, int dano1,
+	public Pokemon(String name, String tipo, PApplet app, int dano1,
 			int dano2, int xp, int nivel, int posx, int posy) {
 
 		this.app= app; 
 		this.name= name; 
+		this.tipo = tipo;
 		this.dano1 = dano1; 
 		this.dano2= dano2; 
 		this.xp= xp; 
@@ -34,7 +35,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
     }
 
 	public int getDano1() {
-		return daño1;
+		return dano1;
 	}
 
 	public void setDaño1(int dano1) {
@@ -46,7 +47,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 	}
 
 	public void setDano2(int dano2) {
-		this.daño2 = daño2;
+		this.dano2 = dano2;
 	}
 
 	public int getXp() {
@@ -79,6 +80,12 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 
 	public void setPosy(int posy) {
 		this.posy = posy;
+	}
+
+	public String getTipo() {
+	
+		// TODO Auto-generated method stub
+		return tipo;
 	}
     
     

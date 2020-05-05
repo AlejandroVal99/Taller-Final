@@ -1,17 +1,24 @@
 package model;
 
+import java.util.*;
+
 import processing.core.PApplet;
 
 
 public class Logic {
-	PApplet app; 
-	User usuario; 
-	LinkedList<User> usuarios;
+	private PApplet app; 
+	private User usuario; 
+	private LinkedList<User> usuariosList;
+	private UserNicknameCompare userNick;
+	
+	
 	
 
 
 	public Logic(PApplet app) {
 		this.app= app; 
+		usuariosList = new LinkedList<User>();
+		
 		
 		
 		
