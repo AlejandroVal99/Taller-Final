@@ -18,9 +18,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 		this.xp= xp; 
 		this.nivel= nivel; 
 		this.posx= posx; 
-		this.posy= posy; 
-		
-		
+		this.posy= posy; 	
 		
 	}
 	

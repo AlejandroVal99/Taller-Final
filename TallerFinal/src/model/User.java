@@ -16,10 +16,10 @@ public class User implements Comparable<User>{
 	 ,posy = 200; 
 	
 	public User(PApplet app, String nickname, String password){
+		
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
-		
 		
 	}
 	
