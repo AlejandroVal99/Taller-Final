@@ -27,5 +27,10 @@ public class RegisterContro {
 	public void creo() {
 		logic.creo();
 	}
+	
+	public void registrarmetodo(String name, String contraseña) {
+		logic.registrarmetodo(name,  contraseña);
+		
+	}
 
 }

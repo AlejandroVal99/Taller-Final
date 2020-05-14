@@ -15,7 +15,7 @@ public class Logic {
 
 	public Logic(PApplet app) {
 		this.app = app;
-		infoPokemons = app.loadStrings("../Informacion/pokemones.txt");
+		infoPokemons = app.loadStrings("../TallerFinal/Informacion/pokemones.txt");
 		usuariosList = new LinkedList<User>();
 		pokemonList = new LinkedList<Pokemon>();
 		userNick = new UserNicknameCompare();
@@ -48,6 +48,17 @@ public class Logic {
 			}
 
 		}
+	}
+	
+	public void registrarmetodo(String name, String contraseña) {
+		usuariosList.add(new User(app, name, contraseña)); 
+		
+		for (int i = 0; i < usuariosList.size(); i++) {
+			System.out.println(usuariosList.get(i).getNickname()+"  "+ usuariosList.size());
+			
+			
+		}
+		
 	}
 
 	public void creo() {

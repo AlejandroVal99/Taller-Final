@@ -27,11 +27,8 @@ public class MainView extends PApplet{
 		register = new RegisterContro(this); 
 		regisScreen = new RegisterScreen(this); 
 		register.creo();
-		regisScreen.inputs();
-		
-		
-	
-		
+		regisScreen.inputs("name",20);
+		regisScreen.inputs("correo",20+20*3);
 		
 	}
 	public void draw() {
@@ -44,52 +41,41 @@ public class MainView extends PApplet{
 			break;
 		case 1:
 			background(255, 20, 0); 
-		
+			regisScreen.escondoInput(1,"name");
+			regisScreen.escondoInput(1,"correo");
 			break;
 		case 2:
 			background(0, 200, 30); 
-			
-		
 			break;
 		case 3:
 			background(200, 20, 50); 
-		
 			break;
 		case 4:
 			background(30, 20, 0); 
-		
 			break;
 		case 5:
 			background(40, 203, 0); 
-		
 			break;
 		case 6:
 			background(20, 20,200); 
-		
 			break;
 		case 7:
 			background(100, 20, 0); 
-		
 			break;
 		case 8:
 			background(190, 20, 200); 
-		
 			break;
 		case 9:
 			background(255, 255, 0); 
-		
 			break;
-			
-
 		default:
 			background(255, 255, 0); 
 			
 			break;
 		}
-		
-		
-		register.test();
-
+		if(screen==3) {
+			register.test();
+		}
 		
 	}
 	public void keyPressed() {
@@ -97,6 +83,9 @@ public class MainView extends PApplet{
 	switch (screen) {
 		
 		case 0:
+			if(key=='w') {
+				regisScreen.getInfo();
+			}
 		
 			break;
 		case 1:
@@ -137,6 +126,7 @@ public class MainView extends PApplet{
 		register.moverPersonaje(key);
 	}
 	public void mousePressed() {
+		
 switch (screen) {
 		
 		case 0:
@@ -177,7 +167,7 @@ switch (screen) {
 	}
 		
 		System.out.println(screen);
-		screen++; 
+		//screen++; 
 		if(screen >= 10) {
 			screen = 10; 
 			
