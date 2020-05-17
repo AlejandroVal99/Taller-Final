@@ -28,7 +28,6 @@ public class MainView extends PApplet{
 		cp5= new ControlP5(this); 
 		regisScreen = new RegisterScreen(this); 
 		introScreen = new IntroScreen(this);
-		register.creo();
 		regisScreen.creo();
 		regisScreen.inputs("name",20);
 		regisScreen.inputs("correo",20+20*3);
