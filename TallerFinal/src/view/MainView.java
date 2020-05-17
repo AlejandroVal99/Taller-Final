@@ -11,6 +11,7 @@ public class MainView extends PApplet{
 	int screen ; 
 	private ControlP5 cp5; 
 	RegisterScreen regisScreen; 
+	IntroScreen introScreen;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,9 +27,13 @@ public class MainView extends PApplet{
 		cp5= new ControlP5(this); 
 		register = new RegisterContro(this); 
 		regisScreen = new RegisterScreen(this); 
+		introScreen = new IntroScreen(this);
 		register.creo();
 		regisScreen.inputs("name",20);
 		regisScreen.inputs("correo",20+20*3);
+		
+		//cargar imagenes de las clases
+		introScreen.cargaImagenesIS();
 		
 	}
 	public void draw() {
@@ -36,7 +41,8 @@ public class MainView extends PApplet{
 		switch (screen) {
 		
 		case 0:
-			background(0, 20, 0); 
+			introScreen.drawIntro();
+			background(0, 20, 0);
 		
 			break;
 		case 1:
