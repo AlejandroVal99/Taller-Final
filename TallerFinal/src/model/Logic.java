@@ -55,6 +55,8 @@ public class Logic {
 		
 		for (int i = 0; i < usuariosList.size(); i++) {
 			System.out.println(usuariosList.get(i).getNickname()+"  "+ usuariosList.size());
+			System.out.println(usuariosList.get(i).getPassword()+"  "+ usuariosList.size());
+			System.out.println("----------------------------------------------------------");
 			
 			
 		}

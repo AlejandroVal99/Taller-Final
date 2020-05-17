@@ -46,7 +46,7 @@ public class RegisterScreen {
 		String userName = cp5.get(Textfield.class, "name").getText(); 
 		String userContra = cp5.get(Textfield.class, "correo").getText(); ;
 		regiscontro.registrarmetodo(userName, userContra);
-		System.out.println(userName);
+		//System.out.println(userName);
 		
 		
 	}
