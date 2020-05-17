@@ -42,5 +42,10 @@ public class RegisterContro {
 	public void setUsuariosList(LinkedList<User> usuariosList) {
 		logic.setUsuariosList(usuariosList);
 	}
+	
+	public boolean areaSensible (int x, int y, int tamx, int tamy) {
+		return logic.areaSensible(x, y, tamx, tamy);
+	}
+	
 
 }

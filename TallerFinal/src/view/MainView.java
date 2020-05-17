@@ -10,7 +10,7 @@ public class MainView extends PApplet{
 	int screen ; 
 	private ControlP5 cp5; 
 	RegisterScreen regisScreen; 
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main("view.MainView");
@@ -18,7 +18,8 @@ public class MainView extends PApplet{
 	}
 	
 	public void settings() {
-		size(816,480); 
+		size(816, 480);
+		  smooth(4);
 		
 	}
 	public void setup() {
@@ -81,9 +82,10 @@ public class MainView extends PApplet{
        
 	switch (screen) {
 		
-		case 0:
-			if(key=='w') {
+		case 0:			
+			if(key == ENTER) {
 				regisScreen.getInfo();
+				System.out.println("enter");
 			}
 		
 			break;

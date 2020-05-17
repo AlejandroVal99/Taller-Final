@@ -63,6 +63,11 @@ public class RegisterScreen {
 					regiscontro.getUsuariosList().get(i).getPosx(),
 					regiscontro.getUsuariosList().get(i).getPosy());
 		}	
+		
+		
+		if(regiscontro.areaSensible(0, 0, 100, 100)) {
+			System.out.println("funciona");
+		}
 	}
 	public void moverPersonaje(char k) {
 		//usuario.moverse(k);

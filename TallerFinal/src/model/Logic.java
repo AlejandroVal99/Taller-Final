@@ -73,6 +73,18 @@ public class Logic {
 		//usuario.pintar();
 
 	}
+	
+	public boolean areaSensible (int x, int y, int tamx, int tamy) {
+		int mouseX = app.mouseX; 
+		int mouseY = app.mouseY; 
+		if(mouseX>x && mouseX < x+ tamx
+				&& mouseY>y&& mouseY<y+tamy) {
+			return true; 
+		}
+		
+		return false; 
+		
+	}
 
 	
 //-------------------------------------------------------------------------------------------
