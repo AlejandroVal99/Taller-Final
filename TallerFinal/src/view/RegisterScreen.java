@@ -50,5 +50,17 @@ public class RegisterScreen {
 		
 		
 	}
+	public void creo() {
+		regiscontro.creo();
+	}
+	public void test() {
+		regiscontro.test();
+		
+	}
+	
+	public void moverPersonaje(char k) {
+		regiscontro.moverPersonaje(k);
+		
+	}
 
 }

@@ -50,8 +50,8 @@ public class Logic {
 		}
 	}
 	
-	public void registrarmetodo(String name, String contraseña) {
-		usuariosList.add(new User(app, name, contraseña)); 
+	public void registrarmetodo(String name, String contrasena) {
+		usuariosList.add(new User(app, name, contrasena)); 
 		
 		for (int i = 0; i < usuariosList.size(); i++) {
 			System.out.println(usuariosList.get(i).getNickname()+"  "+ usuariosList.size());
