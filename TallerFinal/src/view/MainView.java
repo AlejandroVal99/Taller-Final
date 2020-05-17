@@ -1,18 +1,18 @@
 package view;
 
-import conntroller.RegisterContro;
 import processing.core.PApplet;
 import controlP5.*; 
 import view.*; 
 
 public class MainView extends PApplet{
 	
-	RegisterContro register; 
+	
 	int screen ; 
 	private ControlP5 cp5; 
 	RegisterScreen regisScreen; 
 	IntroScreen introScreen;
 
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main("view.MainView");
@@ -20,15 +20,16 @@ public class MainView extends PApplet{
 	}
 	
 	public void settings() {
-		size(816,480); 
+		size(816, 480);
+		  smooth(4);
 		
 	}
 	public void setup() {
 		cp5= new ControlP5(this); 
-		register = new RegisterContro(this); 
 		regisScreen = new RegisterScreen(this); 
 		introScreen = new IntroScreen(this);
 		register.creo();
+		regisScreen.creo();
 		regisScreen.inputs("name",20);
 		regisScreen.inputs("correo",20+20*3);
 		
@@ -55,6 +56,7 @@ public class MainView extends PApplet{
 			break;
 		case 3:
 			background(200, 20, 50); 
+			regisScreen.test();
 			break;
 		case 4:
 			background(30, 20, 0); 
@@ -80,7 +82,7 @@ public class MainView extends PApplet{
 			break;
 		}
 		if(screen==3) {
-			register.test();
+			
 		}
 		
 	}
@@ -88,9 +90,10 @@ public class MainView extends PApplet{
        
 	switch (screen) {
 		
-		case 0:
-			if(key=='w') {
+		case 0:			
+			if(key == ENTER) {
 				regisScreen.getInfo();
+				System.out.println("enter");
 			}
 		
 			break;
@@ -101,6 +104,7 @@ public class MainView extends PApplet{
 		
 			break;
 		case 3:
+			regisScreen.moverPersonaje(key);
 		
 			break;
 		case 4:
@@ -129,7 +133,7 @@ public class MainView extends PApplet{
 	}
 		
 		
-		register.moverPersonaje(key);
+	
 	}
 	public void mousePressed() {
 		
@@ -173,7 +177,7 @@ switch (screen) {
 	}
 		
 		System.out.println(screen);
-		//screen++; 
+		screen++; 
 		if(screen >= 10) {
 			screen = 10; 
 			

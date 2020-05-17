@@ -12,18 +12,21 @@ public class User implements Comparable<User>{
 	 String password, nickname; 
 	 Date fechadeRegistro; 
 	 LinkedList<Pokemon> pokedex; 
-	 int posx = 200
-	 ,posy = 200; 
+	 int posx
+	 ,posy; 
 	
 	public User(PApplet app, String nickname, String password){
 		
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
+		posx = (int)app.random(100,500); 
+		posy = (int)app.random(100,500); 
 		
 	}
 	
 	public void pintar() {
+		app.fill(255);
 		app.ellipse(posx, posy, 20, 20);
 		
 	}

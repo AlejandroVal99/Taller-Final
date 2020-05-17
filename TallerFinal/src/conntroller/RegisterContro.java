@@ -1,6 +1,9 @@
 package conntroller;
 
+import java.util.LinkedList;
+
 import model.Logic;
+import model.User;
 import processing.core.PApplet;
 
 public class RegisterContro {
@@ -19,18 +22,30 @@ public class RegisterContro {
 		
 	}
 	
-	public void moverPersonaje(char k) {
-		logic.moverPersonaje(k);
-		
-	}
+	
 	
 	public void creo() {
 		logic.creo();
 	}
 	
-	public void registrarmetodo(String name, String contraseña) {
-		logic.registrarmetodo(name,  contraseña);
+	public void registrarmetodo(String name, String contrasena) {
+		logic.registrarmetodo(name,  contrasena);
 		
 	}
+	
+	
+	//---------
+	public LinkedList<User> getUsuariosList() {
+		return logic.getUsuariosList();
+	}
+
+	public void setUsuariosList(LinkedList<User> usuariosList) {
+		logic.setUsuariosList(usuariosList);
+	}
+	
+	public boolean areaSensible (int x, int y, int tamx, int tamy) {
+		return logic.areaSensible(x, y, tamx, tamy);
+	}
+	
 
 }
