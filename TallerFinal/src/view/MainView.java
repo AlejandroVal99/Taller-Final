@@ -94,6 +94,7 @@ public class MainView extends PApplet{
 		
 			break;
 		case 3:
+			regisScreen.moverPersonaje(key);
 		
 			break;
 		case 4:
@@ -122,7 +123,7 @@ public class MainView extends PApplet{
 	}
 		
 		
-	regisScreen.moverPersonaje(key);
+	
 	}
 	public void mousePressed() {
 		

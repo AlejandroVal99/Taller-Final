@@ -3,6 +3,7 @@ package view;
 import conntroller.RegisterContro;
 import controlP5.ControlP5;
 import controlP5.Textfield;
+import model.User;
 import processing.core.PApplet;
 
 public class RegisterScreen {
@@ -25,7 +26,7 @@ public class RegisterScreen {
 		cp5.addTextfield(name)
 		.setPosition(app.width/2 -100,posy)
 		.setSize(200,40)
-		.setFocus(false)
+		.setFocus(true)
 		.setColor(app.color(255,255,0))
 		.setColorActive(app.color(255,255,0))
 		.setColorBackground(app.color(20,0,100))
@@ -55,12 +56,20 @@ public class RegisterScreen {
 	}
 	public void test() {
 		regiscontro.test();
-		
+		for (int i = 0; i < regiscontro.getUsuariosList().size(); i++) {
+			regiscontro.getUsuariosList().get(i).pintar();
+			app.fill(0);
+			app.text(regiscontro.getUsuariosList().get(i).getNickname(),
+					regiscontro.getUsuariosList().get(i).getPosx(),
+					regiscontro.getUsuariosList().get(i).getPosy());
+		}	
 	}
-	
 	public void moverPersonaje(char k) {
-		regiscontro.moverPersonaje(k);
-		
+		//usuario.moverse(k);
+		for (User u : regiscontro.getUsuariosList()) {
+			u.moverse(k);
+			
+		}
 	}
 
 }

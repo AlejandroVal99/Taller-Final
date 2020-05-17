@@ -6,7 +6,7 @@ import processing.core.PApplet;
 
 public class Logic {
 	private PApplet app;
-	private User usuario;
+	//private User usuario;
 	private String infoPokemons[];
 	private LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
@@ -62,19 +62,29 @@ public class Logic {
 		}
 		
 	}
+	
 
+	
 	public void creo() {
-		usuario = new User(app, "daniel", "hola123");
+		//usuario = new User(app, "daniel", "hola123");
 	}
 
 	public void test1() {
-		usuario.pintar();
+		//usuario.pintar();
 
 	}
 
-	public void moverPersonaje(char k) {
-		usuario.moverse(k);
-
+	
+//-------------------------------------------------------------------------------------------
+	
+	public LinkedList<User> getUsuariosList() {
+		return usuariosList;
 	}
+
+	public void setUsuariosList(LinkedList<User> usuariosList) {
+		this.usuariosList = usuariosList;
+	}
+	
+	
 
 }

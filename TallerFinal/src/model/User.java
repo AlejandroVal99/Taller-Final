@@ -24,6 +24,7 @@ public class User implements Comparable<User>{
 	}
 	
 	public void pintar() {
+		app.fill(255);
 		app.ellipse(posx, posy, 20, 20);
 		
 	}
