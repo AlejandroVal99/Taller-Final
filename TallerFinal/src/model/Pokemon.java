@@ -36,7 +36,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 		return dano1;
 	}
 
-	public void setDaño1(int dano1) {
+	public void setDano1(int dano1) {
 		this.dano1 = dano1;
 	}
 
