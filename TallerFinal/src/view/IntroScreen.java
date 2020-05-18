@@ -1,6 +1,10 @@
 package view;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import processing.core.PApplet;
+import processing.core.PGraphics;
 import processing.core.PImage;
 
 public class IntroScreen {
@@ -10,11 +14,14 @@ public class IntroScreen {
 	private PApplet app;
 	private boolean paso = false;
 	private boolean paso2 = false;
+	final ArrayList<PImage> images = new ArrayList<PImage>();
+
 
 
 	public IntroScreen(PApplet app) {
 		this.contador1 = 1;
 		this.app = app;
+		
 	}
 
 	public void cargaImagenesIS() {
@@ -23,8 +30,15 @@ public class IntroScreen {
 		this.ini2 = app.loadImage("Imagenes/Intro/ini2.jpg");
 		this.ini3 = app.loadImage("Imagenes/Intro/ini3.jpg");
 
-		for (int i = 1; i < 857; i++) {
+		for (int i = 1; i < intro.length; i++) {
 			intro[i] = app.loadImage("Imagenes/Intro/intro/intro" + " " + "(" + i + ").jpg");
+			
+			
+		}
+		
+		for (int i = 0; i < images.size(); i++) {
+			
+			
 		}
 	}
 
@@ -35,15 +49,26 @@ public class IntroScreen {
 		}if(this.paso2==true) {
 			app.image(this.ini3,0,0);
 		}
-		/*app.image(this.intro[contador1], 0, 0);
-		if (app.frameCount % 2 == 0) {
+		
+		animation(); 
+	
+		
+
+	}
+	
+	public void animation () {
+		
+		app.image(this.intro[contador1], 0, 0);
+		if (app.frameCount %7 == 0) {
 			contador1++;
+			intro[contador1-1]= null; 
+			
 			if (contador1 > 857) {
 				app.image(this.ini1, 0, 0);
+				contador1 = 857; 
 
 			}
-		}*/
-
+		}
 	}
 
 	public boolean isPaso() {

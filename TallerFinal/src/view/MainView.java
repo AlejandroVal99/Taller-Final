@@ -22,12 +22,17 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
+		screen = 1; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
+		
+	
 		regisScreen.creo();
 		regisScreen.inputs("name", 20);
 		regisScreen.inputs("correo", 20 + 20 * 3);
+		regisScreen.escondoInput(1, "name");
+		regisScreen.escondoInput(1, "correo");
 
 		// cargar imagenes de las clases
 		introScreen.cargaImagenesIS();
@@ -39,6 +44,7 @@ public class MainView extends PApplet {
 		switch (screen) {
 
 		case 0: // pantalla intro
+			
 			background(0, 20, 0);
 			introScreen.drawIntro();
 			fill(255);
@@ -47,8 +53,7 @@ public class MainView extends PApplet {
 			break;
 		case 1:// pantalla loggeo
 			background(0, 0, 255);
-			regisScreen.escondoInput(1, "name");
-			regisScreen.escondoInput(1, "correo");
+			
 			break;
 		case 2: // pantalla registro
 			background(0, 200, 30);
@@ -68,9 +73,13 @@ public class MainView extends PApplet {
 			background(20, 20, 200);
 			break;
 		case 7:
+			regisScreen.muestroInput(1, "name");
+			regisScreen.muestroInput(1, "correo");
 			background(100, 20, 0);
 			break;
 		case 8:
+			regisScreen.escondoInput(1, "name");
+			regisScreen.escondoInput(1, "correo");
 			background(190, 20, 200);
 			break;
 		case 9:
@@ -179,7 +188,7 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-		//screen++;
+		screen++;
 		if (screen >= 10) {
 			screen = 10;
 

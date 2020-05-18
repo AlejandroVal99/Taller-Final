@@ -44,12 +44,19 @@ public class RegisterScreen {
 		
 		app.image(this.regis1[this.conta1], 0, 0);
 		if (app.frameCount % 2 == 0) {
-			this.conta1++;
-			/*if (this.conta1 > 857) {
-				app.image(this.ini1, 0, 0);
+			if (this.conta1 < 158) {
+				this.conta1++;
+				regis1[conta1-1]= null; 
+				
+				
+				
 
-		}*/
+			}else {
+				conta1 =158; 
 			}
+			
+			
+		}
 	}
 	
 	public void inputs(String name, int posy){
@@ -74,12 +81,19 @@ public class RegisterScreen {
 			cp5.get(Textfield.class, name).hide(); 
 		}
 	}
+	public void muestroInput(int screen,String name) {
+		if(screen==1 ) {	
+				cp5.get(Textfield.class, name).show(); 
+			}
+		}
+	
+	
 	
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText(); 
 		String userContra = cp5.get(Textfield.class, "correo").getText(); ;
 		regiscontro.registrarmetodo(userName, userContra);
-		//System.out.println(userName);
+
 		
 		
 	}
@@ -102,14 +116,13 @@ public class RegisterScreen {
 		}
 	}
 	public void moverPersonaje(char k) {
-		//usuario.moverse(k);
 		for (User u : regiscontro.getUsuariosList()) {
 			u.moverse(k);
 			
 		}
 	}
 	public void carga2() {
-		for (int i = 1; i < 160; i++) {
+		for (int i = 1; i < regis1.length; i++) {
 			regis1[i] = app.loadImage("Imagenes/Regis/regis1/regis1" + " " + "(" + i + ").jpg");
 		}
 		/*for (int i = 1; i < 67; i++) {
