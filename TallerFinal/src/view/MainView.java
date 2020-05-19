@@ -57,14 +57,19 @@ public class MainView extends PApplet {
 			break;
 		case 2: // pantalla registro
 			background(0, 200, 30);
-			regisScreen.test();
+			
 			regisScreen.drawRegister();
 			break;
 		case 3:
 			background(200, 20, 50);
+			regisScreen.muestroInput(1, "name");
+			regisScreen.muestroInput(1, "correo");
+			regisScreen.test();
 			break;
 		case 4:
 			background(30, 20, 0);
+			regisScreen.escondoInput(1, "name");
+			regisScreen.escondoInput(1, "correo");
 			break;
 		case 5:
 			background(40, 203, 0);
@@ -73,13 +78,11 @@ public class MainView extends PApplet {
 			background(20, 20, 200);
 			break;
 		case 7:
-			regisScreen.muestroInput(1, "name");
-			regisScreen.muestroInput(1, "correo");
+			
 			background(100, 20, 0);
 			break;
 		case 8:
-			regisScreen.escondoInput(1, "name");
-			regisScreen.escondoInput(1, "correo");
+			
 			background(190, 20, 200);
 			break;
 		case 9:
@@ -101,19 +104,21 @@ public class MainView extends PApplet {
 		switch (screen) {
 
 		case 0:
-			if (key == ENTER) {
-				regisScreen.getInfo();
-				System.out.println("enter");
-			}
+		
 
 			break;
 		case 1:
 
 			break;
 		case 2:
-			regisScreen.moverPersonaje(key);
+			
 			break;
 		case 3:
+			if (key == ENTER) {
+				regisScreen.getInfo();
+				System.out.println("enter");
+			}
+			regisScreen.moverPersonaje(key);
 
 			break;
 		case 4:
