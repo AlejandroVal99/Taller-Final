@@ -25,7 +25,7 @@ public class IntroScreen {
 	}
 
 	public void cargaImagenesIS() {
-		this.intro = new PImage[859];
+		this.intro = new PImage[857];
 		this.ini1 = app.loadImage("Imagenes/Intro/ini1.jpg");
 		this.ini2 = app.loadImage("Imagenes/Intro/ini2.jpg");
 		this.ini3 = app.loadImage("Imagenes/Intro/ini3.jpg");
@@ -35,13 +35,9 @@ public class IntroScreen {
 			
 			
 		}
-		
 		for (int i = 0; i < images.size(); i++) {
-			
-			
 		}
 	}
-
 	public void drawIntro() {
 		app.image(this.ini1, 0, 0);
 		if(this.paso==true) {//falta aca poner el si la animacion ya acabo
@@ -49,24 +45,28 @@ public class IntroScreen {
 		}if(this.paso2==true) {
 			app.image(this.ini3,0,0);
 		}
+		if(contador1!=856) {
+			animation(); 
+		}
 		
-		animation(); 
-	
-		
-
 	}
 	
 	public void animation () {
-		
-		app.image(this.intro[contador1], 0, 0);
-		if (app.frameCount %7 == 0) {
-			contador1++;
-			intro[contador1-1]= null; 
+		if(contador1!=856) {
+			app.image(this.intro[contador1], 0, 0);
+		}
+		if (app.frameCount %3 == 0) {
 			
-			if (contador1 > 857) {
+			
+			if (contador1 < 856) {
+				contador1++;
+				if(contador1-1!=856) {
+					intro[contador1-1]= null; 
+				}
+			}else {
+				
+				contador1 = 856; 
 				app.image(this.ini1, 0, 0);
-				contador1 = 857; 
-
 			}
 		}
 	}

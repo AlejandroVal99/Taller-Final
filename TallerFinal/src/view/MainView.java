@@ -22,7 +22,7 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
-		screen = 1; 
+		screen = 0; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -188,7 +188,7 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-		screen++;
+		//screen++;
 		if (screen >= 10) {
 			screen = 10;
 
