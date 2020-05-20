@@ -37,6 +37,7 @@ public class MainView extends PApplet {
 		// cargar imagenes de las clases
 		introScreen.cargaImagenesIS();
 		regisScreen.cargaImagenesRS();
+	
 	}
 
 	public void draw() {
@@ -44,7 +45,7 @@ public class MainView extends PApplet {
 		switch (screen) {
 
 		case 0: // pantalla intro
-			
+
 			background(0, 20, 0);
 			introScreen.drawIntro();
 			fill(255);
@@ -53,11 +54,11 @@ public class MainView extends PApplet {
 			break;
 		case 1:// pantalla loggeo
 			background(0, 0, 255);
-			
+
 			break;
 		case 2: // pantalla registro
 			background(0, 200, 30);
-			
+
 			regisScreen.drawRegister();
 			break;
 		case 3:
@@ -78,11 +79,11 @@ public class MainView extends PApplet {
 			background(20, 20, 200);
 			break;
 		case 7:
-			
+
 			background(100, 20, 0);
 			break;
 		case 8:
-			
+
 			background(190, 20, 200);
 			break;
 		case 9:
@@ -104,14 +105,13 @@ public class MainView extends PApplet {
 		switch (screen) {
 
 		case 0:
-		
 
 			break;
 		case 1:
 
 			break;
 		case 2:
-			
+
 			break;
 		case 3:
 			if (key == ENTER) {
@@ -159,11 +159,11 @@ public class MainView extends PApplet {
 				screen = 2;// pasa a pantalla-video de registro
 			}
 			break;
-		case 1:
+		case 1:// pantalla loggeo
 
 			break;
-		case 2:
-
+		case 2:// pantalla registro
+			regisScreen.contadorRS();
 			break;
 		case 3:
 
@@ -193,7 +193,7 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-		//screen++;
+		// screen++;
 		if (screen >= 10) {
 			screen = 10;
 
@@ -222,4 +222,5 @@ public class MainView extends PApplet {
 		}
 
 	}
+
 }
