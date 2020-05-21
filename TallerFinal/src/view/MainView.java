@@ -28,7 +28,7 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
-		screen = 2; 
+		screen = 0; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -37,13 +37,6 @@ public class MainView extends PApplet {
 		fightScreen = new FigthScreen(this);
 		pokedexScreen = new PokedexScreen(this);
 		historialScreen = new HistorialScreen(this);
-		//************************
-		fightScreen.cargaFS();
-		pokedexScreen.cargaPS();
-		regisScreen.cargaImagenesRS();
-		logScreen.cargaImagenesLS();
-		gameScreen.cargaImagenesGS();
-		historialScreen.cargaHS();
 	
 		regisScreen.inputs("name", 20);
 		regisScreen.inputs("correo", 20 + 20 * 3);
@@ -55,6 +48,12 @@ public class MainView extends PApplet {
 		case 0:
 			System.out.println("23423423");
 			introScreen.cargaImagenesIS();
+			regisScreen.cargaImagenesRS();
+			gameScreen.cargaImagenesGS();
+			logScreen.cargaImagenesLS();
+			fightScreen.cargaFS();
+			pokedexScreen.cargaPS();
+			historialScreen.cargaHS();
 			break;
 		case 1:
 		
@@ -63,6 +62,7 @@ public class MainView extends PApplet {
 			System.out.println("entro");
 			//regisScreen.carga3();
 		break;
+<<<<<<< HEAD
 		case 3:
 		
 			
@@ -74,6 +74,10 @@ public class MainView extends PApplet {
 			
 			
 		break;
+=======
+		
+	
+>>>>>>> parent of 8efb2c1... debugpapa
 	}
 		
 	}
@@ -102,17 +106,21 @@ public class MainView extends PApplet {
 			break;
 		case 3: // pantalla juego
 			background(200, 20, 50);
-			
 			gameScreen.drawGame();
+<<<<<<< HEAD
 			gameScreen.finaltest();
 			regisScreen.escondoInput( "name");
 			regisScreen.escondoInput( "correo");
 			
+=======
+			regisScreen.test();
+>>>>>>> parent of 8efb2c1... debugpapa
 			break;
 		case 4: //pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight();
-		
+			regisScreen.escondoInput(1, "name");
+			regisScreen.escondoInput(1, "correo");
 			break;
 		case 5: //pantalla pokedex
 			background(40, 203, 0);
@@ -160,14 +168,21 @@ public class MainView extends PApplet {
 
 			break;
 		case 2:
-		if (key == ENTER) {
+
+			break;
+		case 3:
+			if (key == ENTER) {
 				regisScreen.getInfo();
-				
+				System.out.println("enter");
 			}
+<<<<<<< HEAD
 		
 			break;
 		case 3:
 		gameScreen.mover();
+=======
+			regisScreen.moverPersonaje(key);
+>>>>>>> parent of 8efb2c1... debugpapa
 
 			break;
 		case 4:
@@ -247,7 +262,11 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
+<<<<<<< HEAD
 	    
+=======
+		// screen++;
+>>>>>>> parent of 8efb2c1... debugpapa
 		if (screen >= 10) {
 			screen = 10;
 
