@@ -13,10 +13,18 @@ public class GameScreen {
 	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 	private PImage [] espal, frente, lado, otrola;
 	private GameContro gameContro;
-
-	public GameScreen(PApplet app) {
+	private LinkedList<User> usuariosList; 
+	
+	//esta parte de codigo es muy muy muy muy importante, este metodo
+		//recibe por parametro la lista de usuarios
+		// esa lista solo es modificada en el flujo de register
+		// entonces, lo que hago es hacer toda operacion que necesite con los usuarios
+		//en este metodo, pues en el main, recibira en el parametro el metodo de register screen
+		//que retorna la lista de usuarios ya modificada
+	public GameScreen(PApplet app, LinkedList<User> usuariosList) {
 		gameContro = new GameContro(app);
 		this.app = app;
+		this.usuariosList= usuariosList; 
 
 	}
 
@@ -44,13 +52,8 @@ public class GameScreen {
 		
 	}
 	
-	//esta parte de codigo es muy muy muy muy importante, este metodo
-	//recibe por parametro la lista de usuarios
-	// esa lista solo es modificada en el flujo de register
-	// entonces, lo que hago es hacer toda operacion que necesite con los usuarios
-	//en este metodo, pues en el main, recibira en el parametro el metodo de register screen
-	//que retorna la lista de usuarios ya modificada
-	public void finaltest(LinkedList<User> usuariosList) {
+	
+	public void finaltest() {
 		System.out.println(usuariosList.get(0).getNickname());
 
 		//aqui pinto el usuario en cuestion
@@ -74,7 +77,7 @@ public class GameScreen {
 	}
 	*/
 	
-	public void mover(LinkedList<User> usuariosList) {
+	public void mover() {
 	
 		usuariosList.get(0).moverse(app.key);
 		

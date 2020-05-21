@@ -32,7 +32,7 @@ public class MainView extends PApplet {
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
-		gameScreen = new GameScreen(this);
+		gameScreen = new GameScreen(this, regisScreen.getUsuariosList());
 		logScreen = new LogScreen(this);
 		fightScreen = new FigthScreen(this);
 		pokedexScreen = new PokedexScreen(this);
@@ -104,7 +104,7 @@ public class MainView extends PApplet {
 			background(200, 20, 50);
 			
 			gameScreen.drawGame();
-			gameScreen.finaltest(regisScreen.getUsuariosList());
+			gameScreen.finaltest();
 			regisScreen.escondoInput( "name");
 			regisScreen.escondoInput( "correo");
 			
@@ -167,7 +167,7 @@ public class MainView extends PApplet {
 		
 			break;
 		case 3:
-		gameScreen.mover(regisScreen.getUsuariosList());
+		gameScreen.mover();
 
 			break;
 		case 4:
