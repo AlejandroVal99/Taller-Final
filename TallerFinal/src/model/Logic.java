@@ -22,7 +22,7 @@ public class Logic {
 	// Variable de tamaño de cada reacudro tamaño del liezno divido columnas
 	private int tamSquad;
 	// Variable del juego nunca va a cambiar
-	private int mapaJuego[][] =
+	private int mapaJuego[][] =  //34x /19y
 
 			{ { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 					{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -82,7 +82,6 @@ public class Logic {
 	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
 
 	public void crearPokemones() {
-		// TODO Auto-generated method stub
 		for (int i = 0; i < infoPokemons.length; i++) {
 
 			String[] datosPokemons = infoPokemons[i].split(",");
@@ -105,8 +104,10 @@ public class Logic {
 			}
 
 		}
+	
 	}
 
+	//@ añade usuarios a la lista
 	public void registrarmetodo(String name, String contrasena) {
 		usuariosList.add(new User(app, name, contrasena));
 
@@ -118,6 +119,8 @@ public class Logic {
 		}
 
 	}
+	
+
 
 	// Metodo que recorre todos los usuarios para ver si existe ese usaurio y con
 	// esa contraseña y lo iguala a usaurioActivo, para seguir trabajando mediante
@@ -169,14 +172,9 @@ public class Logic {
 		 */
 	}
 
-	public void creo() {
-		// usuario = new User(app, "daniel", "hola123");
-	}
 
-	public void test1() {
-		// usuario.pintar();
 
-	}
+
 
 	public boolean areaSensible(int x, int y, int tamx, int tamy) {
 		int mouseX = app.mouseX;
@@ -258,5 +256,18 @@ public class Logic {
 	public void setUsuariosList(LinkedList<User> usuariosList) {
 		this.usuariosList = usuariosList;
 	}
+
+	public int[][] getMapaJuego() {
+		return mapaJuego;
+	}
+
+	
+
+	public void setMapaJuego(int[][] mapaJuego) {
+		this.mapaJuego = mapaJuego;
+	}
+	
+
+	
 
 }

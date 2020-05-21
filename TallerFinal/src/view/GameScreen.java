@@ -1,6 +1,9 @@
 package view;
 
+import java.util.LinkedList;
+
 import conntroller.GameContro;
+import model.User;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -40,13 +43,44 @@ public class GameScreen {
 		
 		
 	}
+	
+	//esta parte de codigo es muy muy muy muy importante, este metodo
+	//recibe por parametro la lista de usuarios
+	// esa lista solo es modificada en el flujo de register
+	// entonces, lo que hago es hacer toda operacion que necesite con los usuarios
+	//en este metodo, pues en el main, recibira en el parametro el metodo de register screen
+	//que retorna la lista de usuarios ya modificada
+	public void finaltest(LinkedList<User> usuariosList) {
+		System.out.println(usuariosList.get(0).getNickname());
 
+		//aqui pinto el usuario en cuestion
+		for (int i = 0; i < usuariosList.size(); i++) {
+			usuariosList.get(i).pintar();
+		
+			app.fill(0);
+			app.text(usuariosList.get(i).getNickname(), 
+					usuariosList.get(i).getPosx(),
+					usuariosList.get(i).getPosy());
+		}
+	}
 	public void drawGame() {
 		app.image(mapa,0,0);
 		//app.image(this.espal[1],0,0);
 	}
-	public void moverPersonaje(char e) {
+	
+	
+	/*public void moverPersonaje(char e) {
 		gameContro.moverPersonaje(e);
 	}
+	*/
+	
+	public void mover(LinkedList<User> usuariosList) {
+	
+		usuariosList.get(0).moverse(app.key);
+		
+	}
+	
+
+
 
 }

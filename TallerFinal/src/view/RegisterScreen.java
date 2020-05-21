@@ -1,5 +1,7 @@
 package view;
 
+import java.util.LinkedList;
+
 import conntroller.RegisterContro;
 import controlP5.ControlP5;
 import controlP5.Textfield;
@@ -59,8 +61,6 @@ public class RegisterScreen {
 	}
 
 	public void drawRegister() {
-		// System.out.println(clickRS + "HOLA");
-
 		if (clickRS == 0) {
 			app.image(this.regis1[this.conta1], 0, 0);
 			if (app.frameCount % 2 == 0) {
@@ -143,6 +143,7 @@ public class RegisterScreen {
 		}*/
 	}
 
+	//@ esto me crea inputs de tipo textfield, recibe el nombre y la posicion en y
 	public void inputs(String name, int posy) {
 
 		cp5.addTextfield(name).setPosition(app.width / 2 - 100, posy).setSize(200, 40).setFocus(true)
@@ -154,53 +155,35 @@ public class RegisterScreen {
 
 	}
 
-	public void escondoInput(int screen, String name) {
-		if (screen == 1) {
+	// @esconde el input que concuerde con el nombre dado
+	public void escondoInput(String name) {
+	
 			cp5.get(Textfield.class, name).hide();
-		}
+		
 	}
 
+	// @esconde el input que concuerde con el nombre dado
 	public void muestroInput(int screen, String name) {
 		if (screen == 1) {
 			cp5.get(Textfield.class, name).show();
 		}
 	}
 
+	//@este metodo me trae la informacion de los input de registro
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText();
 		String userContra = cp5.get(Textfield.class, "correo").getText();
-		;
 		regiscontro.registrarmetodo(userName, userContra);
+	}	
+	//@
+	
 
-	}
-
-	public void creo() {
-		regiscontro.creo();
-	}
-
-	public void test() {
-		regiscontro.test();
-		for (int i = 0; i < regiscontro.getUsuariosList().size(); i++) {
-			regiscontro.getUsuariosList().get(i).pintar();
-			app.fill(0);
-			app.text(regiscontro.getUsuariosList().get(i).getNickname(), regiscontro.getUsuariosList().get(i).getPosx(),
-					regiscontro.getUsuariosList().get(i).getPosy());
-		}
-
-		
-	}
-
-	public void moverPersonaje(char k) {
-		for (User u : regiscontro.getUsuariosList()) {
-			u.moverse(k);
-
-		}
-	}
 
 	public void contadorRS() {
 		clickRS++;
 	}
 
+	//@cargo las imagenes necesarias
 	public void carga2() {
 		for (int i = 1; i < regis1.length; i++) {
 			regis1[i] = app.loadImage("Imagenes/Regis/regis1/regis1" + " " + "(" + i + ").jpg");
@@ -255,5 +238,8 @@ public class RegisterScreen {
 
 	public void setClickRS(int clickRS) {
 		this.clickRS += clickRS;
+	}
+	public LinkedList<User> getUsuariosList() {
+		return regiscontro.getUsuariosList();
 	}
 }

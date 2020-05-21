@@ -45,11 +45,10 @@ public class MainView extends PApplet {
 		gameScreen.cargaImagenesGS();
 		historialScreen.cargaHS();
 	
-		regisScreen.creo();
 		regisScreen.inputs("name", 20);
 		regisScreen.inputs("correo", 20 + 20 * 3);
-		regisScreen.escondoInput(1, "name");
-		regisScreen.escondoInput(1, "correo");
+		regisScreen.escondoInput( "name");
+		regisScreen.escondoInput( "correo");
 
 		// cargar imagenes de las clases
 		switch (screen) {
@@ -65,6 +64,7 @@ public class MainView extends PApplet {
 			//regisScreen.carga3();
 		break;
 		case 3:
+		
 			
 		break;
 		case 4:
@@ -104,9 +104,9 @@ public class MainView extends PApplet {
 			background(200, 20, 50);
 			
 			gameScreen.drawGame();
-			regisScreen.test();
-			regisScreen.escondoInput(1, "name");
-			regisScreen.escondoInput(1, "correo");
+			gameScreen.finaltest(regisScreen.getUsuariosList());
+			regisScreen.escondoInput( "name");
+			regisScreen.escondoInput( "correo");
 			
 			break;
 		case 4: //pantalla pelea
@@ -145,6 +145,11 @@ public class MainView extends PApplet {
 	}
 
 	public void keyPressed() {
+		//por motivos de pruebas me muevo entre pantallas con la b
+		if(key=='b') {
+			screen++;
+			
+		}
 
 		switch (screen) {
 
@@ -159,10 +164,10 @@ public class MainView extends PApplet {
 				regisScreen.getInfo();
 				
 			}
-			regisScreen.moverPersonaje(key);
+		
 			break;
 		case 3:
-	
+		gameScreen.mover(regisScreen.getUsuariosList());
 
 			break;
 		case 4:
@@ -242,7 +247,7 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-	   // screen++;
+	    
 		if (screen >= 10) {
 			screen = 10;
 

@@ -16,18 +16,7 @@ public class RegisterContro {
 		logic = new Logic(app); 
 		
 	}
-	
-	public void test() {
-		logic.test1();
-		
-	}
-	
-	
-	
-	public void creo() {
-		logic.creo();
-	}
-	
+
 	public void registrarmetodo(String name, String contrasena) {
 		logic.registrarmetodo(name,  contrasena);
 		
@@ -46,6 +35,8 @@ public class RegisterContro {
 	public boolean areaSensible (int x, int y, int tamx, int tamy) {
 		return logic.areaSensible(x, y, tamx, tamy);
 	}
+	
+	
 	
 
 }
