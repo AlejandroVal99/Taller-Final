@@ -215,6 +215,8 @@ public class Logic {
 		System.out.println("entre");
 		switch (r) {
 
+		//prueba marge
+		
 		case 1:// De acuerdoFecha de inscripcion aún por definirse
 
 			Collections.sort(usuariosList);

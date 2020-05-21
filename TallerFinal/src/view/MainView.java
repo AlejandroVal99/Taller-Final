@@ -28,7 +28,7 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
-		screen = 2; 
+		screen = 0; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -37,13 +37,6 @@ public class MainView extends PApplet {
 		fightScreen = new FigthScreen(this);
 		pokedexScreen = new PokedexScreen(this);
 		historialScreen = new HistorialScreen(this);
-		//************************
-		fightScreen.cargaFS();
-		pokedexScreen.cargaPS();
-		regisScreen.cargaImagenesRS();
-		logScreen.cargaImagenesLS();
-		gameScreen.cargaImagenesGS();
-		historialScreen.cargaHS();
 	
 		regisScreen.inputs("name", 20);
 		regisScreen.inputs("correo", 20 + 20 * 3);
@@ -55,6 +48,12 @@ public class MainView extends PApplet {
 		case 0:
 			System.out.println("23423423");
 			introScreen.cargaImagenesIS();
+			regisScreen.cargaImagenesRS();
+			gameScreen.cargaImagenesGS();
+			logScreen.cargaImagenesLS();
+			fightScreen.cargaFS();
+			pokedexScreen.cargaPS();
+			historialScreen.cargaHS();
 			break;
 		case 1:
 		
@@ -63,6 +62,7 @@ public class MainView extends PApplet {
 			System.out.println("entro");
 			//regisScreen.carga3();
 		break;
+
 		case 3:
 		
 			
@@ -102,17 +102,27 @@ public class MainView extends PApplet {
 			break;
 		case 3: // pantalla juego
 			background(200, 20, 50);
-			
 			gameScreen.drawGame();
+
 			gameScreen.finaltest();
 			regisScreen.escondoInput( "name");
 			regisScreen.escondoInput( "correo");
 			
+
+			regisScreen.test();
+
+			regisScreen.test();
+
+			regisScreen.test();
+
+			regisScreen.test();
+
 			break;
 		case 4: //pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight();
-		
+			regisScreen.escondoInput(1, "name");
+			regisScreen.escondoInput(1, "correo");
 			break;
 		case 5: //pantalla pokedex
 			background(40, 203, 0);
@@ -160,19 +170,29 @@ public class MainView extends PApplet {
 
 			break;
 		case 2:
-		if (key == ENTER) {
-				regisScreen.getInfo();
-				
-			}
-		
+
 			break;
 		case 3:
-		gameScreen.mover();
+			if (key == ENTER) {
+				regisScreen.getInfo();
+				System.out.println("enter");
+			}
 
 			break;
 		case 4:
+		gameScreen.mover();
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
 
 			break;
+		
 		case 5:
 
 			break;
@@ -247,8 +267,15 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-	    
-		if (screen >= 10) {
+
+		// screen++;
+
+		// screen++;
+
+		// screen++;
+
+		// screen++;
+if (screen >= 10) {
 			screen = 10;
 
 		}

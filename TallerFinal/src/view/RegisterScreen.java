@@ -177,6 +177,10 @@ public class RegisterScreen {
 	}	
 	//@
 	
+	
+
+	
+	
 
 
 	public void contadorRS() {
