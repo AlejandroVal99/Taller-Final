@@ -62,9 +62,7 @@ public class MainView extends PApplet {
 			System.out.println("entro");
 			//regisScreen.carga3();
 		break;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		case 3:
 		
 			
@@ -76,18 +74,6 @@ public class MainView extends PApplet {
 			
 			
 		break;
-=======
-		
-	
->>>>>>> parent of 8efb2c1... debugpapa
-=======
-		
-	
->>>>>>> parent of 8efb2c1... debugpapa
-=======
-		
-	
->>>>>>> parent of 8efb2c1... debugpapa
 	}
 		
 	}
@@ -117,22 +103,20 @@ public class MainView extends PApplet {
 		case 3: // pantalla juego
 			background(200, 20, 50);
 			gameScreen.drawGame();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 			gameScreen.finaltest();
 			regisScreen.escondoInput( "name");
 			regisScreen.escondoInput( "correo");
 			
-=======
+
 			regisScreen.test();
->>>>>>> parent of 8efb2c1... debugpapa
-=======
+
 			regisScreen.test();
->>>>>>> parent of 8efb2c1... debugpapa
-=======
+
 			regisScreen.test();
->>>>>>> parent of 8efb2c1... debugpapa
+
+			regisScreen.test();
+
 			break;
 		case 4: //pantalla pelea
 			background(30, 20, 0);
@@ -193,27 +177,22 @@ public class MainView extends PApplet {
 				regisScreen.getInfo();
 				System.out.println("enter");
 			}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		
-			break;
-		case 3:
-		gameScreen.mover();
-=======
-			regisScreen.moverPersonaje(key);
->>>>>>> parent of 8efb2c1... debugpapa
-=======
-			regisScreen.moverPersonaje(key);
->>>>>>> parent of 8efb2c1... debugpapa
-=======
-			regisScreen.moverPersonaje(key);
->>>>>>> parent of 8efb2c1... debugpapa
 
 			break;
 		case 4:
+		gameScreen.mover();
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
+			regisScreen.moverPersonaje(key);
+
 
 			break;
+		
 		case 5:
 
 			break;
@@ -288,20 +267,15 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	    
-=======
+
 		// screen++;
->>>>>>> parent of 8efb2c1... debugpapa
-=======
+
 		// screen++;
->>>>>>> parent of 8efb2c1... debugpapa
-=======
+
 		// screen++;
->>>>>>> parent of 8efb2c1... debugpapa
-		if (screen >= 10) {
+
+		// screen++;
+if (screen >= 10) {
 			screen = 10;
 
 		}

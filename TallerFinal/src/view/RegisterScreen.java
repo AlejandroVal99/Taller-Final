@@ -177,36 +177,11 @@ public class RegisterScreen {
 	}	
 	//@
 	
+	
 
-<<<<<<< HEAD
-=======
-	}
+	
+	
 
-	public void creo() {
-		regiscontro.creo();
-	}
-
-	public void test() {
-		regiscontro.test();
-		for (int i = 0; i < regiscontro.getUsuariosList().size(); i++) {
-			regiscontro.getUsuariosList().get(i).pintar();
-			app.fill(0);
-			app.text(regiscontro.getUsuariosList().get(i).getNickname(), regiscontro.getUsuariosList().get(i).getPosx(),
-					regiscontro.getUsuariosList().get(i).getPosy());
-		}
-
-		if (regiscontro.areaSensible(0, 0, 100, 100)) {
-			System.out.println("funciona");
-		}
-	}
-
-	public void moverPersonaje(char k) {
-		for (User u : regiscontro.getUsuariosList()) {
-			u.moverse(k);
-
-		}
-	}
->>>>>>> parent of 8efb2c1... debugpapa
 
 	public void contadorRS() {
 		clickRS++;
