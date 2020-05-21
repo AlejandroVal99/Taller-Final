@@ -64,6 +64,7 @@ public class MainView extends PApplet {
 		break;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		case 3:
 		
 			
@@ -75,6 +76,10 @@ public class MainView extends PApplet {
 			
 			
 		break;
+=======
+		
+	
+>>>>>>> parent of 8efb2c1... debugpapa
 =======
 		
 	
@@ -114,10 +119,14 @@ public class MainView extends PApplet {
 			gameScreen.drawGame();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			gameScreen.finaltest();
 			regisScreen.escondoInput( "name");
 			regisScreen.escondoInput( "correo");
 			
+=======
+			regisScreen.test();
+>>>>>>> parent of 8efb2c1... debugpapa
 =======
 			regisScreen.test();
 >>>>>>> parent of 8efb2c1... debugpapa
@@ -186,10 +195,14 @@ public class MainView extends PApplet {
 			}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 			break;
 		case 3:
 		gameScreen.mover();
+=======
+			regisScreen.moverPersonaje(key);
+>>>>>>> parent of 8efb2c1... debugpapa
 =======
 			regisScreen.moverPersonaje(key);
 >>>>>>> parent of 8efb2c1... debugpapa
@@ -277,7 +290,11 @@ public class MainView extends PApplet {
 		System.out.println(screen);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	    
+=======
+		// screen++;
+>>>>>>> parent of 8efb2c1... debugpapa
 =======
 		// screen++;
 >>>>>>> parent of 8efb2c1... debugpapa
