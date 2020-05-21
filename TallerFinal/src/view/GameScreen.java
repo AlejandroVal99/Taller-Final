@@ -42,7 +42,7 @@ public class GameScreen {
 	}
 
 	public void drawGame() {
-		app.image(this.mapa,0,0);
+		app.image(mapa,0,0);
 		//app.image(this.espal[1],0,0);
 	}
 	public void moverPersonaje(char e) {
