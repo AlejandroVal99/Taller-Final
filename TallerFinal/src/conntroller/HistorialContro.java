@@ -1,9 +1,16 @@
 package conntroller;
 
-public class HistorialContro {
+import model.Logic;
+import processing.core.PApplet;
 
-	public HistorialContro() {
-		// TODO Auto-generated constructor stub
+public class HistorialContro {
+	
+	private Logic logic;
+	private PApplet app;
+
+	public HistorialContro(PApplet app) {
+		this.app= app; 
+		logic = new Logic(app);
 	}
 
 }

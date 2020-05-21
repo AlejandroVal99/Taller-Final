@@ -1,9 +1,21 @@
 package conntroller;
 
-public class GameContro {
+import model.Logic;
+import processing.core.PApplet;
 
-	public GameContro() {
-		// TODO Auto-generated constructor stub
+public class GameContro {
+	
+	private Logic logic;
+	private PApplet app;
+	
+	public GameContro(PApplet app) {
+		this.app= app; 
+		logic = new Logic(app);
 	}
 
+	public void moverPersonaje(char e) {
+		logic.moverPersonaje(e);
+	}
 }
+
+

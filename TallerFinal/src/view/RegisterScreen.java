@@ -15,6 +15,7 @@ public class RegisterScreen {
 			regis13;
 	private int conta1, conta2, conta3, conta4, conta5, conta6, conta7, conta8, conta9, conta10, conta11, conta12,
 			conta13, clickRS;
+	private PImage Registro;
 	// private boolean ;
 
 	public RegisterScreen(PApplet app) {
@@ -51,6 +52,7 @@ public class RegisterScreen {
 		this.regis11 = new PImage[93];
 		this.regis12 = new PImage[82];
 		this.regis13 = new PImage[62];
+		this.Registro = app.loadImage("Imagenes/Registro/Register.jpg");
 
 		carga2();
 
@@ -66,7 +68,7 @@ public class RegisterScreen {
 					this.conta1++;
 					regis1[conta1 - 1] = null;
 					
-					System.out.println(regis1[12]);
+					//System.out.println(regis1[12]);
 
 				} else {
 					conta1 = 158;
@@ -99,7 +101,7 @@ public class RegisterScreen {
 				}
 			}
 		}
-		/*if (clickRS == 3) {
+		if (clickRS == 3) {
 			app.image(this.regis4[this.conta4], 0, 0);
 			if (app.frameCount % 2 == 0) {
 				if (this.conta4< 54) {
@@ -108,6 +110,34 @@ public class RegisterScreen {
 
 				} else {
 					conta4 = 54;
+				}
+			}
+		}
+		if(clickRS == 4 ) {
+			app.image(Registro,0,0);
+		}
+		
+		/*if (clickRS == 4) {
+			app.image(this.regis5[this.conta5], 0, 0);
+			if (app.frameCount % 2 == 0) {
+				if (this.conta5< 93) {
+					this.conta5++;
+					regis5[conta5 - 1] = null;
+
+				} else {
+					conta5 = 93;
+				}
+			}
+		}
+		if (clickRS == 5) {
+			app.image(this.regis6[this.conta6], 0, 0);
+			if (app.frameCount % 2 == 0) {
+				if (this.conta6< 61) {
+					this.conta6++;
+					regis6[conta6 - 1] = null;
+
+				} else {
+					conta6 = 61;
 				}
 			}
 		}*/
@@ -185,9 +215,12 @@ public class RegisterScreen {
 		for (int i = 1; i < regis3.length; i++) {
 			regis3[i] = app.loadImage("Imagenes/Regis/regis3/regis3" + " " + "(" + i + ").jpg");
 		}
-		/*for (int i = 1; i < regis4.length; i++) {
+		for (int i = 1; i < regis4.length; i++) {
 			regis4[i] = app.loadImage("Imagenes/Regis/regis4/regis4" + " " + "(" + i + ").jpg");
 		}
+	}
+	/*public void carga3() {
+		System.out.println("HOLAA");
 		for (int i = 1; i < regis5.length; i++) {
 			regis5[i] = app.loadImage("Imagenes/Regis/regis5/regis5" + " " + "(" + i + ").jpg");
 		}
@@ -214,9 +247,9 @@ public class RegisterScreen {
 		}
 		for (int i = 1; i < regis13.length; i++) {
 			regis13[i] = app.loadImage("Imagenes/Regis/regis13/regis13" + " " + "(" + i + ").jpg");
-		}*/
+		}
 
-	}
+	}*/
 
 	public int getClickRS() {
 		return clickRS;
