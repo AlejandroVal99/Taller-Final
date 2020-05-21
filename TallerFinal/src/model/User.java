@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 import processing.core.PApplet;
@@ -11,6 +12,7 @@ public class User implements Comparable<User>{
 	 boolean toco; 
 	 String password, nickname; 
 	 Date fechadeRegistro; 
+	 SimpleDateFormat dateFormat;
 	 LinkedList<Pokemon> pokedex; 
 	 int posx
 	 ,posy; 
@@ -21,13 +23,23 @@ public class User implements Comparable<User>{
 		this.nickname = nickname; 
 		this.password = password; 
 		posx = (int)app.random(100,500); 
-		posy = (int)app.random(100,500); 
+		posy = (int)app.random(100,500);
+		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
 	
 	public void pintar() {
 		app.fill(255);
 		app.ellipse(posx, posy, 20, 20);
+		
+	}
+	//Metodo hecho para pintar la informacion del los usuarios en la pantLL de historial de usuarios
+	public void pintarUserOrdenados(int posy) {
+		
+		this.posx = 150;
+    	app.text(nickname, posx,posy);
+    	app.text(pokedex.size(), posx,posy+50);
+    	app.text("Fecha: " + fechadeRegistro, posx, posy+100);
 		
 	}
 	public void capturarPokemon() {

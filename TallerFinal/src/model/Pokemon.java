@@ -22,7 +22,34 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 		
 	}
 	
-    public abstract void pintar(); 
+	//Metodo hecho para pintar la informacion del pokemon en la pokedex
+	
+	 public void drawPokemonOrden(int posy) {
+	    	this.posx = 150;
+	    	app.text(name, posx,posy);
+	    	app.text(tipo, posx,posy+50);
+	    	app.text(nivel, posx, posy+100);
+	    	
+	    }
+
+	public int compareTo(Pokemon o) {
+		// TODO Auto-generated method stub
+		return o.getName().compareTo(this.getName());
+	}
+	
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public abstract void pintar(); 
     
     public int habilidades(int e) {
     	return e; 
@@ -85,8 +112,8 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon>{
 		// TODO Auto-generated method stub
 		return tipo;
 	}
-    
-    
+	
+       
     //gets y sets 
     
 	

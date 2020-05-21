@@ -14,6 +14,10 @@ public class Logic {
 	private LinkedList<Pokemon> pokemonList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
+	private UserNicknameCompare userNickname;
+
+	// Variable que almacena el usuario que está activo para pedirle la informaciona
+	// este
 	private User userActivo;
 	// Variable de tamaño de cada reacudro tamaño del liezno divido columnas
 	private int tamSquad;
@@ -75,6 +79,8 @@ public class Logic {
 
 	}
 
+	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
+
 	public void crearPokemones() {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < infoPokemons.length; i++) {
@@ -126,15 +132,14 @@ public class Logic {
 					&& contrasena.equals(usuariosList.get(i).getPassword())) {
 				return true;
 			} else {
-				
+
 				if (!name.equals(usuariosList.get(i).getNickname())) {
 
 					throw new UserException("Usuario equivocado");
-					
 
 				} else if (!contrasena.equals(usuariosList.get(i).getPassword())) {
 					throw new UserException("Contraseña equivocado");
-					
+
 				}
 
 			}
@@ -182,6 +187,66 @@ public class Logic {
 
 		return false;
 
+	}
+	// Metodo para ordenar la lista de Pokemones, va a recibir un entero para saber
+	// si
+	// será ordenamiento parcial o natural, serán botones en pantalla entonces
+	// pondre que reciba 0 y 1
+
+	public void sortPokemon(int i) {
+		System.out.println("entre");
+		switch (i) {
+
+		case 1:// Nombre
+
+			Collections.sort(pokemonList);
+
+			break;
+
+		case 2:// Tipo
+			Collections.sort(pokemonList, pokemonTipo);
+
+			break;
+		}
+	}
+
+	// Metodo para ordenar la lista de usuarios va a recibir un entero para saber si
+	// será ordenamiento parcial o natural, serán botones en pantalla entonces
+	// pondre que reicba 0 y 1
+	public void sortUsers(int r) {
+		System.out.println("entre");
+		switch (r) {
+
+		case 1:// De acuerdoFecha de inscripcion aún por definirse
+
+			Collections.sort(usuariosList);
+
+			break;
+
+		case 2:// Nickname
+			Collections.sort(usuariosList, userNick);
+
+			break;
+		}
+	}
+
+	// Metodo usado para pinatr la informacion de los pokemones cuando lo pidamos en
+	// la pokedex o en general que llama al metodo usado para esto en pokemones VALORES A SUJETOS A CAMBIO
+	public void pintarPokemonOrden() {
+		
+		for (int j = 0; j < pokemonList.size(); j++) {
+
+			pokemonList.get(j).drawPokemonOrden(j * 50 );;
+		}
+	}
+
+	// Metodo usado para pinatr la informacion de los usuarios ordenados, en la
+	// pantalla del historial de usaurios que llama al metodo usado para esto en usuarios VALORES A SUJETOS A CAMBIO
+	public void pintarUserOrden() {
+		for (int r = 0; r < usuariosList.size(); r++) {
+
+			usuariosList.get(r).pintarUserOrdenados(r * 50);
+		}
 	}
 
 //-------------------------------------------------------------------------------------------

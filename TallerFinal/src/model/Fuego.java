@@ -9,11 +9,7 @@ public class Fuego extends Pokemon{
 		super(name, tipo, app, dano1, dano2,xp, nivel, posx, posy ); 
 	}
 
-	@Override
-	public int compareTo(Pokemon o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 	@Override
 	public void pintar() {
