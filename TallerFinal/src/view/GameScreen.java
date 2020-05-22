@@ -27,6 +27,7 @@ public class GameScreen {
 		this.usuariosList= usuariosList; 
 
 	}
+	
 
 	public void cargaImagenesGS() {
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
@@ -48,40 +49,88 @@ public class GameScreen {
 		for (int i = 1; i < otrola.length; i++) {
 			otrola[i] = app.loadImage("Imagenes/Personaje/otrola"+i+".png");
 		}
+	
+		System.out.println(gameContro.getMapaJuego()[0][15]+"------------");
+		
 		
 		
 	}
 	
 	
 	public void finaltest() {
-		System.out.println(usuariosList.get(0).getNickname());
+		//System.out.println(usuariosList.get(0).getNickname());
 
 		//aqui pinto el usuario en cuestion
 		for (int i = 0; i < usuariosList.size(); i++) {
-			usuariosList.get(i).pintar();
+			if(usuariosList.get(i)!=null) {
+				usuariosList.get(i).pintar();		
+				app.fill(0);
+				app.text(usuariosList.get(i).getNickname(), 
+						usuariosList.get(i).getPosx(),
+						usuariosList.get(i).getPosy());
+				
+			}
 		
-			app.fill(0);
-			app.text(usuariosList.get(i).getNickname(), 
-					usuariosList.get(i).getPosx(),
-					usuariosList.get(i).getPosy());
 		}
 	}
 	public void drawGame() {
+	
 		app.image(mapa,0,0);
 		//app.image(this.espal[1],0,0);
-	}
-	
-	
-	/*public void moverPersonaje(char e) {
-		gameContro.moverPersonaje(e);
-	}
-	*/
-	
-	public void mover() {
-	
-		usuariosList.get(0).moverse(app.key);
+		
+		//intento pintar la matriz real
+		for (int i = 0; i < 34; i++) {
+			for (int j = 0; j < 19; j++) {
+				
+				switch (gameContro.getMapaJuego()[j][i]) {
+				case 0:
+					app.fill(255,0,0,80);
+					app.stroke(255,255,0);
+					
+					break;
+				case 1:
+					app.fill(255,255,255,80);
+					app.stroke(0,255,0);
+					
+					break;
+				case 2:
+					app.fill(255,0,255,90);
+					app.stroke(0,255,255);
+					
+					break;
+				case 3:
+					app.fill(0,0,0,80);
+					app.stroke(0,0,0);
+					
+					break;
+
+				default:
+					break;
+				}
+				
+				app.rect(i*app.width/34, j*app.height/19, app.width/34, app.height/19);
+				
+			}
+			
+		}
+		//esto es para conocer la exactaposicion del personaje en la matriz
+		int fila= app.width/34; 
+		app.text((int)app.mouseX/fila, app.mouseX, app.mouseY+50);
+		
 		
 	}
+	
+	
+	public void mover() {
+		if(usuariosList.size()!=0) {
+			
+			usuariosList.get(0).moverse(app.key,gameContro.getMapaJuego());
+		}
+		
+		
+	}
+	
+	
 	
 
 

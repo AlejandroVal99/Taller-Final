@@ -24,7 +24,8 @@ public class Logic {
 	// Variable del juego nunca va a cambiar
 	private int mapaJuego[][] =  //34x /19y
 
-			{ { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				            0 },
 					{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 							0 },
 					{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -156,20 +157,7 @@ public class Logic {
 	// para ver si se puede mover y despues enviarle al metodo de
 	// usar mover, si undieron
 	public void moverPersonaje(char e) {
-		/*
-		 * if (e == 'd') {
-		 * 
-		 * if (( + tamSquad < width) && (arr[py][px + 1] == 0) || (yo.posx + tamSquad <
-		 * width) && (arr[py][px + 1] >=3)) { yo.posx += tamSquad; px++; }
-		 * 
-		 * } if (e == 'a') { if ((yo.posx - col >= 0) && (arr[py][px - 1] == 0) ||
-		 * (yo.posx - col >= 0) && (arr[py][px - 1] >= 3)) { yo.posx -= col; px--; } }
-		 * if (e == 'w') { if ((yo.posy - col >= 0) && (arr[py - 1][px] == 0) ||
-		 * (yo.posy - col >= 0) && (arr[py - 1][px] >=3)) { yo.posy -= col; py--; } } if
-		 * (e == 's') { if ((yo.posy + col <= height) && (arr[py + 1][px] == 0) ||
-		 * (yo.posy + col <= height) && (arr[py + 1][px] >=3)) { yo.posy += col; py++; }
-		 * }
-		 */
+	
 	}
 
 

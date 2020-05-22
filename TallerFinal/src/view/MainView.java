@@ -164,6 +164,11 @@ public class MainView extends PApplet {
 				regisScreen.getInfo();
 				
 			}
+		if(key == CODED){
+			if(keyCode == UP) {
+				//System.out.println("yaaa weeeeyyy");
+			}
+		}
 		
 			break;
 		case 3:

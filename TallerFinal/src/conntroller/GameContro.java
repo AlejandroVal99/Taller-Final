@@ -22,6 +22,16 @@ public class GameContro {
 		logic.moverPersonaje(e);
 	}
 	
+	public int[][] getMapaJuego() {
+		return logic.getMapaJuego(); 
+	}
+
+	
+
+	public void setMapaJuego(int[][] mapaJuego) {
+		logic.setMapaJuego(mapaJuego);
+	}
+	
 	
 	
 	

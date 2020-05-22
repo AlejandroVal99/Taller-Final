@@ -22,8 +22,8 @@ public class User implements Comparable<User>{
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
-		posx = (int)app.random(100,500); 
-		posy = (int)app.random(100,500);
+		posx = 350; 
+		posy = 400;
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
@@ -45,30 +45,53 @@ public class User implements Comparable<User>{
 	public void capturarPokemon() {
 		
 	}
-	public void moverse(char k) {
-		
-		switch (k) {
-		case 'a':
-			posx-=10; 
-			break;
-		case 's':
-			posy+=10; 
-			break;
-			
-		case 'd':
-			posx+=10; 
-			break;
-			
-		case 'w':
-			posy-=10; 
-			break;
-			
-			
-			
-
-		default:
-			break;
+	public void moverse(int k, int[][] matriz) {
+	
+		int fila= app.width/34; 
+		int col = app.height/19; 
+		if(k == app.CODED) {
+			if(app.keyCode == app.UP &&posy-10 >0) {
+					if(matriz[(int)(posy-10)/col][(int)(posx)/fila]==1||
+							matriz[(int)(posy-10)/col][(int)(posx)/fila]==2) {
+						posy-=10; 
+					}
+			}
 		}
+		if(k == app.CODED) {
+			if(app.keyCode == app.DOWN && posy + 10 <app.height) {
+				if(matriz[(int)(posy+10)/col][(int)(posx)/fila]==1||
+						matriz[(int)(posy+10)/col][(int)(posx)/fila]==2) {
+					posy+=10;
+				}
+					
+			}
+		}
+		if(k == app.CODED) {
+			if(app.keyCode == app.LEFT ) {
+				if( matriz[(int)(posy)/col][(int)(posx-10)/fila]==1 || 
+						matriz[(int)(posy)/col][(int)(posx-10)/fila]==2) {
+					posx-=10;
+				}
+				 
+					
+			}
+		}
+		if(k == app.CODED) {
+			if(app.keyCode == app.RIGHT ) {
+				if( matriz[(int)(posy)/col][(int)(posx+10)/fila]==1||
+						matriz[(int)(posy)/col][(int)(posx+10)/fila]==2) {
+					posx+=10; 
+				}
+					
+			}
+		}
+		
+	
+		
+		
+
+
+	
 		
 	}
 	public void atacar() {
@@ -79,7 +102,8 @@ public class User implements Comparable<User>{
 		return 0;
 	}
 	
-	// gets y sets
+	// gets y sets	
+	//-----------------------------------------------------	
 
 	public boolean isToco() {
 		return toco;
