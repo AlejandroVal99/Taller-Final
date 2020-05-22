@@ -153,16 +153,6 @@ public class Logic {
 
 	}
 
-	// Metodo que valida la posicion del personaje dentro de la matriz
-	// para ver si se puede mover y despues enviarle al metodo de
-	// usar mover, si undieron
-	public void moverPersonaje(char e) {
-	
-	}
-
-
-
-
 
 	public boolean areaSensible(int x, int y, int tamx, int tamy) {
 		int mouseX = app.mouseX;

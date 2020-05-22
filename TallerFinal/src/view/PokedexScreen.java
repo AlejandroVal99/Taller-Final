@@ -1,18 +1,18 @@
 package view;
 
-import conntroller.PokedexContro;
+import conntroller.MainContro;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class PokedexScreen {
 
-	private PokedexContro pokedexContro;
+	private MainContro mainContro;
 	private PApplet app;
 	private PImage pokedex;
 	
 	public PokedexScreen(PApplet app) {
 		this.app = app;
-		pokedexContro = new PokedexContro(app);
+		mainContro = new MainContro(app);
 		
 	}
 	

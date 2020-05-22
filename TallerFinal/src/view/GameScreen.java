@@ -2,7 +2,7 @@ package view;
 
 import java.util.LinkedList;
 
-import conntroller.GameContro;
+import conntroller.MainContro;
 import model.User;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -12,7 +12,7 @@ public class GameScreen {
 	private PApplet app;
 	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 	private PImage [] espal, frente, lado, otrola;
-	private GameContro gameContro;
+	private MainContro mainContro;
 	private LinkedList<User> usuariosList; 
 	
 	//esta parte de codigo es muy muy muy muy importante, este metodo
@@ -22,7 +22,7 @@ public class GameScreen {
 		//en este metodo, pues en el main, recibira en el parametro el metodo de register screen
 		//que retorna la lista de usuarios ya modificada
 	public GameScreen(PApplet app, LinkedList<User> usuariosList) {
-		gameContro = new GameContro(app);
+		mainContro = new MainContro(app);
 		this.app = app;
 		this.usuariosList= usuariosList; 
 
@@ -50,7 +50,7 @@ public class GameScreen {
 			otrola[i] = app.loadImage("Imagenes/Personaje/otrola"+i+".png");
 		}
 	
-		System.out.println(gameContro.getMapaJuego()[0][15]+"------------");
+		System.out.println(mainContro.getMapaJuego()[0][15]+"------------");
 		
 		
 		
@@ -82,7 +82,7 @@ public class GameScreen {
 		for (int i = 0; i < 34; i++) {
 			for (int j = 0; j < 19; j++) {
 				
-				switch (gameContro.getMapaJuego()[j][i]) {
+				switch (mainContro.getMapaJuego()[j][i]) {
 				case 0:
 					app.fill(255,0,0,80);
 					app.stroke(255,255,0);
@@ -124,7 +124,7 @@ public class GameScreen {
 	public void mover() {
 		if(usuariosList.size()!=0) {
 			
-			usuariosList.get(0).moverse(app.key,gameContro.getMapaJuego());
+			usuariosList.get(0).moverse(app.key,mainContro.getMapaJuego());
 		}
 		
 		

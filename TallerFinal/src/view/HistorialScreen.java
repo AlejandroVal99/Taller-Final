@@ -1,18 +1,18 @@
 package view;
 
-import conntroller.HistorialContro;
+import conntroller.MainContro;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class HistorialScreen {
 	
-	private HistorialContro historialContro;
+	private MainContro mainContro;
 	private PApplet app;
 	private PImage historial;
 
 	public HistorialScreen(PApplet app) {
 		this.app = app;
-		historialContro = new HistorialContro(app);
+		mainContro = new MainContro(app);
 	}
 	
 	public void cargaHS() {

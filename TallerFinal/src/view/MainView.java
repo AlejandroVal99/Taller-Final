@@ -1,7 +1,6 @@
 package view;
 
 import processing.core.PApplet;
-import conntroller.HistorialContro;
 import controlP5.*;
 
 public class MainView extends PApplet {

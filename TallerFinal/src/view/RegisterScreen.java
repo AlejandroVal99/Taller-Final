@@ -2,7 +2,7 @@ package view;
 
 import java.util.LinkedList;
 
-import conntroller.RegisterContro;
+import conntroller.MainContro;
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import model.User;
@@ -12,7 +12,7 @@ import processing.core.PImage;
 public class RegisterScreen {
 	private ControlP5 cp5;
 	private PApplet app;
-	private RegisterContro regiscontro;
+	private MainContro mainContro;
 	private PImage[] regis1, regis2, regis3, regis4, regis5, regis6, regis7, regis8, regis9, regis10, regis11, regis12,
 			regis13;
 	private int conta1, conta2, conta3, conta4, conta5, conta6, conta7, conta8, conta9, conta10, conta11, conta12,
@@ -21,7 +21,7 @@ public class RegisterScreen {
 	// private boolean ;
 
 	public RegisterScreen(PApplet app) {
-		regiscontro = new RegisterContro(app);
+		mainContro = new MainContro(app);
 		this.app = app;
 		cp5 = new ControlP5(app);
 		this.conta1 = 1;
@@ -173,7 +173,7 @@ public class RegisterScreen {
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText();
 		String userContra = cp5.get(Textfield.class, "correo").getText();
-		regiscontro.registrarmetodo(userName, userContra);
+		mainContro.registrarmetodo(userName, userContra);
 	}	
 	//@
 	
@@ -240,6 +240,6 @@ public class RegisterScreen {
 		this.clickRS += clickRS;
 	}
 	public LinkedList<User> getUsuariosList() {
-		return regiscontro.getUsuariosList();
+		return mainContro.getUsuariosList();
 	}
 }

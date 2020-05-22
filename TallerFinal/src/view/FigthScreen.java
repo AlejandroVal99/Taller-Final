@@ -1,18 +1,18 @@
 package view;
 
-import conntroller.FigthContro;
+import conntroller.MainContro;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class FigthScreen {
 
-	private FigthContro fightContro;
+	private MainContro mainContro;
 	private PApplet app;
 	private PImage fight;
 	
 	public FigthScreen(PApplet app) {
 		this.app = app;
-		fightContro = new FigthContro(app);
+		mainContro = new MainContro(app);
 	}
 	
 	public void cargaFS() {

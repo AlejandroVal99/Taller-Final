@@ -1,17 +1,17 @@
 package view;
 
-import conntroller.LogContro;
+import conntroller.MainContro;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class LogScreen {
 
 	private PApplet app;
-	private LogContro logContro;
+	private MainContro mainContro;
 	private PImage log;
 	
 	public LogScreen(PApplet app) {
-		logContro = new LogContro(app);
+		mainContro = new MainContro(app);
 		this.app = app;
 	}
 	
