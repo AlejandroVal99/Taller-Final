@@ -49,4 +49,13 @@ public class MainContro {
 		logic.setMapaJuego(mapaJuego);
 	}
 
+	public void moverPerso(char key) {
+		logic.moverPerso(key);
+	}
+
+	public void pintarUsu() {
+		logic.pintarUsuarios();
+	}
+
+
 }

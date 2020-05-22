@@ -10,22 +10,22 @@ public class Logic {
 	private PApplet app;
 	// private User usuario;
 	private String infoPokemons[];
-	private LinkedList<User> usuariosList;
+	private static LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
 
-	// Variable que almacena el usuario que está activo para pedirle la informaciona
+	// Variable que almacena el usuario que está activo para pedirle la
+	// informaciona
 	// este
 	private User userActivo;
 	// Variable de tamaño de cada reacudro tamaño del liezno divido columnas
 	private int tamSquad;
 	// Variable del juego nunca va a cambiar
-	private int mapaJuego[][] =  //34x /19y
+	private int mapaJuego[][] = // 34x /19y
 
-			{       { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				            0 },
+			{ { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 					{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 							0 },
 					{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -105,10 +105,10 @@ public class Logic {
 			}
 
 		}
-	
+
 	}
 
-	//@ añade usuarios a la lista
+	// @ añade usuarios a la lista
 	public void registrarmetodo(String name, String contrasena) {
 		usuariosList.add(new User(app, name, contrasena));
 
@@ -120,8 +120,6 @@ public class Logic {
 		}
 
 	}
-	
-
 
 	// Metodo que recorre todos los usuarios para ver si existe ese usaurio y con
 	// esa contraseña y lo iguala a usaurioActivo, para seguir trabajando mediante
@@ -152,7 +150,6 @@ public class Logic {
 		return false;
 
 	}
-
 
 	public boolean areaSensible(int x, int y, int tamx, int tamy) {
 		int mouseX = app.mouseX;
@@ -207,17 +204,20 @@ public class Logic {
 	}
 
 	// Metodo usado para pinatr la informacion de los pokemones cuando lo pidamos en
-	// la pokedex o en general que llama al metodo usado para esto en pokemones VALORES A SUJETOS A CAMBIO
+	// la pokedex o en general que llama al metodo usado para esto en pokemones
+	// VALORES A SUJETOS A CAMBIO
 	public void pintarPokemonOrden() {
-		
+
 		for (int j = 0; j < pokemonList.size(); j++) {
 
-			pokemonList.get(j).drawPokemonOrden(j * 50 );;
+			pokemonList.get(j).drawPokemonOrden(j * 50);
+			;
 		}
 	}
 
 	// Metodo usado para pinatr la informacion de los usuarios ordenados, en la
-	// pantalla del historial de usaurios que llama al metodo usado para esto en usuarios VALORES A SUJETOS A CAMBIO
+	// pantalla del historial de usaurios que llama al metodo usado para esto en
+	// usuarios VALORES A SUJETOS A CAMBIO
 	public void pintarUserOrden() {
 		for (int r = 0; r < usuariosList.size(); r++) {
 
@@ -239,13 +239,34 @@ public class Logic {
 		return mapaJuego;
 	}
 
-	
-
 	public void setMapaJuego(int[][] mapaJuego) {
 		this.mapaJuego = mapaJuego;
 	}
-	
 
-	
+	public void moverPerso(char key) {
+		System.out.println(usuariosList.size() + "alooo");
+		if (usuariosList.size() != 0) {
+			System.out.println("care damon");
+
+			usuariosList.get(0).moverse(key, mapaJuego);
+		}
+
+	}
+
+	public void pintarUsuarios() {
+		// System.out.println(usuariosList.get(0).getNickname());
+
+		// aqui pinto el usuario en cuestion
+		for (int i = 0; i < usuariosList.size(); i++) {
+			if (usuariosList.get(i) != null) {
+				usuariosList.get(i).pintar();
+				app.fill(0);
+				app.text(usuariosList.get(i).getNickname(), usuariosList.get(i).getPosx(),
+						usuariosList.get(i).getPosy());
+
+			}
+
+		}
+	}
 
 }

@@ -13,7 +13,6 @@ public class GameScreen {
 	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 	private PImage [] espal, frente, lado, otrola;
 	private MainContro mainContro;
-	private LinkedList<User> usuariosList; 
 	
 	//esta parte de codigo es muy muy muy muy importante, este metodo
 		//recibe por parametro la lista de usuarios
@@ -21,10 +20,9 @@ public class GameScreen {
 		// entonces, lo que hago es hacer toda operacion que necesite con los usuarios
 		//en este metodo, pues en el main, recibira en el parametro el metodo de register screen
 		//que retorna la lista de usuarios ya modificada
-	public GameScreen(PApplet app, LinkedList<User> usuariosList) {
+	public GameScreen(PApplet app) {
 		mainContro = new MainContro(app);
 		this.app = app;
-		this.usuariosList= usuariosList; 
 
 	}
 	
@@ -58,20 +56,7 @@ public class GameScreen {
 	
 	
 	public void finaltest() {
-		//System.out.println(usuariosList.get(0).getNickname());
-
-		//aqui pinto el usuario en cuestion
-		for (int i = 0; i < usuariosList.size(); i++) {
-			if(usuariosList.get(i)!=null) {
-				usuariosList.get(i).pintar();		
-				app.fill(0);
-				app.text(usuariosList.get(i).getNickname(), 
-						usuariosList.get(i).getPosx(),
-						usuariosList.get(i).getPosy());
-				
-			}
-		
-		}
+		mainContro.pintarUsu();
 	}
 	public void drawGame() {
 	
@@ -122,12 +107,9 @@ public class GameScreen {
 	
 	
 	public void mover() {
-		if(usuariosList.size()!=0) {
-			
-			usuariosList.get(0).moverse(app.key,mainContro.getMapaJuego());
-		}
+		mainContro.moverPerso(app.key);
 		
-		
+	
 	}
 	
 	

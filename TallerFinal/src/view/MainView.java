@@ -31,7 +31,7 @@ public class MainView extends PApplet {
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
-		gameScreen = new GameScreen(this, regisScreen.getUsuariosList());
+		gameScreen = new GameScreen(this);
 		logScreen = new LogScreen(this);
 		fightScreen = new FigthScreen(this);
 		pokedexScreen = new PokedexScreen(this);
@@ -50,30 +50,10 @@ public class MainView extends PApplet {
 		regisScreen.escondoInput( "correo");
 
 		// cargar imagenes de las clases
-		switch (screen) {
-		case 0:
 			System.out.println("23423423");
 			introScreen.cargaImagenesIS();
-			break;
-		case 1:
-		
-			break;
-		case 2:
-			System.out.println("entro");
+	
 			//regisScreen.carga3();
-		break;
-		case 3:
-		
-			
-		break;
-		case 4:
-			
-		break;
-		case 5:
-			
-			
-		break;
-	}
 		
 	}
 
@@ -170,7 +150,7 @@ public class MainView extends PApplet {
 		}
 		
 			break;
-		case 3:
+		case 3://pantalla juego
 		gameScreen.mover();
 
 			break;
