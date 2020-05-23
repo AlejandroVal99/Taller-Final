@@ -224,6 +224,22 @@ public class Logic {
 			usuariosList.get(r).pintarUserOrdenados(r * 50);
 		}
 	}
+	
+	// Metodo usado para mover los pokemones de forma aleatoria, cada segundo para
+		// que no sea muy rapido
+		
+		public void moverPokemones() {
+			if(app.frameCount % 30 == 0) {
+				//Falta definir si tendremos una lista de los pokemones que estan dentro del juego
+				//REVISARRRRRRR
+			pokemonList.get(0).moverPokemon(mapaJuego);
+			}
+
+
+
+	}
+	
+	
 
 //-------------------------------------------------------------------------------------------
 

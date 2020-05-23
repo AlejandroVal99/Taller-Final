@@ -18,10 +18,6 @@ public class Hierva extends Pokemon{
 		
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

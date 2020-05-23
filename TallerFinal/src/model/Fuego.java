@@ -17,10 +17,6 @@ public class Fuego extends Pokemon{
 		
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

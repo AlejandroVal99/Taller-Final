@@ -19,10 +19,6 @@ public class Agua extends Pokemon{
 		
 	}
 
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 
