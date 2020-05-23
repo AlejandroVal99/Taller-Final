@@ -14,7 +14,8 @@ public class Hierva extends Pokemon{
 
 	@Override
 	public void pintar() {
-		// TODO Auto-generated method stub
+		app.fill(55,200,30);
+		app.ellipse(posx, posy, 20, 20);
 		
 	}
 

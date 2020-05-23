@@ -46,7 +46,6 @@ public class User implements Comparable<User>{
 		
 	}
 	public void moverse(int k, int[][] matriz) {
-	System.out.println("HOLA");
 		int fila= app.width/34; 
 		int col = app.height/19; 
 		if(k == app.CODED) {

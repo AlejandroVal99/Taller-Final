@@ -28,6 +28,7 @@ public class GameScreen {
 	
 
 	public void cargaImagenesGS() {
+		mainContro.crearPokemones();
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
 		
 		this.espal = new PImage[2];
@@ -57,6 +58,7 @@ public class GameScreen {
 	
 	public void finaltest() {
 		mainContro.pintarUsu();
+		mainContro.pintoprueba();
 	}
 	public void drawGame() {
 	
@@ -100,7 +102,7 @@ public class GameScreen {
 		}
 		//esto es para conocer la exactaposicion del personaje en la matriz
 		int fila= app.width/34; 
-		app.text((int)app.mouseX/fila, app.mouseX, app.mouseY+50);
+		app.text(app.mouseX+" "+app.mouseY, app.mouseX, app.mouseY+50);
 		
 		
 	}

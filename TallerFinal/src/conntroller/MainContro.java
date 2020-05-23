@@ -56,6 +56,13 @@ public class MainContro {
 	public void pintarUsu() {
 		logic.pintarUsuarios();
 	}
+	public void crearPokemones() {
+		logic.crearPokemones();
+	}
+	public void pintoprueba() {
+		logic.pintoprueba();
+	}
+
 
 
 }

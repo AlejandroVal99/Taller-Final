@@ -86,7 +86,6 @@ public class Logic {
 		for (int i = 0; i < infoPokemons.length; i++) {
 
 			String[] datosPokemons = infoPokemons[i].split(",");
-
 			String nombre = datosPokemons[0];
 			String tipo = datosPokemons[1];
 			int nivel = Integer.parseInt(datosPokemons[2]);
@@ -96,16 +95,25 @@ public class Logic {
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
 
-			if (infoPokemons[1].equals("Agua")) {
+			if (datosPokemons[1].equals("Agua")) {
 				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
-			} else if (infoPokemons[1].equals("Fuego")) {
+			} else if (datosPokemons[1].equals("Fuego")) {
 				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
 			} else {
 				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				}
+
 			}
+			System.out.println(pokemonList.size()+"infopokemoooooooooooooooooooooooooooooon");
 
+			
+	}
+	public void pintoprueba() {
+		for (Pokemon p : pokemonList) {
+			p.pintar();
+			p.moverPokemon(mapaJuego);
+			
 		}
-
 	}
 
 	// @ añade usuarios a la lista
@@ -151,6 +159,7 @@ public class Logic {
 
 	}
 
+	//@ Metodo que de ser necesaria un area sensible, retorna falso o verdadero
 	public boolean areaSensible(int x, int y, int tamx, int tamy) {
 		int mouseX = app.mouseX;
 		int mouseY = app.mouseY;
@@ -260,10 +269,7 @@ public class Logic {
 	}
 
 	public void moverPerso(char key) {
-		System.out.println(usuariosList.size() + "alooo");
 		if (usuariosList.size() != 0) {
-			System.out.println("care damon");
-
 			usuariosList.get(0).moverse(key, mapaJuego);
 		}
 

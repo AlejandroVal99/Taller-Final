@@ -23,11 +23,12 @@ public class MainView extends PApplet {
 	public void settings() {
 		size(816, 480);
 		smooth(4);
+		
 
 	}
 
 	public void setup() {
-		screen = 2; 
+		screen = 1; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -48,6 +49,12 @@ public class MainView extends PApplet {
 		regisScreen.inputs("correo", 20 + 20 * 3);
 		regisScreen.escondoInput( "name");
 		regisScreen.escondoInput( "correo");
+		
+		//-----creo los de login
+		logScreen.inputs("name", 20);
+		logScreen.inputs("correo", 20 + 20 * 3);
+		logScreen.escondoInput( "name");
+		logScreen.escondoInput( "correo");
 
 		// cargar imagenes de las clases
 			System.out.println("23423423");
@@ -71,6 +78,8 @@ public class MainView extends PApplet {
 		case 1:// pantalla loggeo
 			background(0, 0, 255);
 			logScreen.drawLog();
+			logScreen.muestroInput(1, "name");
+			logScreen.muestroInput(1, "correo");
 			break;
 		case 2: // pantalla registro
 			background(0, 200, 30);
