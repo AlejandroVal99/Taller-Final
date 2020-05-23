@@ -129,19 +129,20 @@ public class Logic {
 
 	}
 	
-	
+
 
 	// Metodo que recorre todos los usuarios para ver si existe ese usaurio y con
 	// esa contraseña y lo iguala a usaurioActivo, para seguir trabajando mediante
 	// ese
 
 	public boolean logInConfirma(String name, String contrasena) throws UserException, PasswordException {
-		usuariosList.add(new User(app, name, contrasena));
-
+		//usuariosList.add(new User(app, name, contrasena));
+		
 		for (int i = 0; i < usuariosList.size(); i++) {
-
+			
 			if (name.equals(usuariosList.get(i).getNickname())
 					&& contrasena.equals(usuariosList.get(i).getPassword())) {
+				System.out.println("SI EXISTE");
 				return true;
 			} else {
 

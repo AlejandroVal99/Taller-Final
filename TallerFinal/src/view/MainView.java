@@ -2,6 +2,8 @@ package view;
 
 import processing.core.PApplet;
 import controlP5.*;
+import exceptions.PasswordException;
+import exceptions.UserException;
 
 public class MainView extends PApplet {
 
@@ -28,7 +30,7 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
-		screen = 1; 
+		screen = 2; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -135,7 +137,7 @@ public class MainView extends PApplet {
 	public void keyPressed() {
 		//por motivos de pruebas me muevo entre pantallas con la b
 		if(key=='b') {
-			screen++;
+			screen=1;
 			
 		}
 
@@ -145,6 +147,16 @@ public class MainView extends PApplet {
 
 			break;
 		case 1:
+			if (key == ENTER) {
+				try {
+					logScreen.getInfo();
+				} catch (UserException | PasswordException e) {
+					
+					
+					System.out.println(e.getMessage());
+				}
+				
+			}
 
 			break;
 		case 2:
@@ -154,7 +166,7 @@ public class MainView extends PApplet {
 			}
 		if(key == CODED){
 			if(keyCode == UP) {
-				//System.out.println("yaaa weeeeyyy");
+				
 			}
 		}
 		

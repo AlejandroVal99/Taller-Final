@@ -67,6 +67,7 @@ public class MainContro {
 
 	public void logInConfirma(String name, String contrasena) throws UserException, PasswordException {
 		logic.logInConfirma(name, contrasena); 
+		System.out.println(name+"efeeeeee"+contrasena);
 	} 
 
 
