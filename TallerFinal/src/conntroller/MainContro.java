@@ -2,6 +2,8 @@ package conntroller;
 
 import java.util.LinkedList;
 
+import exceptions.PasswordException;
+import exceptions.UserException;
 import model.Logic;
 import model.User;
 import processing.core.PApplet;
@@ -63,6 +65,9 @@ public class MainContro {
 		logic.pintoprueba();
 	}
 
+	public void logInConfirma(String name, String contrasena) throws UserException, PasswordException {
+		logic.logInConfirma(name, contrasena); 
+	} 
 
 
 }

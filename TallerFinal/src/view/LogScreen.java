@@ -3,6 +3,8 @@ package view;
 import conntroller.MainContro;
 import controlP5.ControlP5;
 import controlP5.Textfield;
+import exceptions.PasswordException;
+import exceptions.UserException;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -44,10 +46,10 @@ public class LogScreen {
 				cp5.get(Textfield.class, name).show();
 			}
 		}
-		//@este metodo me trae la informacion de los input de registro
-		public void getInfo() {
+		//@este metodo me trae la informacion de los input de logeo
+		public void getInfo() throws UserException, PasswordException {
 			String userName = cp5.get(Textfield.class, "name").getText();
 			String userContra = cp5.get(Textfield.class, "correo").getText();
-			mainContro.registrarmetodo(userName, userContra);
+			mainContro.logInConfirma(userName, userContra);
 		}	
 }

@@ -128,6 +128,8 @@ public class Logic {
 		}
 
 	}
+	
+	
 
 	// Metodo que recorre todos los usuarios para ver si existe ese usaurio y con
 	// esa contraseña y lo iguala a usaurioActivo, para seguir trabajando mediante
