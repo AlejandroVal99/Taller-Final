@@ -39,7 +39,7 @@ public class IntroScreen {
 	}
 	public void drawIntro() {
 		app.image(this.ini1, 0, 0);
-		if(this.paso==true) {//falta aca poner el si la animacion ya acabo
+		if(this.paso==true) {
 			app.image(this.ini2,1,0);
 		}
 		if(contador1!=522) {
