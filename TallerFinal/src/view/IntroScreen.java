@@ -13,7 +13,6 @@ public class IntroScreen {
 	private int contador1;
 	private PApplet app;
 	private boolean paso = false;
-	private boolean paso2 = false;
 	final ArrayList<PImage> images = new ArrayList<PImage>();
 
 
@@ -41,9 +40,7 @@ public class IntroScreen {
 	public void drawIntro() {
 		app.image(this.ini1, 0, 0);
 		if(this.paso==true) {//falta aca poner el si la animacion ya acabo
-			app.image(this.ini2,0,0);
-		}if(this.paso2==true) {
-			app.image(this.ini3,0,0);
+			app.image(this.ini2,1,0);
 		}
 		if(contador1!=522) {
 			animation(); 
@@ -78,11 +75,5 @@ public class IntroScreen {
 	public void setPaso(boolean paso) {
 		this.paso = paso;
 	}
-	public boolean isPaso2() {
-		return paso2;
-	}
-	
-	public void setPaso2(boolean paso2) {
-		this.paso2 = paso2;
-	}
+
 }

@@ -65,6 +65,14 @@ public class GameScreen {
 		    } 
 		}*/
 	}
+	public int cambioPantallaChoque() {
+		if(mainContro.encuentroUserPoke() ==true) {
+			return 4;
+	}else {
+		return 3;
+	}
+	}
+	
 	
 	
 	public void finaltest() {

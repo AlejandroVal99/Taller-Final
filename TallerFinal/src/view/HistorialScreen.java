@@ -21,6 +21,7 @@ public class HistorialScreen {
 
 	public void drawHisto() {
 		app.image(this.historial, 0, 0);
+		mainContro.pintarUserOrden();
 	}
 
 	public void ordenFecha() {

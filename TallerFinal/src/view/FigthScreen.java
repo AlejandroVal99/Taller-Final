@@ -18,6 +18,7 @@ public class FigthScreen {
 	public void cargaFS() {
 		this.fight = app.loadImage("Imagenes/fightScreen.jpg");
 	}
+	
 	public void drawFight() {
 		app.image(this.fight,0,0);
 	}

@@ -17,12 +17,18 @@ public class User implements Comparable<User>{
 	 LinkedList<Pokemon> pokedex; 
 	 int posx,posy; 
 	 int conta;
+
+	 //Booleans para animacion mov perso
+	 boolean arriba = false;
+	 boolean abajo = false;
+	 boolean izquierda = false;
+	 boolean derecha = false;
 	 
 	 //Variables de imgs animacion
 	/*private PImage [] espal, frente, lado, otrola;
 	private PImage espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 */
-	
+
 	public User(PApplet app, String nickname, String password){
 		
 		this.app= app; 
@@ -88,23 +94,40 @@ public class User implements Comparable<User>{
 					if(matriz[(int)(posy-10)/col][(int)(posx)/fila]==1||
 							matriz[(int)(posy-10)/col][(int)(posx)/fila]==2) {
 						posy-=10; 
+						derecha= false;
+						izquierda = false;
+						abajo = false;
+						arriba = true;
+						System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ARIBA");
 					}
-			}
+					}
 		}
 		if(k == app.CODED) { //ABAJO
 			if(app.keyCode == app.DOWN && posy + 10 <app.height) {
 				if(matriz[(int)(posy+10)/col][(int)(posx)/fila]==1||
 						matriz[(int)(posy+10)/col][(int)(posx)/fila]==2) {
 					posy+=10;
+					arriba = false;
+					derecha = false;
+					izquierda = false;
+					abajo = true;
+					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ABAJO");
+
 				}
 					
 			}
 		}
 		if(k == app.CODED) { //IZQUIERDA
-			if(app.keyCode == app.LEFT ) {
+			if(app.keyCode == app.LEFT)  {
 				if( matriz[(int)(posy)/col][(int)(posx-10)/fila]==1 || 
 						matriz[(int)(posy)/col][(int)(posx-10)/fila]==2) {
 					posx-=10;
+					arriba= false;
+					derecha = false;
+					abajo = false;
+					izquierda = true;
+					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " IZQ");
+
 				}
 				 
 					
@@ -115,9 +138,14 @@ public class User implements Comparable<User>{
 				if( matriz[(int)(posy)/col][(int)(posx+10)/fila]==1||
 						matriz[(int)(posy)/col][(int)(posx+10)/fila]==2) {
 					posx+=10; 
+					izquierda = false;
+					arriba = false;
+					abajo = false;
+					derecha = true;
+					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " DERE");
+
 				}
-					
-			}
+			}	
 		}
 		
 	
@@ -128,6 +156,13 @@ public class User implements Comparable<User>{
 	
 		
 	}
+	
+
+	private int keyIsDown(int left) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public void atacar() {
 		
 	}
@@ -194,8 +229,37 @@ public class User implements Comparable<User>{
 	public void setPosy(int posy) {
 		this.posy = posy;
 	}
-	
-	
+	 public boolean isDerecha() {
+		return derecha;
+	}
+
+	public void setDerecha(boolean derecha) {
+		this.derecha = derecha;
+	}
+
+	public boolean isArriba() {
+		return arriba;
+	}
+
+	public void setArriba(boolean arriba) {
+		this.arriba = arriba;
+	}
+
+	public boolean isAbajo() {
+		return abajo;
+	}
+
+	public void setAbajo(boolean abajo) {
+		this.abajo = abajo;
+	}
+
+	public boolean isIzquierda() {
+		return izquierda;
+	}
+
+	public void setIzquierda(boolean izquierda) {
+		this.izquierda = izquierda;
+	}
 	
 	
 

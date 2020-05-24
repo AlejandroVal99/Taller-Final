@@ -96,38 +96,35 @@ public class Logic {
 		this.lado = new PImage[3];
 		this.otrola = new PImage[3];
 
-		lado [0] = app.loadImage("Imagenes/Personaje/lado1.png");
-		lado [1] = app.loadImage("Imagenes/Personaje/lado2.png");
-		lado [2] = app.loadImage("Imagenes/Personaje/lado3.png");		
-		
-		espal [0] = app.loadImage("Imagenes/Personaje/espalda1.png");
-		espal [1]= app.loadImage("Imagenes/Personaje/espalda2.png");
-		espal [2] = app.loadImage("Imagenes/Personaje/espalda3.png");
-		
-		frente [0] = app.loadImage("Imagenes/Personaje/frente1.png");
-		frente [1] = app.loadImage("Imagenes/Personaje/frente2.png");
-		frente [2] = app.loadImage("Imagenes/Personaje/frente3.png");
-		
+		lado[0] = app.loadImage("Imagenes/Personaje/lado1.png");
+		lado[1] = app.loadImage("Imagenes/Personaje/lado2.png");
+		lado[2] = app.loadImage("Imagenes/Personaje/lado3.png");
+
+		espal[0] = app.loadImage("Imagenes/Personaje/espalda1.png");
+		espal[1] = app.loadImage("Imagenes/Personaje/espalda2.png");
+		espal[2] = app.loadImage("Imagenes/Personaje/espalda3.png");
+
+		frente[0] = app.loadImage("Imagenes/Personaje/frente1.png");
+		frente[1] = app.loadImage("Imagenes/Personaje/frente2.png");
+		frente[2] = app.loadImage("Imagenes/Personaje/frente3.png");
+
 		otrola[0] = app.loadImage("Imagenes/Personaje/otrola1.png");
 		otrola[1] = app.loadImage("Imagenes/Personaje/otrola2.png");
 		otrola[2] = app.loadImage("Imagenes/Personaje/otrola3.png");
-		//System.out.println(otrola[2] + "sh");
+		// System.out.println(otrola[2] + "sh");
 
-		/*for (int i = 1; i < 2; i++) {
-			espal[i] = app.loadImage("Imagenes/Personaje/espalda" + i + ".png");
-		}
-		for (int i = 1; i < frente.length; i++) {
-			frente[i] = app.loadImage("Imagenes/Personaje/frente" + i + ".png");
-		}
-		for (int i = 1; i < 3; i++) {
-			lado[i] = app.loadImage("Imagenes/Personaje/lado" + i + ".png");
-			System.out.println(lado[0]);
-
-		}
-		for (int i = 1; i < otrola.length; i++) {
-			otrola[i] = app.loadImage("Imagenes/Personaje/otrola" + i + ".png");
-			//System.out.println(otrola[2]);
-		}*/
+		/*
+		 * for (int i = 1; i < 2; i++) { espal[i] =
+		 * app.loadImage("Imagenes/Personaje/espalda" + i + ".png"); } for (int i = 1; i
+		 * < frente.length; i++) { frente[i] = app.loadImage("Imagenes/Personaje/frente"
+		 * + i + ".png"); } for (int i = 1; i < 3; i++) { lado[i] =
+		 * app.loadImage("Imagenes/Personaje/lado" + i + ".png");
+		 * System.out.println(lado[0]);
+		 * 
+		 * } for (int i = 1; i < otrola.length; i++) { otrola[i] =
+		 * app.loadImage("Imagenes/Personaje/otrola" + i + ".png");
+		 * //System.out.println(otrola[2]); }
+		 */
 	}
 
 	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
@@ -155,10 +152,9 @@ public class Logic {
 
 		}
 		System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
-		
-		
-		//RecorrerTxt de pokemones Salvajes
-		
+
+		// RecorrerTxt de pokemones Salvajes
+
 		for (int i = 0; i < infoPokemonSal.length; i++) {
 
 			String[] datosPokemons = infoPokemonSal[i].split(",");
@@ -189,10 +185,10 @@ public class Logic {
 			p.moverPokemon(mapaJuego);
 
 		}
-		
+
 		encuentroUserPoke();
-		
-		System.out.println(encuentroUserPoke()+" Me estrelle");
+
+		System.out.println(encuentroUserPoke() + " Me estrelle");
 	}
 
 	// @ añade usuarios a la lista
@@ -255,62 +251,26 @@ public class Logic {
 
 	}
 	// Metodo para ordenar la lista de Pokemones, va a recibir un entero para saber
-	// si
-	// será ordenamiento parcial o natural, serán botones en pantalla entonces
-	// pondre que reciba 0 y 1
 
-	public void sortPokemon(int i) {
-		System.out.println("entre");
-		switch (i) {
-
-		case 1:// Nombre
-
-			Collections.sort(pokemonList);
-
-			break;
-
-		case 2:// Tipo
-			Collections.sort(pokemonList, pokemonTipo);
-
-			break;
-		}
-	}
-	//-----Orden Pokemones-------
+	// -----Orden Pokemones-------
 	public void ordenNombrePoke() {
 		Collections.sort(pokemonList);
 	}
+
 	public void ordenTipo() {
-		Collections.sort(pokemonList, pokemonTipo);		
+		Collections.sort(pokemonList, pokemonTipo);
 	}
 
-	//-------Orden Usuarios---------
+	// -------Orden Usuarios---------
 	public void ordenNick() {
 		Collections.sort(usuariosList, userNick);
 	}
+
 	public void ordenFecha() {
 		Collections.sort(usuariosList);
 
 	}
 
-	// Metodo para ordenar la lista de usuarios va a recibir un entero para saber si
-	// será ordenamiento parcial o natural, serán botones en pantalla entonces
-	// pondre que reicba 0 y 1
-	public void sortUsers(int r) { //cambiar por mousePressed
-		System.out.println("entre");
-		switch (r) {
-
-		case 1:// De acuerdoFecha de inscripcion aún por definirse
-
-			Collections.sort(usuariosList);
-
-			break;
-
-		case 2:// Nickname
-			Collections.sort(usuariosList, userNick);
-
-			break;
-		}
-	}
 
 	// Metodo usado para pinatr la informacion de los pokemones cuando lo pidamos en
 	// la pokedex o en general que llama al metodo usado para esto en pokemones
@@ -346,26 +306,25 @@ public class Logic {
 		}
 
 	}
-	
-	//Metodo de validacion de la posicion de pokemones con el usuarios, devuelve un boolean
-	
+
+	// Metodo de validacion de la posicion de pokemones con el usuarios, devuelve un
+	// boolean
+
 	public boolean encuentroUserPoke() {
-		
-		
-			for (Pokemon p : pokemonSalList) {
-				if(usuariosList.get(0).getPosx()==p.getPosx() && usuariosList.get(0).getPosx()==p.getPosx()) {
-					
-					return true;
-					
-					
-				}
-				//System.out.println("User"+ usuariosList.get(0).getPosx());
-				//System.out.println("User"+ usuariosList.get(0).getPosy());
-				//System.out.println("poke"+ p.getPosx());
-				//System.out.println("poke"+ p.getPosy());
+
+		for (Pokemon p : pokemonSalList) {
+			if (usuariosList.get(0).getPosx() == p.getPosx() && usuariosList.get(0).getPosx() == p.getPosx()) {
+
+				return true;
+
 			}
-				return false;
-		
+			// System.out.println("User"+ usuariosList.get(0).getPosx());
+			// System.out.println("User"+ usuariosList.get(0).getPosy());
+			// System.out.println("poke"+ p.getPosx());
+			// System.out.println("poke"+ p.getPosy());
+		}
+		return false;
+
 	}
 
 //-------------------------------------------------------------------------------------------
@@ -403,29 +362,66 @@ public class Logic {
 		// aqui pinto el usuario en cuestion
 		for (int i = 0; i < usuariosList.size(); i++) {
 			if (usuariosList.get(i) != null) {
-				
-				//falta validacion de que le undio tal flecha
-				app.image(lado[conta],usuariosList.get(i).getPosx(),usuariosList.get(i).getPosy() );
-				if(app.frameCount % 6 == 0) {
-				    
-				    conta++; 
-				    if(conta > 2){
-				        
-				        conta = 0;
-				       
-				    } 
-				}
+
+				// ANIMACION DERECHA
+				if (usuariosList.get(i).isDerecha() == true) {
+					app.image(lado[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+					if (app.frameCount % 2 == 0) {
+						conta++;
+						if (conta > 2) {
+							conta = 0;
+						}
+					}
+				} /*
+					 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
+					 * usuariosList.get(i).getPosy()); }
+					 */
+				// ANIMACION IZQUIERDA
+				if (usuariosList.get(i).isIzquierda() == true) {
+					app.image(otrola[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+					if (app.frameCount % 2 == 0) {
+						conta++;
+						if (conta > 2) {
+							conta = 0;
+						}
+					}
+				} /*
+					 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
+					 * usuariosList.get(i).getPosy()); }
+					 */
+				// ANIMACION ARRIBA
+				if (usuariosList.get(i).isArriba() == true) {
+					app.image(espal[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+					if (app.frameCount % 2 == 0) {
+						conta++;
+						if (conta > 2) {
+							conta = 0;
+						}
+					}
+				} /*
+					 * else{ app.image(frente[0], usuariosList.get(i).getPosx(),
+					 * usuariosList.get(i).getPosy()); }
+					 */
+				// ANIMACION ABAJO
+				if (usuariosList.get(i).isAbajo() == true) {
+					app.image(frente[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+					if (app.frameCount % 2 == 0) {
+						conta++;
+						if (conta > 2) {
+							conta = 0;
+						}
+					}
+				}/*else {
+					app.image(frente[0], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+				}*/
+			} 
 				usuariosList.get(i).pintar();
 				app.fill(0);
 				app.text(usuariosList.get(i).getNickname(), usuariosList.get(i).getPosx(),
 						usuariosList.get(i).getPosy());
-
 			}
 
 		}
 	}
 
-	
 
-	
-}

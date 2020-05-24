@@ -27,6 +27,12 @@ public class MainContro {
 		logic.registrarmetodo(userName, name);
 
 	}
+	public void pintarUserOrden() {
+		logic.pintarUserOrden();
+	}
+	public boolean encuentroUserPoke() {
+		return logic.encuentroUserPoke();
+	}
 
 	// ---------
 	public LinkedList<User> getUsuariosList() {
