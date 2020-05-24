@@ -29,7 +29,7 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
-		screen = 2; 
+		screen = 0; 
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);

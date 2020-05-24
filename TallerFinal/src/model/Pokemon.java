@@ -21,7 +21,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 
 	}
 
-	// Run aquí debido a que todos hacen lo mismo por lo tanto la podemos declarar
+	// Run aquï¿½ debido a que todos hacen lo mismo por lo tanto la podemos declarar
 	// en la padre para qeu todos lo hagan
 	public void run() {
 	
@@ -78,7 +78,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 			}
 
 		}
-		System.out.println("posx: " + posx + " posy: " + posy);
+		//System.out.println("posx: " + posx + " posy: " + posy);
 
 	}
 

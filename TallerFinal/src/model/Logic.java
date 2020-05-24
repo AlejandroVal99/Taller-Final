@@ -11,8 +11,10 @@ public class Logic {
 	private PApplet app;
 	// private User usuario;
 	private String infoPokemons[];
+	private String infoPokemonSal[];
 	private static LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
+	private LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
@@ -76,8 +78,10 @@ public class Logic {
 
 		this.app = app;
 		infoPokemons = app.loadStrings("../TallerFinal/Informacion/pokemones.txt");
+		infoPokemonSal = app.loadStrings("../TallerFinal/Informacion/PokemoneSal.txt");
 		usuariosList = new LinkedList<User>();
 		pokemonList = new LinkedList<Pokemon>();
+		pokemonSalList = new LinkedList<Pokemon>();
 		userNick = new UserNicknameCompare();
 		pokemonTipo = new PokemonTipoCompare();
 
@@ -151,15 +155,44 @@ public class Logic {
 
 		}
 		System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
+		
+		
+		//RecorrerTxt de pokemones Salvajes
+		
+		for (int i = 0; i < infoPokemonSal.length; i++) {
+
+			String[] datosPokemons = infoPokemonSal[i].split(",");
+			String nombre = datosPokemons[0];
+			String tipo = datosPokemons[1];
+			int nivel = Integer.parseInt(datosPokemons[2]);
+			int dano1 = Integer.parseInt(datosPokemons[3]);
+			int dano2 = Integer.parseInt(datosPokemons[4]);
+			int xP = Integer.parseInt(datosPokemons[5]);
+			int posx = Integer.parseInt(datosPokemons[6]);
+			int posy = Integer.parseInt(datosPokemons[7]);
+
+			if (datosPokemons[1].equals("Agua")) {
+				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+			} else if (datosPokemons[1].equals("Fuego")) {
+				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+			} else {
+				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+			}
+
+		}
 
 	}
 
 	public void pintoprueba() {
-		for (Pokemon p : pokemonList) {
+		for (Pokemon p : pokemonSalList) {
 			p.pintar();
 			p.moverPokemon(mapaJuego);
 
 		}
+		
+		encuentroUserPoke();
+		
+		System.out.println(encuentroUserPoke()+" Me estrelle");
 	}
 
 	// @ añade usuarios a la lista
@@ -305,13 +338,34 @@ public class Logic {
 	// que no sea muy rapido
 
 	public void moverPokemones() {
-		if (app.frameCount % 30 == 0) {
+		if (app.frameCount % 200 == 0) {
 			// Falta definir si tendremos una lista de los pokemones que estan dentro del
 			// juego
 			// REVISARRRRRRR
 			pokemonList.get(0).moverPokemon(mapaJuego);
 		}
 
+	}
+	
+	//Metodo de validacion de la posicion de pokemones con el usuarios, devuelve un boolean
+	
+	public boolean encuentroUserPoke() {
+		
+		
+			for (Pokemon p : pokemonSalList) {
+				if(usuariosList.get(0).getPosx()==p.getPosx() && usuariosList.get(0).getPosx()==p.getPosx()) {
+					
+					return true;
+					
+					
+				}
+				//System.out.println("User"+ usuariosList.get(0).getPosx());
+				//System.out.println("User"+ usuariosList.get(0).getPosy());
+				//System.out.println("poke"+ p.getPosx());
+				//System.out.println("poke"+ p.getPosy());
+			}
+				return false;
+		
 	}
 
 //-------------------------------------------------------------------------------------------
