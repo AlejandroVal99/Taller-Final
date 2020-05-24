@@ -29,9 +29,10 @@ public class GameScreen {
 
 	public void cargaImagenesGS() {
 		mainContro.crearPokemones();
+		mainContro.cargaImaPerso();
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
 		
-		this.espal = new PImage[2];
+		/*this.espal = new PImage[2];
 		this.frente = new PImage[2];
 		this.lado = new PImage[2];
 		this.otrola = new PImage[2];
@@ -47,12 +48,22 @@ public class GameScreen {
 		}
 		for (int i = 1; i < otrola.length; i++) {
 			otrola[i] = app.loadImage("Imagenes/Personaje/otrola"+i+".png");
-		}
+		}*/
 	
 		System.out.println(mainContro.getMapaJuego()[0][15]+"------------");
-		
-		
-		
+			
+	}
+	public void ani() {
+		/*app.image(espal[conta],posx, posy);
+		if(app.frameCount % 6 == 0) {
+		    
+		    conta++; 
+		    if(conta > 2){
+		        
+		        conta = 0;
+		       
+		    } 
+		}*/
 	}
 	
 	

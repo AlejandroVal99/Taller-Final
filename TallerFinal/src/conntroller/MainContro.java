@@ -19,8 +19,12 @@ public class MainContro {
 
 	}
 
-	public void registrarmetodo(String name, String contrasena) {
-		logic.registrarmetodo(name, contrasena);
+	public void cargaImaPerso() {
+		logic.cargaPersoUser();
+	}
+
+	public void registrarmetodo(String userName, String name) {
+		logic.registrarmetodo(userName, name);
 
 	}
 
@@ -58,17 +62,35 @@ public class MainContro {
 	public void pintarUsu() {
 		logic.pintarUsuarios();
 	}
+
 	public void crearPokemones() {
 		logic.crearPokemones();
 	}
+
 	public void pintoprueba() {
 		logic.pintoprueba();
 	}
 
-	public void logInConfirma(String name, String contrasena) throws UserException, PasswordException {
-		logic.logInConfirma(name, contrasena); 
-		System.out.println(name+"efeeeeee"+contrasena);
-	} 
+	public void ordenFecha() {
+		logic.ordenFecha();
+	}
 
+	public void ordenNick() {
+		logic.ordenNick();
+	}
+
+	public void ordenNombrePoke() {
+		logic.ordenNombrePoke();
+	}
+
+	public void ordenTipo() {
+		logic.ordenTipo();
+	}
+
+	/*
+	 * public void logInConfirma(String name, String contrasena) throws
+	 * UserException, PasswordException { logic.logInConfirma(name, contrasena);
+	 * System.out.println(name+"efeeeeee"+contrasena); }
+	 */
 
 }

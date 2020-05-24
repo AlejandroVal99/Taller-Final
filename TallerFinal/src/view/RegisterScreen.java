@@ -7,6 +7,7 @@ import controlP5.ControlP5;
 import controlP5.Textfield;
 import model.User;
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 public class RegisterScreen {
@@ -18,7 +19,7 @@ public class RegisterScreen {
 	private int conta1, conta2, conta3, conta4, conta5, conta6, conta7, conta8, conta9, conta10, conta11, conta12,
 			conta13, clickRS;
 	private PImage Registro;
-	// private boolean ;
+	private PFont font;
 
 	public RegisterScreen(PApplet app) {
 		mainContro = new MainContro(app);
@@ -45,22 +46,26 @@ public class RegisterScreen {
 		this.regis2 = new PImage[69];
 		this.regis3 = new PImage[61];
 		this.regis4 = new PImage[58];
-		this.regis5 = new PImage[97];
+		/*this.regis5 = new PImage[97];
 		this.regis6 = new PImage[65];
 		this.regis7 = new PImage[87];
 		this.regis8 = new PImage[49];
 		this.regis9 = new PImage[57];
 		this.regis10 = new PImage[92];
 		this.regis11 = new PImage[93];
-		this.regis12 = new PImage[82];
+		this.regis12 = new PImage[82];*/
 		this.regis13 = new PImage[62];
-		this.Registro = app.loadImage("Imagenes/Registro/Register.jpg");
+		this.Registro = app.loadImage("Imagenes/start.jpg");
 
+		font = app.createFont("Fuentes/Pokemon" + " " + " X" + " " + " and" + " " + " Y.tff", 20);
 		carga2();
 
 	}
 
+
+
 	public void drawRegister() {
+		//System.out.println(clickRS);
 		if (clickRS == 0) {
 			app.image(this.regis1[this.conta1], 0, 0);
 			if (app.frameCount % 2 == 0) {
@@ -102,19 +107,20 @@ public class RegisterScreen {
 			}
 		}
 		if (clickRS == 3) {
-			app.image(this.regis4[this.conta4], 0, 0);
+			app.image(this.regis13[this.conta13], 0, 0);
 			if (app.frameCount % 2 == 0) {
-				if (this.conta4< 54) {
-					this.conta4++;
-					regis4[conta4 - 1] = null;
+				if (this.conta13< 58) {
+					this.conta13++;
+					regis4[conta13 - 1] = null;
 
 				} else {
-					conta4 = 54;
+					conta13 = 58;
 				}
 			}
 		}
 		if(clickRS == 4 ) {
 			app.image(Registro,0,0);
+			clickRS = 4;
 		}
 		
 		/*if (clickRS == 4) {
@@ -146,10 +152,16 @@ public class RegisterScreen {
 	//@ esto me crea inputs de tipo textfield, recibe el nombre y la posicion en y
 	public void inputs(String name, int posy) {
 
-		cp5.addTextfield(name).setPosition(app.width / 2 - 100, posy).setSize(200, 40).setFocus(true)
-				.setColor(app.color(255, 255, 0)).setColorActive(app.color(255, 255, 0))
-				.setColorBackground(app.color(20, 0, 100)).setColorCaptionLabel(app.color(255, 255, 30))
-				.setCaptionLabel(" ");
+		cp5.addTextfield(name)
+		.setPosition(299 , posy)
+		.setSize(200, 40)
+		.setFocus(true)
+		.setFont(font) //mirar bien por que no carga la fuente
+		.setCaptionLabel(" ")
+		.setColor(app.color(0))
+		.setColorActive(app.color(248, 248, 248))
+		.setColorForeground(app.color(248, 248, 248,1))
+		.setColorBackground(app.color(248, 248, 248));
 
 		;
 
@@ -164,7 +176,7 @@ public class RegisterScreen {
 
 	// @esconde el input que concuerde con el nombre dado
 	public void muestroInput(int screen, String name) {
-		if (screen == 1) {
+		if (clickRS ==4) {
 			cp5.get(Textfield.class, name).show();
 		}
 	}
@@ -172,8 +184,9 @@ public class RegisterScreen {
 	//@este metodo me trae la informacion de los input de registro
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText();
-		String userContra = cp5.get(Textfield.class, "correo").getText();
-		mainContro.registrarmetodo(userName, userContra);
+		String name = cp5.get(Textfield.class, "correo").getText();
+
+		mainContro.registrarmetodo(userName, name);
 	}	
 	//@
 	
@@ -181,6 +194,9 @@ public class RegisterScreen {
 
 	public void contadorRS() {
 		clickRS++;
+		if(clickRS >= 4) {
+			clickRS = 4;
+		}
 	}
 
 	//@cargo las imagenes necesarias
@@ -196,8 +212,8 @@ public class RegisterScreen {
 		for (int i = 1; i < regis3.length; i++) {
 			regis3[i] = app.loadImage("Imagenes/Regis/regis3/regis3" + " " + "(" + i + ").jpg");
 		}
-		for (int i = 1; i < regis4.length; i++) {
-			regis4[i] = app.loadImage("Imagenes/Regis/regis4/regis4" + " " + "(" + i + ").jpg");
+		for (int i = 1; i < regis13.length; i++) {
+			regis13[i] = app.loadImage("Imagenes/Regis/regis13/regis13" + " " + "(" + i + ").jpg");
 		}
 	}
 	/*public void carga3() {
@@ -226,8 +242,7 @@ public class RegisterScreen {
 		for (int i = 1; i < regis12.length; i++) {
 			regis12[i] = app.loadImage("Imagenes/Regis/regis12/regis12" + " " + "(" + i + ").jpg");
 		}
-		for (int i = 1; i < regis13.length; i++) {
-			regis13[i] = app.loadImage("Imagenes/Regis/regis13/regis13" + " " + "(" + i + ").jpg");
+		
 		}
 
 	}*/

@@ -5,6 +5,7 @@ import java.util.*;
 import exceptions.PasswordException;
 import exceptions.UserException;
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Logic {
 	private PApplet app;
@@ -15,6 +16,10 @@ public class Logic {
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
+	private int conta;
+
+	// Variables de imgs animacion
+	private PImage[] espal, frente, lado, otrola;
 
 	// Variable que almacena el usuario que está activo para pedirle la
 	// informaciona
@@ -77,7 +82,48 @@ public class Logic {
 		pokemonTipo = new PokemonTipoCompare();
 
 		tamSquad = app.height / 20;
+		cargaPersoUser();
+	}
 
+	public void cargaPersoUser() {
+		System.out.println("entraaa");
+		this.espal = new PImage[3];
+		this.frente = new PImage[3];
+		this.lado = new PImage[3];
+		this.otrola = new PImage[3];
+
+		lado [0] = app.loadImage("Imagenes/Personaje/lado1.png");
+		lado [1] = app.loadImage("Imagenes/Personaje/lado2.png");
+		lado [2] = app.loadImage("Imagenes/Personaje/lado3.png");		
+		
+		espal [0] = app.loadImage("Imagenes/Personaje/espalda1.png");
+		espal [1]= app.loadImage("Imagenes/Personaje/espalda2.png");
+		espal [2] = app.loadImage("Imagenes/Personaje/espalda3.png");
+		
+		frente [0] = app.loadImage("Imagenes/Personaje/frente1.png");
+		frente [1] = app.loadImage("Imagenes/Personaje/frente2.png");
+		frente [2] = app.loadImage("Imagenes/Personaje/frente3.png");
+		
+		otrola[0] = app.loadImage("Imagenes/Personaje/otrola1.png");
+		otrola[1] = app.loadImage("Imagenes/Personaje/otrola2.png");
+		otrola[2] = app.loadImage("Imagenes/Personaje/otrola3.png");
+		//System.out.println(otrola[2] + "sh");
+
+		/*for (int i = 1; i < 2; i++) {
+			espal[i] = app.loadImage("Imagenes/Personaje/espalda" + i + ".png");
+		}
+		for (int i = 1; i < frente.length; i++) {
+			frente[i] = app.loadImage("Imagenes/Personaje/frente" + i + ".png");
+		}
+		for (int i = 1; i < 3; i++) {
+			lado[i] = app.loadImage("Imagenes/Personaje/lado" + i + ".png");
+			System.out.println(lado[0]);
+
+		}
+		for (int i = 1; i < otrola.length; i++) {
+			otrola[i] = app.loadImage("Imagenes/Personaje/otrola" + i + ".png");
+			//System.out.println(otrola[2]);
+		}*/
 	}
 
 	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
@@ -101,24 +147,25 @@ public class Logic {
 				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
 			} else {
 				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
-				}
-
 			}
-			System.out.println(pokemonList.size()+"infopokemoooooooooooooooooooooooooooooon");
 
-			
+		}
+		System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
+
 	}
+
 	public void pintoprueba() {
 		for (Pokemon p : pokemonList) {
 			p.pintar();
 			p.moverPokemon(mapaJuego);
-			
+
 		}
 	}
 
 	// @ añade usuarios a la lista
-	public void registrarmetodo(String name, String contrasena) {
-		usuariosList.add(new User(app, name, contrasena));
+	public void registrarmetodo(String userName, String name) {
+		System.out.println("SISAS MANO");
+		usuariosList.add(new User(app, userName, name));
 
 		for (int i = 0; i < usuariosList.size(); i++) {
 			System.out.println(usuariosList.get(i).getNickname() + "  " + usuariosList.size());
@@ -128,41 +175,42 @@ public class Logic {
 		}
 
 	}
-	
-
 
 	// Metodo que recorre todos los usuarios para ver si existe ese usaurio y con
 	// esa contraseña y lo iguala a usaurioActivo, para seguir trabajando mediante
 	// ese
 
-	public boolean logInConfirma(String name, String contrasena) throws UserException, PasswordException {
-		//usuariosList.add(new User(app, name, contrasena));
-		
-		for (int i = 0; i < usuariosList.size(); i++) {
-			
-			if (name.equals(usuariosList.get(i).getNickname())
-					&& contrasena.equals(usuariosList.get(i).getPassword())) {
-				System.out.println("SI EXISTE");
-				return true;
-			} else {
+	/*
+	 * public boolean logInConfirma(String name, String contrasena) throws
+	 * UserException, PasswordException {
+	 * 
+	 * for (int i = 0; i < usuariosList.size(); i++) {
+	 * 
+	 * if (name.equals(usuariosList.get(i).getNickname()) &&
+	 * contrasena.equals(usuariosList.get(i).getPassword())) {
+	 * 
+	 * System.out.println("SI EXISTE"); return true;
+	 * 
+	 * } else {
+	 * 
+	 * if (!name.equals(usuariosList.get(i).getNickname()) && i >=
+	 * usuariosList.size()) {
+	 * 
+	 * throw new UserException("Usuario equivocado");
+	 * 
+	 * } else if (!contrasena.equals(usuariosList.get(i).getPassword())) { throw new
+	 * UserException("Contraseña equivocado");
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * } return false;
+	 * 
+	 * }
+	 */ // ESTE YA NO SE VA A USARRR
 
-				if (!name.equals(usuariosList.get(i).getNickname())) {
-
-					throw new UserException("Usuario equivocado");
-
-				} else if (!contrasena.equals(usuariosList.get(i).getPassword())) {
-					throw new UserException("Contraseña equivocado");
-
-				}
-
-			}
-
-		}
-		return false;
-
-	}
-
-	//@ Metodo que de ser necesaria un area sensible, retorna falso o verdadero
+	// @ Metodo que de ser necesaria un area sensible, retorna falso o verdadero
 	public boolean areaSensible(int x, int y, int tamx, int tamy) {
 		int mouseX = app.mouseX;
 		int mouseY = app.mouseY;
@@ -194,11 +242,27 @@ public class Logic {
 			break;
 		}
 	}
+	//-----Orden Pokemones-------
+	public void ordenNombrePoke() {
+		Collections.sort(pokemonList);
+	}
+	public void ordenTipo() {
+		Collections.sort(pokemonList, pokemonTipo);		
+	}
+
+	//-------Orden Usuarios---------
+	public void ordenNick() {
+		Collections.sort(usuariosList, userNick);
+	}
+	public void ordenFecha() {
+		Collections.sort(usuariosList);
+
+	}
 
 	// Metodo para ordenar la lista de usuarios va a recibir un entero para saber si
 	// será ordenamiento parcial o natural, serán botones en pantalla entonces
 	// pondre que reicba 0 y 1
-	public void sortUsers(int r) {
+	public void sortUsers(int r) { //cambiar por mousePressed
 		System.out.println("entre");
 		switch (r) {
 
@@ -236,22 +300,19 @@ public class Logic {
 			usuariosList.get(r).pintarUserOrdenados(r * 50);
 		}
 	}
-	
+
 	// Metodo usado para mover los pokemones de forma aleatoria, cada segundo para
-		// que no sea muy rapido
-		
-		public void moverPokemones() {
-			if(app.frameCount % 30 == 0) {
-				//Falta definir si tendremos una lista de los pokemones que estan dentro del juego
-				//REVISARRRRRRR
+	// que no sea muy rapido
+
+	public void moverPokemones() {
+		if (app.frameCount % 30 == 0) {
+			// Falta definir si tendremos una lista de los pokemones que estan dentro del
+			// juego
+			// REVISARRRRRRR
 			pokemonList.get(0).moverPokemon(mapaJuego);
-			}
-
-
+		}
 
 	}
-	
-	
 
 //-------------------------------------------------------------------------------------------
 
@@ -265,6 +326,10 @@ public class Logic {
 
 	public int[][] getMapaJuego() {
 		return mapaJuego;
+	}
+
+	public int getPosx() {
+		return getPosx();
 	}
 
 	public void setMapaJuego(int[][] mapaJuego) {
@@ -284,6 +349,18 @@ public class Logic {
 		// aqui pinto el usuario en cuestion
 		for (int i = 0; i < usuariosList.size(); i++) {
 			if (usuariosList.get(i) != null) {
+				
+				//falta validacion de que le undio tal flecha
+				app.image(lado[conta],usuariosList.get(i).getPosx(),usuariosList.get(i).getPosy() );
+				if(app.frameCount % 6 == 0) {
+				    
+				    conta++; 
+				    if(conta > 2){
+				        
+				        conta = 0;
+				       
+				    } 
+				}
 				usuariosList.get(i).pintar();
 				app.fill(0);
 				app.text(usuariosList.get(i).getNickname(), usuariosList.get(i).getPosx(),
@@ -294,4 +371,7 @@ public class Logic {
 		}
 	}
 
+	
+
+	
 }

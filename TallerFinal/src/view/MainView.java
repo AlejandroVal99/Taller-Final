@@ -12,7 +12,6 @@ public class MainView extends PApplet {
 	RegisterScreen regisScreen;
 	IntroScreen introScreen;
 	GameScreen gameScreen;
-	LogScreen logScreen;
 	FigthScreen fightScreen;
 	PokedexScreen pokedexScreen;
 	HistorialScreen historialScreen;
@@ -35,7 +34,6 @@ public class MainView extends PApplet {
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
 		gameScreen = new GameScreen(this);
-		logScreen = new LogScreen(this);
 		fightScreen = new FigthScreen(this);
 		pokedexScreen = new PokedexScreen(this);
 		historialScreen = new HistorialScreen(this);
@@ -43,23 +41,16 @@ public class MainView extends PApplet {
 		fightScreen.cargaFS();
 		pokedexScreen.cargaPS();
 		regisScreen.cargaImagenesRS();
-		logScreen.cargaImagenesLS();
 		gameScreen.cargaImagenesGS();
 		historialScreen.cargaHS();
 	
-		regisScreen.inputs("name", 20);
-		regisScreen.inputs("correo", 20 + 20 * 3);
+		regisScreen.inputs("name", 107);
+		regisScreen.inputs("correo", 283);
 		regisScreen.escondoInput( "name");
 		regisScreen.escondoInput( "correo");
 		
-		//-----creo los de login
-		logScreen.inputs("name", 20);
-		logScreen.inputs("correo", 20 + 20 * 3);
-		logScreen.escondoInput( "name");
-		logScreen.escondoInput( "correo");
 
 		// cargar imagenes de las clases
-			System.out.println("23423423");
 			introScreen.cargaImagenesIS();
 	
 			//regisScreen.carga3();
@@ -73,22 +64,20 @@ public class MainView extends PApplet {
 
 			background(0, 20, 0);
 			introScreen.drawIntro();
-			fill(255);
-			textSize(50);
-			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 1:// pantalla loggeo
 			background(0, 0, 255);
-			logScreen.drawLog();
-			logScreen.muestroInput(1, "name");
-			logScreen.muestroInput(1, "correo");
+			
 			break;
 		case 2: // pantalla registro
 			background(0, 200, 30);
 
 			regisScreen.drawRegister();
 			regisScreen.muestroInput(1, "name");
-			regisScreen.muestroInput(1, "correo");
+			regisScreen.muestroInput(1, "correo");		
+			fill(0);
+			textSize(30);
+			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 3: // pantalla juego
 			background(200, 20, 50);
@@ -111,6 +100,9 @@ public class MainView extends PApplet {
 		case 6://pantalla historial
 			background(20, 20, 200);
 			historialScreen.drawHisto();
+			fill(0);
+			textSize(30);
+			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 7:
 
@@ -146,24 +138,15 @@ public class MainView extends PApplet {
 		case 0:
 
 			break;
-		case 1:
-			if (key == ENTER) {
-				try {
-					logScreen.getInfo();
-				} catch (UserException | PasswordException e) {
-					
-					
-					System.out.println(e.getMessage());
-				}
-				
-			}
+		case 1: //pantalla loggeo
+	
 
 			break;
-		case 2:
-		if (key == ENTER) {
+		case 2: // pantalla registro
+		/*if (key == ENTER) {
 				regisScreen.getInfo();
 				
-			}
+			}*/
 		if(key == CODED){
 			if(keyCode == UP) {
 				
@@ -220,8 +203,9 @@ public class MainView extends PApplet {
 			break;
 		case 2:// pantalla registro
 			regisScreen.contadorRS();
-			if (mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484) {
-				screen = 1;// pasa a pantalla loggeo
+			if ((mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484) ) {
+				regisScreen.getInfo();
+				screen = 3;// pasa a pantalla loggeo
 			}
 			break;
 		case 3://pantalla juego
@@ -231,9 +215,21 @@ public class MainView extends PApplet {
 			screen = 5;
 			break;
 		case 5://pantalla pokedex
+			if(mouseX > 216 && mouseX < 316 && mouseY > 426 && mouseY < 459) {
+				pokedexScreen.ordenNombrePoke();
+			}
+			if(mouseX > 329 && mouseX < 429 && mouseY > 426 && mouseY < 459) {
+				pokedexScreen.ordenTipo();
+			}
 			screen = 6;
 			break;
 		case 6://pantalla historial
+			if(mouseX > 668 && mouseX < 760 && mouseY > 140 && mouseY < 202) {
+				historialScreen.ordenFecha();
+			}
+			if(mouseX > 668 && mouseX < 760 && mouseY > 252 && mouseY < 314) {
+				historialScreen.ordenNick();
+			}
 			screen = 3;
 			break;
 		case 7:
