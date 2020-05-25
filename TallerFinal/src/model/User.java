@@ -11,7 +11,7 @@ public class User implements Comparable<User>{
 
 	 PApplet app; 
 	 boolean toco; 
-	 String password, nickname; 
+	 String password, nickname,fecha; 
 	 Date fechadeRegistro; 
 	 SimpleDateFormat dateFormat;
 	 LinkedList<Pokemon> pokedex; 
@@ -29,51 +29,32 @@ public class User implements Comparable<User>{
 	private PImage espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 */
 
-	public User(PApplet app, String nickname, String password){
+	public User(PApplet app, String nickname, String password, String fecha){
 		
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
+		this.fecha = fecha;
 		posx = 350; 
 		posy = 400;
 		pokedex = new  LinkedList<Pokemon>(); 
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
-	/*public void cargaPersoUser() {
-		this.espal = new PImage[2];
-		this.frente = new PImage[2];
-		this.lado = new PImage[2];
-		this.otrola = new PImage[2];
-		
-		for (int i = 1; i < espal.length; i++) {
-			espal[i] = app.loadImage("Imagenes/Personaje/espalda"+i+".png");
-		}
-		for (int i = 1; i < frente.length; i++) {
-			frente[i] = app.loadImage("Imagenes/Personaje/frente"+i+".png");
-		}
-		for (int i = 1; i < lado.length; i++) {
-			lado[i] = app.loadImage("Imagenes/Personaje/lado"+i+".png");
-		}
-		for (int i = 1; i < otrola.length; i++) {
-			otrola[i] = app.loadImage("Imagenes/Personaje/otrola"+i+".png");
-		}
-	}*/
+
 	
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
 	public void pintar() {
 		app.fill(255);
 		app.ellipse(posx, posy, 20, 20);
 		
-		/*app.image(espal[conta],posx, posy);
-		if(app.frameCount % 6 == 0) {
-		    
-		    conta++; 
-		    if(conta > 2){
-		        
-		        conta = 0;
-		       
-		    } 
-		}*/
 	}
 	//Metodo hecho para pintar la informacion del los usuarios en la pantLL de historial de usuarios
 	public void pintarUserOrdenados(int posy) {

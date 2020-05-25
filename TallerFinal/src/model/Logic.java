@@ -2,8 +2,8 @@ package model;
 
 import java.util.*;
 
-import exceptions.PasswordException;
-import exceptions.UserException;
+import exceptions.NoCapturadoException;
+import exceptions.pokemonWinException;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -12,6 +12,7 @@ public class Logic {
 	// private User usuario;
 	private String infoPokemons[];
 	private String infoPokemonSal[];
+	private String infoUsuarios[];
 	private static LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
 	private static  LinkedList<Pokemon> pokemonSalList;
@@ -82,6 +83,7 @@ public class Logic {
 		this.app = app;
 		infoPokemons = app.loadStrings("../TallerFinal/Informacion/pokemones.txt");
 		infoPokemonSal = app.loadStrings("../TallerFinal/Informacion/PokemoneSal.txt");
+		infoUsuarios = app.loadStrings("../TallerFinal/Informacion/usuarios.txt");
 		usuariosList = new LinkedList<User>();
 		pokemonList = new LinkedList<Pokemon>();
 		pokemonSalList = new LinkedList<Pokemon>();
@@ -116,20 +118,8 @@ public class Logic {
 		otrola[0] = app.loadImage("Imagenes/Personaje/otrola1.png");
 		otrola[1] = app.loadImage("Imagenes/Personaje/otrola2.png");
 		otrola[2] = app.loadImage("Imagenes/Personaje/otrola3.png");
-		// System.out.println(otrola[2] + "sh");
 
-		/*
-		 * for (int i = 1; i < 2; i++) { espal[i] =
-		 * app.loadImage("Imagenes/Personaje/espalda" + i + ".png"); } for (int i = 1; i
-		 * < frente.length; i++) { frente[i] = app.loadImage("Imagenes/Personaje/frente"
-		 * + i + ".png"); } for (int i = 1; i < 3; i++) { lado[i] =
-		 * app.loadImage("Imagenes/Personaje/lado" + i + ".png");
-		 * System.out.println(lado[0]);
-		 * 
-		 * } for (int i = 1; i < otrola.length; i++) { otrola[i] =
-		 * app.loadImage("Imagenes/Personaje/otrola" + i + ".png");
-		 * //System.out.println(otrola[2]); }
-		 */
+	
 	}
 
 	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
@@ -181,6 +171,17 @@ public class Logic {
 			}
 
 		}
+		
+		//Metodo para registrar la info de los usuarios
+		
+		for(int i =0; i<infoUsuarios.length;i++) {
+			String[] datosUsu = infoUsuarios[i].split(",");
+			String nick = datosUsu[0];
+			String fecha = datosUsu[1];
+			String nombre = datosUsu[2];
+			usuariosList.add(new User(this.app, nick, fecha,nombre));
+		}
+		
 
 	}
 
@@ -199,7 +200,7 @@ public class Logic {
 	// @ añade usuarios a la lista
 	public void registrarmetodo(String userName, String name) {
 		//System.out.println("SISAS MANO");
-		usuariosList.addFirst(new User(app, userName, name));
+		usuariosList.addFirst(new User(app, userName, name,name));//ojo con la fecha
 		userActivo = usuariosList.get(0); 
 
 		for (int i = 0; i < usuariosList.size(); i++) {
@@ -350,26 +351,27 @@ public class Logic {
 		
 	}
 	//elimino al pokemon porque se escapo
-	public boolean runPokemon(boolean a, Pokemon p) {
+	public boolean runPokemon(Pokemon p) {
 		
-		if(a) {
 			pokemonSalList.remove(p); 
-			System.out.println(pokemonSalList.size());
-			return true; 
-		}
-		
-		return false; 
+			System.out.println(pokemonSalList.size() + "hablamos Social");
+			
+			return true;
 	
 		
 	}
 	
-	public boolean capturar(Pokemon p	) {
+	public boolean capturar(Pokemon p) {
 		int pCap = (int) app.random(0,101); 
+		System.out.println(userActivo.getPokedex().size() + "aloo");
+		System.out.println(contacap+ "contadorrrrrpapiiiiii");
 		if(pCap<60) {
+			System.out.println("capturaau");
 			contacap++; 
 			userActivo.getPokedex().add(p); 
 			pokemonSalList.remove(p); 
 			
+			//System.out.println(userActivo.getPokedex().size() + "aloo");
 			System.out.println(contacap+ "contadorrrrrpapiiiiii");
 			return true; 
 			
@@ -424,7 +426,7 @@ public class Logic {
 				// ANIMACION DERECHA
 				if (userActivo.isDerecha() == true) {
 					app.image(lado[conta],userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 2 == 0) {
+					if (app.frameCount % 6 == 0) {
 						conta++;
 						if (conta > 2) {
 							conta = 0;
@@ -437,7 +439,7 @@ public class Logic {
 				// ANIMACION IZQUIERDA
 				if (userActivo.isIzquierda() == true) {
 					app.image(otrola[conta], userActivo.getPosx(),userActivo.getPosy());
-					if (app.frameCount % 2 == 0) {
+					if (app.frameCount % 6 == 0) {
 						conta++;
 						if (conta > 2) {
 							conta = 0;
@@ -450,7 +452,7 @@ public class Logic {
 				// ANIMACION ARRIBA
 				if (userActivo.isArriba() == true) {
 					app.image(espal[conta], userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 2 == 0) {
+					if (app.frameCount % 6 == 0) {
 						conta++;
 						if (conta > 2) {
 							conta = 0;
@@ -463,7 +465,7 @@ public class Logic {
 				// ANIMACION ABAJO
 				if (userActivo.isAbajo() == true) {
 					app.image(frente[conta], userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 2 == 0) {
+					if (app.frameCount % 6 == 0) {
 						conta++;
 						if (conta > 2) {
 							conta = 0;

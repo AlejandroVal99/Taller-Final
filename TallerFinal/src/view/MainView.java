@@ -2,12 +2,12 @@ package view;
 
 import processing.core.PApplet;
 import controlP5.*;
-import exceptions.PasswordException;
-import exceptions.UserException;
+import exceptions.NoCapturadoException;
+import exceptions.pokemonWinException;
 
 public class MainView extends PApplet {
 
-	int screen ;
+	int screen;
 	private ControlP5 cp5;
 	RegisterScreen regisScreen;
 	IntroScreen introScreen;
@@ -25,12 +25,11 @@ public class MainView extends PApplet {
 	public void settings() {
 		size(816, 480);
 		smooth(4);
-		
 
 	}
 
 	public void setup() {
-		screen = 2; 
+		screen = 2;
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -39,26 +38,25 @@ public class MainView extends PApplet {
 		pokedexScreen = new PokedexScreen(this);
 		selPokemonScreen = new SelPokemonScreen(this);
 		historialScreen = new HistorialScreen(this);
-		
-		//--------Espacio Para Cargar Imagenes De Cada Clase--------------
+
+		// --------Espacio Para Cargar Imagenes De Cada Clase--------------
 		fightScreen.cargaFS();
 		pokedexScreen.cargaPS();
 		regisScreen.cargaImagenesRS();
 		gameScreen.cargaImagenesGS();
 		selPokemonScreen.cargaImagenesSPS();
 		historialScreen.cargaHS();
-	
+
 		regisScreen.inputs("name", 107);
 		regisScreen.inputs("correo", 283);
-		regisScreen.escondoInput( "name");
-		regisScreen.escondoInput( "correo");
-		
+		regisScreen.escondoInput("name");
+		regisScreen.escondoInput("correo");
 
 		// cargar imagenes de las clases
-			introScreen.cargaImagenesIS();
-	
-			//regisScreen.carga3();
-		
+		introScreen.cargaImagenesIS();
+
+		// regisScreen.carga3();
+
 	}
 
 	public void draw() {
@@ -78,34 +76,31 @@ public class MainView extends PApplet {
 
 			regisScreen.drawRegister();
 			regisScreen.muestroInput(1, "name");
-			regisScreen.muestroInput(1, "correo");		
+			regisScreen.muestroInput(1, "correo");
 			fill(0);
 			textSize(30);
 			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 3: // pantalla juego
 			background(200, 20, 50);
-			
+
 			gameScreen.drawGame();
 			gameScreen.finaltest();
-			regisScreen.escondoInput( "name");
-			regisScreen.escondoInput( "correo");
+			regisScreen.escondoInput("name");
+			regisScreen.escondoInput("correo");
 			screen = gameScreen.cambioPantallaChoque();
-				
-			
-			
+
 			break;
-		case 4: //pantalla pelea
+		case 4: // pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight(gameScreen.cualpokemon());
-			
-		
+
 			break;
-		case 5: //pantalla pokedex
+		case 5: // pantalla pokedex
 			background(40, 203, 0);
 			pokedexScreen.drawPokedex();
 			break;
-		case 6://pantalla historial
+		case 6:// pantalla historial
 			background(20, 20, 200);
 			historialScreen.drawHisto();
 			fill(0);
@@ -135,10 +130,10 @@ public class MainView extends PApplet {
 	}
 
 	public void keyPressed() {
-		//por motivos de pruebas me muevo entre pantallas con la b
-		if(key=='b') {
-			screen=3;
-			
+		// por motivos de pruebas me muevo entre pantallas con la b
+		if (key == 'b') {
+			screen = 3;
+
 		}
 
 		switch (screen) {
@@ -146,34 +141,27 @@ public class MainView extends PApplet {
 		case 0:
 
 			break;
-		case 1: //pantalla seleccion
-	
+		case 1: // pantalla seleccion
 
 			break;
 		case 2: // pantalla registro
-		/*if (key == ENTER) {
-				regisScreen.getInfo();
-				
-			}*/
-		if(key == CODED){
-			if(keyCode == UP) {
-				
+			/*
+			 * if (key == ENTER) { regisScreen.getInfo();
+			 * 
+			 * }
+			 */
+			if (key == CODED) {
+				if (keyCode == UP) {
+
+				}
 			}
-		}
 			break;
-		case 3://pantalla juego
-		gameScreen.mover();
+		case 3:// pantalla juego
+			gameScreen.mover();
 
 			break;
 		case 4:
-			fightScreen.testRun(key, gameScreen.cualpokemon()); 
-			if(fightScreen.testRun(key, gameScreen.cualpokemon())) {
-				screen = 3; 
-			}
-			fightScreen.testCap(key, gameScreen.cualpokemon()); 
-			if(fightScreen.testCap(key, gameScreen.cualpokemon())) {
-				screen = 3; 
-			}
+
 			break;
 		case 5:
 
@@ -214,31 +202,47 @@ public class MainView extends PApplet {
 			break;
 		case 2:// pantalla registro
 			regisScreen.contadorRS();
-			if ((mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484) ) {
+			if ((mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484)) {
 				regisScreen.getInfo();
 				screen = 3;// pasa a pantalla loggeo
 			}
 			break;
-		case 3://pantalla juego
+		case 3:// pantalla juego
 			screen = 4;
 			break;
-		case 4://pantalla pelea
-			screen = 5;
+		case 4:// pantalla pelea
+			if (mouseX > 536 && mouseX < 587 && mouseY > 413 && mouseY < 455) {
+				fightScreen.testRun(gameScreen.cualpokemon());
+				screen = 3;
+				// fightScreen.setContador1(1);
+				System.out.println("RUN");
+			}
+			if (mouseX > 661 && mouseX < 777 && mouseY > 362 && mouseY < 405) {
+				fightScreen.testCap('r', gameScreen.cualpokemon());
+				if (fightScreen.testCap('r',gameScreen.cualpokemon())) {
+					screen = 3;
+				System.out.println("CAPTUREE");
+			}
+			}
+			if(mouseX > 537 && mouseX < 608 && mouseY > 363 && mouseY < 405) {
+				fightScreen.setDos(true);
+			}
+
 			break;
-		case 5://pantalla pokedex
-			if(mouseX > 216 && mouseX < 316 && mouseY > 426 && mouseY < 459) {
+		case 5:// pantalla pokedex
+			if (mouseX > 216 && mouseX < 316 && mouseY > 426 && mouseY < 459) {
 				pokedexScreen.ordenNombrePoke();
 			}
-			if(mouseX > 329 && mouseX < 429 && mouseY > 426 && mouseY < 459) {
+			if (mouseX > 329 && mouseX < 429 && mouseY > 426 && mouseY < 459) {
 				pokedexScreen.ordenTipo();
 			}
 			screen = 6;
 			break;
-		case 6://pantalla historial
-			if(mouseX > 668 && mouseX < 760 && mouseY > 140 && mouseY < 202) {
+		case 6:// pantalla historial
+			if (mouseX > 668 && mouseX < 760 && mouseY > 140 && mouseY < 202) {
 				historialScreen.ordenFecha();
 			}
-			if(mouseX > 668 && mouseX < 760 && mouseY > 252 && mouseY < 314) {
+			if (mouseX > 668 && mouseX < 760 && mouseY > 252 && mouseY < 314) {
 				historialScreen.ordenNick();
 			}
 			screen = 3;
@@ -259,7 +263,7 @@ public class MainView extends PApplet {
 		}
 
 		System.out.println(screen);
-	    
+
 		if (screen >= 10) {
 			screen = 10;
 
@@ -277,23 +281,23 @@ public class MainView extends PApplet {
 				introScreen.setPaso(false);
 			}
 			break;
-		case 1://pantalla seleccion
-			//Torchic
+		case 1:// pantalla seleccion
+				// Torchic
 			if (mouseX > 335 && mouseX < 480 && mouseY > 25 && mouseY < 214) {
 				selPokemonScreen.setTorchi(true);
-			}else {
+			} else {
 				selPokemonScreen.setTorchi(false);
 			}
-			//Mudkip
+			// Mudkip
 			if (mouseX > 146 && mouseX < 260 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.setMud(true);
-			}else {
+			} else {
 				selPokemonScreen.setMud(false);
 			}
-			//Treecko
+			// Treecko
 			if (mouseX > 555 && mouseX < 670 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.setTree(true);
-			}else {
+			} else {
 				selPokemonScreen.setTree(false);
 			}
 			break;

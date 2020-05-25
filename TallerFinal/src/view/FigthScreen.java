@@ -9,9 +9,10 @@ public class FigthScreen {
 
 	private MainContro mainContro;
 	private PApplet app;
-	private PImage fight;
+	private PImage fight, fight2;
 	private PImage [] aniFight;
 	private int contador1;
+	private boolean dos = false;
 
 	
 	public FigthScreen(PApplet app) {
@@ -27,6 +28,7 @@ public class FigthScreen {
 		this.aniFight = new PImage[44];
 
 		this.fight = app.loadImage("Imagenes/fightScreen.jpg");
+		this.fight2 = app.loadImage("Imagenes/fightScreen2.jpg");
 		
 		for (int i = 1; i < aniFight.length; i++) {
 			aniFight[i] = app.loadImage("Imagenes/fight/fight" + " " + "(" + i + ").jpg");			
@@ -34,7 +36,7 @@ public class FigthScreen {
 	}
 	public void drawFight(Pokemon p) {
 		app.image(this.aniFight[this.contador1], 0, 0);
-		if (app.frameCount % 7 == 0) {
+		if (app.frameCount % 5 == 0) {
 			if (this.contador1 < 43) {
 				this.contador1++;
 				aniFight[contador1 - 1] = null;
@@ -45,19 +47,26 @@ public class FigthScreen {
 		if(contador1 == 43) {
 			app.image(this.fight,0,0);
 		}
+		if(dos==true) {
+			app.image(this.fight2,0,0);
+		}
 		app.text(p.getNivel(), 200, 100);
 		//
 		 if(p!=null) {
 			 p.pintar();
 			}
 	}
-	public boolean testRun(char k, Pokemon p) {
-		if(k == 'a') {
+	public void setDos(boolean dos) {
+		this.dos = dos;
+	}
+	public void setContador1(int contador1) {
+		this.contador1 = contador1;
+	}
+	public boolean testRun(Pokemon p) {
+		
 			System.out.println("matoooooooo");
-			return mainContro.runPokemon(true, p); 
+			return mainContro.runPokemon(p); 
 			
-		}
-		return false; 
 		
 		
 		

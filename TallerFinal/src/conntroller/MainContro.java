@@ -2,8 +2,8 @@ package conntroller;
 
 import java.util.LinkedList;
 
-import exceptions.PasswordException;
-import exceptions.UserException;
+import exceptions.NoCapturadoException;
+import exceptions.pokemonWinException;
 import model.Logic;
 import model.Pokemon;
 import model.User;
@@ -97,8 +97,8 @@ public class MainContro {
 		return logic.cualpokemon(); 
 	}
 	
-	public boolean runPokemon(boolean a, Pokemon p) {
-		return logic.runPokemon(a, p); 
+	public boolean runPokemon(Pokemon p) {
+		return logic.runPokemon(p); 
 	}
 	
 	public boolean capturar(Pokemon p) {

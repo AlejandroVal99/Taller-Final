@@ -33,23 +33,6 @@ public class GameScreen {
 		mainContro.cargaImaPerso();
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
 		
-		/*this.espal = new PImage[2];
-		this.frente = new PImage[2];
-		this.lado = new PImage[2];
-		this.otrola = new PImage[2];
-
-		for (int i = 1; i < espal.length; i++) {
-			espal[i] = app.loadImage("Imagenes/Personaje/espalda"+i+".png");
-		}
-		for (int i = 1; i < frente.length; i++) {
-			frente[i] = app.loadImage("Imagenes/Personaje/frente"+i+".png");
-		}
-		for (int i = 1; i < lado.length; i++) {
-			lado[i] = app.loadImage("Imagenes/Personaje/lado"+i+".png");
-		}
-		for (int i = 1; i < otrola.length; i++) {
-			otrola[i] = app.loadImage("Imagenes/Personaje/otrola"+i+".png");
-		}*/
 	
 		System.out.println(mainContro.getMapaJuego()[0][15]+"------------");
 			

@@ -1,12 +1,11 @@
 package exceptions;
 
-public class UserException extends Exception{
+public class FullPokes extends Exception {
 
-	
 	private static final long serialVersionUID = 1L;
-	
-	public UserException(String message) {
+
+	public FullPokes(String message) {
 		super(message);
-		
 	}
+
 }
