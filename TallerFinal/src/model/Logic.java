@@ -19,6 +19,7 @@ public class Logic {
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
 	private int conta;
+	private int contacap; 
 	private Pokemon tocado; 
 	
 
@@ -89,6 +90,8 @@ public class Logic {
 
 		tamSquad = app.height / 20;
 		cargaPersoUser();
+		
+		contacap = 0; 
 	}
 
 	public void cargaPersoUser() {
@@ -314,15 +317,22 @@ public class Logic {
 	// boolean
 
 	public boolean encuentroUserPoke() {
+		
 
 		for (Pokemon p : pokemonSalList) {
-			if (usuariosList.get(0).getPosx() == p.getPosx() && usuariosList.get(0).getPosx() == p.getPosx()) {
+			
 
+			if(PApplet.dist(userActivo.getPosx(), userActivo.getPosy()
+					, p.getPosx(), p.getPosy())<= 15) {
 				System.out.println(p.getTipo()+"el pokemooooonaleta");
 				tocado = p ; 
 				return true;
-
+				
 			}
+			
+			
+			
+		
 			// System.out.println("User"+ usuariosList.get(0).getPosx());
 			// System.out.println("User"+ usuariosList.get(0).getPosy());
 			// System.out.println("poke"+ p.getPosx());
@@ -338,6 +348,33 @@ public class Logic {
 		return tocado ;
 
 		
+	}
+	//elimino al pokemon porque se escapo
+	public boolean runPokemon(boolean a, Pokemon p) {
+		
+		if(a) {
+			pokemonSalList.remove(p); 
+			System.out.println(pokemonSalList.size());
+			return true; 
+		}
+		
+		return false; 
+	
+		
+	}
+	
+	public boolean capturar(Pokemon p	) {
+		int pCap = (int) app.random(0,101); 
+		if(pCap<60) {
+			contacap++; 
+			userActivo.getPokedex().add(p); 
+			pokemonSalList.remove(p); 
+			
+			System.out.println(contacap+ "contadorrrrrpapiiiiii");
+			return true; 
+			
+		}
+		return false; 
 	}
 
 //-------------------------------------------------------------------------------------------

@@ -160,14 +160,20 @@ public class MainView extends PApplet {
 				
 			}
 		}
-		
 			break;
 		case 3://pantalla juego
 		gameScreen.mover();
 
 			break;
 		case 4:
-
+			fightScreen.testRun(key, gameScreen.cualpokemon()); 
+			if(fightScreen.testRun(key, gameScreen.cualpokemon())) {
+				screen = 3; 
+			}
+			fightScreen.testCap(key, gameScreen.cualpokemon()); 
+			if(fightScreen.testCap(key, gameScreen.cualpokemon())) {
+				screen = 3; 
+			}
 			break;
 		case 5:
 

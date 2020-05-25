@@ -97,6 +97,15 @@ public class MainContro {
 		return logic.cualpokemon(); 
 	}
 	
+	public boolean runPokemon(boolean a, Pokemon p) {
+		return logic.runPokemon(a, p); 
+	}
+	
+	public boolean capturar(Pokemon p) {
+		return logic.capturar(p); 
+	}
+	
+	
 	
 	
 	

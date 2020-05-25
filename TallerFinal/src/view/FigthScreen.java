@@ -33,15 +33,11 @@ public class FigthScreen {
 		}
 	}
 	public void drawFight(Pokemon p) {
-		
-		
-		
 		app.image(this.aniFight[this.contador1], 0, 0);
 		if (app.frameCount % 7 == 0) {
 			if (this.contador1 < 43) {
 				this.contador1++;
 				aniFight[contador1 - 1] = null;
-
 			} else {
 				contador1 = 43;
 			}
@@ -49,17 +45,31 @@ public class FigthScreen {
 		if(contador1 == 43) {
 			app.image(this.fight,0,0);
 		}
-		
-		
+		app.text(p.getNivel(), 200, 100);
 		//
 		 if(p!=null) {
 			 p.pintar();
-			 
-				
 			}
-	
+	}
+	public boolean testRun(char k, Pokemon p) {
+		if(k == 'a') {
+			System.out.println("matoooooooo");
+			return mainContro.runPokemon(true, p); 
+			
+		}
+		return false; 
 		
 		
 		
 	}
+	
+	public boolean testCap(char k, Pokemon p) {
+		if(k == 'r') {
+			mainContro.capturar(p); 
+		    return true; 
+		}
+		
+		return false; 
+	}
+	
 }

@@ -36,6 +36,7 @@ public class User implements Comparable<User>{
 		this.password = password; 
 		posx = 350; 
 		posy = 400;
+		pokedex = new  LinkedList<Pokemon>(); 
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
