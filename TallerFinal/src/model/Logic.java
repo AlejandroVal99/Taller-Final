@@ -14,7 +14,7 @@ public class Logic {
 	private String infoPokemonSal[];
 	private String infoUsuarios[];
 	private static LinkedList<User> usuariosList;
-	private static LinkedList<Pokemon> pokemonList;
+	private  LinkedList<Pokemon> pokemonList;
 	private static LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
@@ -184,13 +184,13 @@ public class Logic {
 					PImage combat = app.loadImage("Imagenes/pokemonsitos/"+nombre+"b.png");
 					System.out.println(nombre);
 
-					/*if (datosPokemons[1].equals("Agua")) {
+					if (tipo.equals("Agua")) {
 						pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
-					} else if (datosPokemons[1].equals("Fuego")) {
+					} else if (tipo.equals("Fuego")) {
 						pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
 					} else {
 						pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
-					}*/
+					}
 
 				}
 		
@@ -460,6 +460,18 @@ public class Logic {
 			userActivo.moverse(key, mapaJuego);
 		}
 
+	}
+	
+	
+	
+	
+
+	public LinkedList<Pokemon> getPokemonList() {
+		return pokemonList;
+	}
+
+	public void setPokemonList(LinkedList<Pokemon> pokemonList) {
+		this.pokemonList = pokemonList;
 	}
 
 	public void pintarUsuarios() { 

@@ -18,6 +18,7 @@ public class SelPokemonScreen {
 		mainContro = new MainContro(app);
 		mainContro.crearPokemones();
 		mainContro.crearPokesal();
+		mainContro.getPokemonList(); 
 	}
 	
 	public void cargaImagenesSPS() {

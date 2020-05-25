@@ -111,6 +111,14 @@ public class MainContro {
 	public void crearPokesal() {
 		logic.crearPokeSal();
 	}
+	
+	public LinkedList<Pokemon> getPokemonList() {
+		return logic.getPokemonList();
+	}
+
+	public void setPokemonList(LinkedList<Pokemon> pokemonList) {
+		logic.setPokemonList(pokemonList);
+	}
 
 	
 	
