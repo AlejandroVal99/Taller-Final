@@ -108,6 +108,9 @@ public class MainContro {
 	public void primerPokemon(int r) {
 		logic.primerPokemon(r);
 	}
+	public void crearPokesal() {
+		logic.crearPokeSal();
+	}
 
 	
 	

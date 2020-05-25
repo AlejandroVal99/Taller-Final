@@ -29,7 +29,7 @@ public class GameScreen {
 	
 
 	public void cargaImagenesGS() {
-		mainContro.crearPokemones();
+		//mainContro.crearPokemones();
 		mainContro.cargaImaPerso();
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
 		

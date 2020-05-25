@@ -135,49 +135,22 @@ public class Logic {
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
 			int vida = Integer.parseInt(datosPokemons[8]);
-			System.out.println(nombre);
-			PImage salvaje = app.loadImage("Imagenes/Personaje/otrola1.png");
-			//PImage combate = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ "b0.png");
+			
+			PImage salvaje = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ ".png");
+			PImage combate = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ "b.png");
 
-			/*if (datosPokemons[1].equals("Agua")) {
+			if (datosPokemons[1].equals("Agua")) {
 				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
 			} else if (datosPokemons[1].equals("Fuego")) {
 				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
 			} else {
 				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
-			}*/
+			}
 
 		}
 		// System.out.println(pokemonList.size() +
 		// "infopokemoooooooooooooooooooooooooooooon");
 
-		// RecorrerTxt de pokemones Salvajes
-
-		for (int i = 0; i < infoPokemonSal.length; i++) {
-
-			String[] datosPokemons = infoPokemonSal[i].split(",");
-			String nombre = datosPokemons[0];
-			String tipo = datosPokemons[1];
-			int nivel = Integer.parseInt(datosPokemons[2]);
-			int dano1 = Integer.parseInt(datosPokemons[3]);
-			int dano2 = Integer.parseInt(datosPokemons[4]);
-			int xP = Integer.parseInt(datosPokemons[5]);
-			int posx = Integer.parseInt(datosPokemons[6]);
-			int posy = Integer.parseInt(datosPokemons[7]);
-			int vida = Integer.parseInt(datosPokemons[8]);
-			//PImage salvaje = app.loadImage("Imagenes/pokemonsitos/"+nombre+"0.png");
-			//PImage combate = app.loadImage("Imagenes/pokemonsitos/"+nombre+"b0.png");
-			System.out.println(nombre);
-
-			/*if (datosPokemons[1].equals("Agua")) {
-				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,false));
-			} else if (datosPokemons[1].equals("Fuego")) {
-				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,false));
-			} else {
-				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,false));
-			}*/
-
-		}
 
 		// Metodo para registrar la info de los usuarios
 
@@ -189,6 +162,39 @@ public class Logic {
 			usuariosList.add(new User(this.app, nick, fecha, nombre));
 		}
 
+	}
+	
+	public void crearPokeSal(){
+		
+		// RecorrerTxt de pokemones Salvajes
+
+				for (int i = 0; i < infoPokemonSal.length; i++) {
+
+					String[] datosPokemon = infoPokemonSal[i].split(",");
+					String nombre = datosPokemon[0];
+					String tipo = datosPokemon[1];
+					int nivel = Integer.parseInt(datosPokemon[2]);
+					int dano1 = Integer.parseInt(datosPokemon[3]);
+					int dano2 = Integer.parseInt(datosPokemon[4]);
+					int xP = Integer.parseInt(datosPokemon[5]);
+					int posx = Integer.parseInt(datosPokemon[6]);
+					int posy = Integer.parseInt(datosPokemon[7]);
+					int vida = Integer.parseInt(datosPokemon[8]);
+					PImage frente = app.loadImage("Imagenes/pokemonsitos/"+nombre+".png");
+					PImage combat = app.loadImage("Imagenes/pokemonsitos/"+nombre+"b.png");
+					System.out.println(nombre);
+
+					/*if (datosPokemons[1].equals("Agua")) {
+						pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
+					} else if (datosPokemons[1].equals("Fuego")) {
+						pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
+					} else {
+						pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
+					}*/
+
+				}
+		
+		
 	}
 
 	public void pintoprueba() {

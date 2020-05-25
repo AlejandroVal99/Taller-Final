@@ -25,7 +25,7 @@ public class FigthScreen {
 		turno = true;
 		mainContro = new MainContro(app);
 		this.contador1 = 1;
-		mainContro.crearPokemones();
+		//mainContro.crearPokemones();
 		falloCap = false;
 		h1 = false;
 		h2 = false;
