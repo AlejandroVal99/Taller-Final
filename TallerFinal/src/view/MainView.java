@@ -69,6 +69,8 @@ public class MainView extends PApplet {
 			break;
 		case 1:// pantalla seleccion
 			background(0, 0, 255);
+			regisScreen.escondoInput("name");
+			regisScreen.escondoInput("correo");
 			selPokemonScreen.drawSeleccion();
 			break;
 		case 2: // pantalla registro
@@ -207,19 +209,32 @@ public class MainView extends PApplet {
 			}
 			break;
 		case 1:// pantalla loggeo
-			if (mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484) {
-				screen = 3;// pasa a pantalla de juego
+		
+			//El del medio
+			if (mouseX > 335 && mouseX < 480 && mouseY > 25 && mouseY < 214) {
+				selPokemonScreen.primerPokemon(2);
+				screen = 3;// pasa a pantalla de juego -FUEGO
+			}
+			//El de la izq
+			if (mouseX > 146 && mouseX < 260 && mouseY > 9 && mouseY < 158) {
+				selPokemonScreen.primerPokemon(1);
+				screen = 3;// pasa a pantalla de juego - AGUA
+			}
+			//El de la derecha
+			if (mouseX > 555 && mouseX < 670 && mouseY > 9 && mouseY < 158) {
+				selPokemonScreen.primerPokemon(0);
+				screen = 3;// pasa a pantalla de juego - HIERBA
 			}
 			break;
 		case 2:// pantalla registro
 			regisScreen.contadorRS();
 			if ((mouseX > 678 && mouseX < 803 && mouseY > 431 && mouseY < 484)) {
 				regisScreen.getInfo();
-				screen = 3;// pasa a pantalla loggeo
+				screen = 1;// pasa a pantalla loggeo
 			}
 			break;
 		case 3:// pantalla juego
-			screen = 4;
+			
 			break;
 		case 4:// pantalla pelea
 			
@@ -240,7 +255,7 @@ public class MainView extends PApplet {
 			if (mouseX > 536 && mouseX < 587 && mouseY > 413 && mouseY < 455) {
 				fightScreen.testRun(gameScreen.cualpokemon());
 				screen = 3;
-				// fightScreen.setContador1(1);
+				fightScreen.setContador1(1);
 				System.out.println("RUN");
 			}
 			if (mouseX > 661 && mouseX < 777 && mouseY > 362 && mouseY < 405) {
@@ -252,6 +267,9 @@ public class MainView extends PApplet {
 			}
 			if(mouseX > 537 && mouseX < 608 && mouseY > 363 && mouseY < 405) {
 				fightScreen.setDos(true);
+			}else if((mouseX > 536 && mouseX < 587 && mouseY > 413 && mouseY < 455) || (mouseX > 661 && mouseX < 777 && mouseY > 362 && mouseY < 405)) {
+				fightScreen.setDos(false);
+
 			}
 
 			break;
@@ -327,6 +345,19 @@ public class MainView extends PApplet {
 				selPokemonScreen.setTree(false);
 			}
 			break;
+			
+		case 4:
+			if (mouseX > 59 && mouseX < 179 && mouseY > 368 && mouseY < 404) {
+				fightScreen.setH1(true);
+			} else {
+				fightScreen.setH1(false);			
+			}
+			if (mouseX > 305 && mouseX < 431 && mouseY > 368 && mouseY < 404) {
+				fightScreen.setH2(true);
+			} else {
+				fightScreen.setH2(false);			
+			}
+		break;
 		}
 
 	}

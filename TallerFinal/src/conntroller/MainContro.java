@@ -105,6 +105,11 @@ public class MainContro {
 		return logic.capturar(p); 
 	}
 	
+	public void primerPokemon(int r) {
+		logic.primerPokemon(r);
+	}
+
+	
 	
 	
 	

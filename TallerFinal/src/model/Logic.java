@@ -399,15 +399,15 @@ public class Logic {
 
 	public void primerPokemon(int r) {
 
-		if (r == 0) {
+		if (r == 0) {//El del medio
 			
 			userActivo.getPokedex().add(pokemonList.get(0));
 
-		} else if (r == 1){
+		} else if (r == 1){//EL de la izq
 			userActivo.getPokedex().add(pokemonList.get(1));
 			
 
-		}else if (r == 2){
+		}else if (r == 2){// El de la der
 			
 			userActivo.getPokedex().add(pokemonList.get(2));
 
@@ -450,7 +450,7 @@ public class Logic {
 
 	}
 
-	public void pintarUsuarios() {
+	public void pintarUsuarios() { 
 		// System.out.println(usuariosList.get(0).getNickname());
 
 		// aqui pinto el usuario en cuestion

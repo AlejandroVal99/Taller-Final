@@ -24,7 +24,7 @@ public class GameScreen {
 	public GameScreen(PApplet app) {
 		mainContro = new MainContro(app);
 		this.app = app;
-
+ 
 	}
 	
 

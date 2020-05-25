@@ -10,12 +10,14 @@ public class FigthScreen {
 
 	private MainContro mainContro;
 	private PApplet app;
-	private PImage fight, fight2;
+	private PImage fight, fight2, ha1, ha2;
 	private PImage[] aniFight;
 	private int contador1;
 	private boolean dos = false;
 	private boolean turno;
 	private boolean falloCap;
+	private boolean h1;
+	private boolean h2;
 
 	public FigthScreen(PApplet app) {
 
@@ -25,7 +27,8 @@ public class FigthScreen {
 		this.contador1 = 1;
 		mainContro.crearPokemones();
 		falloCap = false;
-
+		h1 = false;
+		h2 = false;
 	}
 
 	public void cargaFS() {
@@ -33,6 +36,8 @@ public class FigthScreen {
 
 		this.fight = app.loadImage("Imagenes/fightScreen.jpg");
 		this.fight2 = app.loadImage("Imagenes/fightScreen2.jpg");
+		this.ha1 = app.loadImage("Imagenes/fightScreen3.jpg");
+		this.ha2 = app.loadImage("Imagenes/fightScreen4.jpg");
 
 		for (int i = 1; i < aniFight.length; i++) {
 			aniFight[i] = app.loadImage("Imagenes/fight/fight" + " " + "(" + i + ").jpg");
@@ -44,7 +49,6 @@ public class FigthScreen {
 		if (app.frameCount % 5 == 0) {
 			if (this.contador1 < 43) {
 				this.contador1++;
-				aniFight[contador1 - 1] = null;
 			} else {
 				contador1 = 43;
 			}
@@ -54,12 +58,26 @@ public class FigthScreen {
 		}
 		if (dos == true) {
 			app.image(this.fight2, 0, 0);
+			if (h1 == true) {
+				app.image(this.ha1, 0, 0);
+			}
+			if (h2 == true) {
+				app.image(this.ha2, 0, 0);
+			}
 		}
 		app.text(p.getNivel(), 200, 100);
 		//
 		if (p != null) {
 			p.pintar();
 		}
+	}
+
+	public void setH1(boolean h1) {
+		this.h1 = h1;
+	}
+
+	public void setH2(boolean h2) {
+		this.h2 = h2;
 	}
 
 	public void setDos(boolean dos) {
@@ -75,7 +93,7 @@ public class FigthScreen {
 		if (turno) {
 
 			System.out.println("Me cague");
-			//turno = !turno;
+			// turno = !turno;
 			return mainContro.runPokemon(p);
 
 		}
@@ -85,25 +103,24 @@ public class FigthScreen {
 	}
 
 	public boolean testCap(char k, Pokemon p) {
-		
-		
+
 		if (turno) {
 
 			if (k == 'r') {
 				try {
-					
+
 					mainContro.capturar(p);
 					falloCap = false;
-					
+
 				} catch (NoCapturadoException e) {
-					
+
 					System.out.println("No capture");
 					falloCap = true;
-					//turno = !turno;
-					//return true;
+					// turno = !turno;
+					// return true;
 
 				}
-				//turno = !turno;
+				// turno = !turno;
 				return true;
 			}
 		}
@@ -118,7 +135,5 @@ public class FigthScreen {
 	public void setFalloCap(boolean falloCap) {
 		this.falloCap = falloCap;
 	}
-	
-	
 
 }

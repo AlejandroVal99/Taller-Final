@@ -16,6 +16,7 @@ public class SelPokemonScreen {
 	public SelPokemonScreen(PApplet app) {
 		this.app = app;
 		mainContro = new MainContro(app);
+		mainContro.crearPokemones();
 	}
 	
 	public void cargaImagenesSPS() {
@@ -38,6 +39,9 @@ public class SelPokemonScreen {
 		if(this.tree == true) {
 			app.image(this.sele3,0,0);
 		}
+	}
+	public void primerPokemon(int r) {
+		mainContro.primerPokemon(r);
 	}
 
 	public boolean isTree() {
