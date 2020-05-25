@@ -1,13 +1,16 @@
 package model;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	protected PApplet app;
 	protected String name, tipo;
 	protected int dano1, dano2, xp, nivel, posx, posy,vida;
+	protected PImage salvaje, combate;
+	protected boolean capturado;
 
-	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida) {
+	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida,PImage salvaje, PImage combate, boolean capturado) {
 
 		this.app = app;
 		this.name = name;
@@ -19,6 +22,9 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		this.posx = posx;
 		this.posy = posy;
 		this.vida = vida;
+		this.combate = combate;
+		this.salvaje = salvaje;
+		this.capturado = capturado;
 
 	}
 
