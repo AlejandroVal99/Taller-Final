@@ -14,11 +14,13 @@ public class Logic {
 	private String infoPokemonSal[];
 	private static LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
-	private LinkedList<Pokemon> pokemonSalList;
+	private static  LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
 	private int conta;
+	private Pokemon tocado; 
+	
 
 	// Variables de imgs animacion
 	private PImage[] espal, frente, lado, otrola;
@@ -26,7 +28,7 @@ public class Logic {
 	// Variable que almacena el usuario que está activo para pedirle la
 	// informaciona
 	// este
-	private User userActivo;
+	private static  User userActivo;
 	// Variable de tamaño de cada reacudro tamaño del liezno divido columnas
 	private int tamSquad;
 	// Variable del juego nunca va a cambiar
@@ -90,7 +92,7 @@ public class Logic {
 	}
 
 	public void cargaPersoUser() {
-		System.out.println("entraaa");
+		//System.out.println("entraaa");
 		this.espal = new PImage[3];
 		this.frente = new PImage[3];
 		this.lado = new PImage[3];
@@ -151,7 +153,7 @@ public class Logic {
 			}
 
 		}
-		System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
+		//System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
 
 		// RecorrerTxt de pokemones Salvajes
 
@@ -188,13 +190,14 @@ public class Logic {
 
 		encuentroUserPoke();
 
-		System.out.println(encuentroUserPoke() + " Me estrelle");
+		//System.out.println(encuentroUserPoke() + " Me estrelle");
 	}
 
 	// @ añade usuarios a la lista
 	public void registrarmetodo(String userName, String name) {
-		System.out.println("SISAS MANO");
-		usuariosList.add(new User(app, userName, name));
+		//System.out.println("SISAS MANO");
+		usuariosList.addFirst(new User(app, userName, name));
+		userActivo = usuariosList.get(0); 
 
 		for (int i = 0; i < usuariosList.size(); i++) {
 			System.out.println(usuariosList.get(i).getNickname() + "  " + usuariosList.size());
@@ -315,6 +318,8 @@ public class Logic {
 		for (Pokemon p : pokemonSalList) {
 			if (usuariosList.get(0).getPosx() == p.getPosx() && usuariosList.get(0).getPosx() == p.getPosx()) {
 
+				System.out.println(p.getTipo()+"el pokemooooonaleta");
+				tocado = p ; 
 				return true;
 
 			}
@@ -326,9 +331,25 @@ public class Logic {
 		return false;
 
 	}
+	
+	//este metodo conoce que pokemon ha tocado 
+	public Pokemon cualpokemon() {
+		
+		return tocado ;
+
+		
+	}
 
 //-------------------------------------------------------------------------------------------
 
+	
+	public static User getUserActivo() {
+		return userActivo;
+	}
+
+	public static void setUserActivo(User userActivo) {
+		Logic.userActivo = userActivo;
+	}
 	public LinkedList<User> getUsuariosList() {
 		return usuariosList;
 	}
@@ -351,7 +372,7 @@ public class Logic {
 
 	public void moverPerso(char key) {
 		if (usuariosList.size() != 0) {
-			usuariosList.get(0).moverse(key, mapaJuego);
+			userActivo.moverse(key, mapaJuego);
 		}
 
 	}
@@ -360,12 +381,12 @@ public class Logic {
 		// System.out.println(usuariosList.get(0).getNickname());
 
 		// aqui pinto el usuario en cuestion
-		for (int i = 0; i < usuariosList.size(); i++) {
-			if (usuariosList.get(i) != null) {
+		
+			if (userActivo != null) {
 
 				// ANIMACION DERECHA
-				if (usuariosList.get(i).isDerecha() == true) {
-					app.image(lado[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+				if (userActivo.isDerecha() == true) {
+					app.image(lado[conta],userActivo.getPosx(), userActivo.getPosy());
 					if (app.frameCount % 2 == 0) {
 						conta++;
 						if (conta > 2) {
@@ -377,8 +398,8 @@ public class Logic {
 					 * usuariosList.get(i).getPosy()); }
 					 */
 				// ANIMACION IZQUIERDA
-				if (usuariosList.get(i).isIzquierda() == true) {
-					app.image(otrola[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+				if (userActivo.isIzquierda() == true) {
+					app.image(otrola[conta], userActivo.getPosx(),userActivo.getPosy());
 					if (app.frameCount % 2 == 0) {
 						conta++;
 						if (conta > 2) {
@@ -390,8 +411,8 @@ public class Logic {
 					 * usuariosList.get(i).getPosy()); }
 					 */
 				// ANIMACION ARRIBA
-				if (usuariosList.get(i).isArriba() == true) {
-					app.image(espal[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+				if (userActivo.isArriba() == true) {
+					app.image(espal[conta], userActivo.getPosx(), userActivo.getPosy());
 					if (app.frameCount % 2 == 0) {
 						conta++;
 						if (conta > 2) {
@@ -403,8 +424,8 @@ public class Logic {
 					 * usuariosList.get(i).getPosy()); }
 					 */
 				// ANIMACION ABAJO
-				if (usuariosList.get(i).isAbajo() == true) {
-					app.image(frente[conta], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
+				if (userActivo.isAbajo() == true) {
+					app.image(frente[conta], userActivo.getPosx(), userActivo.getPosy());
 					if (app.frameCount % 2 == 0) {
 						conta++;
 						if (conta > 2) {
@@ -415,11 +436,11 @@ public class Logic {
 					app.image(frente[0], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
 				}*/
 			} 
-				usuariosList.get(i).pintar();
+				//usuariosList.get(i).pintar();
 				app.fill(0);
-				app.text(usuariosList.get(i).getNickname(), usuariosList.get(i).getPosx(),
-						usuariosList.get(i).getPosy());
-			}
+				app.text(userActivo.getNickname(), userActivo.getPosx(),
+						userActivo.getPosy());
+			
 
 		}
 	}

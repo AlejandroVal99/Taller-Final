@@ -14,7 +14,7 @@ public class Fuego extends Pokemon{
 	@Override
 	public void pintar() {
 		// TODO Auto-generated method stub
-		app.fill(200,55,30);
+		app.fill(255,0,0);
 		app.ellipse(posx, posy, 20, 20);
 		
 	}

@@ -98,7 +98,7 @@ public class User implements Comparable<User>{
 						izquierda = false;
 						abajo = false;
 						arriba = true;
-						System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ARIBA");
+						//System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ARIBA");
 					}
 					}
 		}
@@ -111,7 +111,7 @@ public class User implements Comparable<User>{
 					derecha = false;
 					izquierda = false;
 					abajo = true;
-					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ABAJO");
+					//System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + "ABAJO");
 
 				}
 					
@@ -126,7 +126,7 @@ public class User implements Comparable<User>{
 					derecha = false;
 					abajo = false;
 					izquierda = true;
-					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " IZQ");
+					//System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " IZQ");
 
 				}
 				 
@@ -142,7 +142,7 @@ public class User implements Comparable<User>{
 					arriba = false;
 					abajo = false;
 					derecha = true;
-					System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " DERE");
+					//System.out.println(derecha +" "+ izquierda +" "+abajo +" "+ arriba + " DERE");
 
 				}
 			}	

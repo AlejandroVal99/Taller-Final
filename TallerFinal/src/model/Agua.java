@@ -16,7 +16,7 @@ public class Agua extends Pokemon{
 
 	public void pintar() {
 		// TODO Auto-generated method stub
-		app.fill(55,30,200);
+		app.fill(0,0,200);
 		app.ellipse(posx, posy, 20, 20);
 		
 	}

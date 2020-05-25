@@ -97,7 +97,8 @@ public class MainView extends PApplet {
 			break;
 		case 4: //pantalla pelea
 			background(30, 20, 0);
-			fightScreen.drawFight();
+			fightScreen.drawFight(gameScreen.cualpokemon());
+			
 		
 			break;
 		case 5: //pantalla pokedex
@@ -136,7 +137,7 @@ public class MainView extends PApplet {
 	public void keyPressed() {
 		//por motivos de pruebas me muevo entre pantallas con la b
 		if(key=='b') {
-			screen=1;
+			screen=3;
 			
 		}
 

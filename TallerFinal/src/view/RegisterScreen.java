@@ -216,37 +216,6 @@ public class RegisterScreen {
 			regis13[i] = app.loadImage("Imagenes/Regis/regis13/regis13" + " " + "(" + i + ").jpg");
 		}
 	}
-	/*public void carga3() {
-		System.out.println("HOLAA");
-		for (int i = 1; i < regis5.length; i++) {
-			regis5[i] = app.loadImage("Imagenes/Regis/regis5/regis5" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis6.length; i++) {
-			regis6[i] = app.loadImage("Imagenes/Regis/regis6/regis6" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis7.length; i++) {
-			regis7[i] = app.loadImage("Imagenes/Regis/regis7/regis7" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis8.length; i++) {
-			regis8[i] = app.loadImage("Imagenes/Regis/regis8/regis8" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis9.length; i++) {
-			regis9[i] = app.loadImage("Imagenes/Regis/regis9/regis9" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis10.length; i++) {
-			regis10[i] = app.loadImage("Imagenes/Regis/regis10/regis10" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis11.length; i++) {
-			regis11[i] = app.loadImage("Imagenes/Regis/regis11/regis11" + " " + "(" + i + ").jpg");
-		}
-		for (int i = 1; i < regis12.length; i++) {
-			regis12[i] = app.loadImage("Imagenes/Regis/regis12/regis12" + " " + "(" + i + ").jpg");
-		}
-		
-		}
-
-	}*/
-
 	public int getClickRS() {
 		return clickRS;
 	}

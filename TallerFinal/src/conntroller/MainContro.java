@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import exceptions.PasswordException;
 import exceptions.UserException;
 import model.Logic;
+import model.Pokemon;
 import model.User;
 import processing.core.PApplet;
 
@@ -92,6 +93,14 @@ public class MainContro {
 	public void ordenTipo() {
 		logic.ordenTipo();
 	}
+	public Pokemon cualpokemon() {
+		return logic.cualpokemon(); 
+	}
+	
+	
+	
+	
+	
 
 	/*
 	 * public void logInConfirma(String name, String contrasena) throws

@@ -3,6 +3,7 @@ package view;
 import java.util.LinkedList;
 
 import conntroller.MainContro;
+import model.Pokemon;
 import model.User;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -124,6 +125,10 @@ public class GameScreen {
 		app.text(app.mouseX+" "+app.mouseY, app.mouseX, app.mouseY+50);
 		
 		
+		
+      
+		
+		
 	}
 	
 	
@@ -131,6 +136,10 @@ public class GameScreen {
 		mainContro.moverPerso(app.key);
 		
 	
+	}
+	
+	public Pokemon cualpokemon() {
+		return mainContro.cualpokemon(); 
 	}
 	
 	
