@@ -14,9 +14,18 @@ public class User implements Comparable<User>{
 	 String password, nickname,fecha; 
 	 Date fechadeRegistro; 
 	 SimpleDateFormat dateFormat;
+	 
 	 LinkedList<Pokemon> pokedex; 
+	 
 	 int posx,posy; 
 	 int conta;
+	 
+	 int d;
+	 int m;
+	 int a;
+	 
+	 //Variable del numero de pokebolas
+	 int npokeballs;
 
 	 //Booleans para animacion mov perso
 	 boolean arriba = false;
@@ -38,6 +47,7 @@ public class User implements Comparable<User>{
 		posx = 350; 
 		posy = 400;
 		pokedex = new  LinkedList<Pokemon>(); 
+		npokeballs = 200;
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
@@ -65,9 +75,7 @@ public class User implements Comparable<User>{
     	app.text("Fecha: " + fechadeRegistro, posx, posy+100);
 		
 	}
-	public void capturarPokemon() {
-		
-	}
+	
 	public void moverse(int k, int[][] matriz) {
 		int fila= app.width/34; 
 		int col = app.height/19; 
@@ -139,6 +147,26 @@ public class User implements Comparable<User>{
 		
 	}
 	
+
+	public int getConta() {
+		return conta;
+	}
+
+
+	public void setConta(int conta) {
+		this.conta = conta;
+	}
+
+
+	public int getNpokeballs() {
+		return npokeballs;
+	}
+
+
+	public void setNpokeballs(int npokeballs) {
+		this.npokeballs -= npokeballs;
+	}
+
 
 	private int keyIsDown(int left) {
 		// TODO Auto-generated method stub

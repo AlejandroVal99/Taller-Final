@@ -15,14 +15,13 @@ public class Logic {
 	private String infoUsuarios[];
 	private static LinkedList<User> usuariosList;
 	private LinkedList<Pokemon> pokemonList;
-	private static  LinkedList<Pokemon> pokemonSalList;
+	private static LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
 	private UserNicknameCompare userNickname;
 	private int conta;
-	private int contacap; 
-	private Pokemon tocado; 
-	
+	private int contacap;
+	private Pokemon tocado;
 
 	// Variables de imgs animacion
 	private PImage[] espal, frente, lado, otrola;
@@ -30,7 +29,7 @@ public class Logic {
 	// Variable que almacena el usuario que está activo para pedirle la
 	// informaciona
 	// este
-	private static  User userActivo;
+	private static User userActivo;
 	// Variable de tamaño de cada reacudro tamaño del liezno divido columnas
 	private int tamSquad;
 	// Variable del juego nunca va a cambiar
@@ -92,12 +91,12 @@ public class Logic {
 
 		tamSquad = app.height / 20;
 		cargaPersoUser();
-		
-		contacap = 0; 
+
+		contacap = 0;
 	}
 
 	public void cargaPersoUser() {
-		//System.out.println("entraaa");
+		// System.out.println("entraaa");
 		this.espal = new PImage[3];
 		this.frente = new PImage[3];
 		this.lado = new PImage[3];
@@ -119,7 +118,6 @@ public class Logic {
 		otrola[1] = app.loadImage("Imagenes/Personaje/otrola2.png");
 		otrola[2] = app.loadImage("Imagenes/Personaje/otrola3.png");
 
-	
 	}
 
 	// Metodo que recorre el TXT con los pokemones y crea los respectivos pokemones
@@ -136,17 +134,19 @@ public class Logic {
 			int xP = Integer.parseInt(datosPokemons[5]);
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
+			int vida = Integer.parseInt(datosPokemons[8]);
 
 			if (datosPokemons[1].equals("Agua")) {
-				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			} else if (datosPokemons[1].equals("Fuego")) {
-				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			} else {
-				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			}
 
 		}
-		//System.out.println(pokemonList.size() + "infopokemoooooooooooooooooooooooooooooon");
+		// System.out.println(pokemonList.size() +
+		// "infopokemoooooooooooooooooooooooooooooon");
 
 		// RecorrerTxt de pokemones Salvajes
 
@@ -161,27 +161,27 @@ public class Logic {
 			int xP = Integer.parseInt(datosPokemons[5]);
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
+			int vida = Integer.parseInt(datosPokemons[8]);
 
 			if (datosPokemons[1].equals("Agua")) {
-				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			} else if (datosPokemons[1].equals("Fuego")) {
-				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy,vida));
 			} else {
-				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy));
+				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy,vida));
 			}
 
 		}
-		
-		//Metodo para registrar la info de los usuarios
-		
-		for(int i =0; i<infoUsuarios.length;i++) {
+
+		// Metodo para registrar la info de los usuarios
+
+		for (int i = 0; i < infoUsuarios.length; i++) {
 			String[] datosUsu = infoUsuarios[i].split(",");
 			String nick = datosUsu[0];
 			String fecha = datosUsu[1];
 			String nombre = datosUsu[2];
-			usuariosList.add(new User(this.app, nick, fecha,nombre));
+			usuariosList.add(new User(this.app, nick, fecha, nombre));
 		}
-		
 
 	}
 
@@ -194,14 +194,14 @@ public class Logic {
 
 		encuentroUserPoke();
 
-		//System.out.println(encuentroUserPoke() + " Me estrelle");
+		// System.out.println(encuentroUserPoke() + " Me estrelle");
 	}
 
 	// @ añade usuarios a la lista
 	public void registrarmetodo(String userName, String name) {
-		//System.out.println("SISAS MANO");
-		usuariosList.addFirst(new User(app, userName, name,name));//ojo con la fecha
-		userActivo = usuariosList.get(0); 
+		// System.out.println("SISAS MANO");
+		usuariosList.addFirst(new User(app, userName, name, name));// ojo con la fecha
+		userActivo = usuariosList.get(0);
 
 		for (int i = 0; i < usuariosList.size(); i++) {
 			System.out.println(usuariosList.get(i).getNickname() + "  " + usuariosList.size());
@@ -278,7 +278,6 @@ public class Logic {
 
 	}
 
-
 	// Metodo usado para pinatr la informacion de los pokemones cuando lo pidamos en
 	// la pokedex o en general que llama al metodo usado para esto en pokemones
 	// VALORES A SUJETOS A CAMBIO
@@ -318,70 +317,92 @@ public class Logic {
 	// boolean
 
 	public boolean encuentroUserPoke() {
-		
 
 		for (Pokemon p : pokemonSalList) {
-			
 
-			if(PApplet.dist(userActivo.getPosx(), userActivo.getPosy()
-					, p.getPosx(), p.getPosy())<= 15) {
-				System.out.println(p.getTipo()+"el pokemooooonaleta");
-				tocado = p ; 
+			if (PApplet.dist(userActivo.getPosx(), userActivo.getPosy(), p.getPosx(), p.getPosy()) <= 15) {
+				//System.out.println(p.getTipo() + "el pokemooooonaleta");
+				tocado = p;
 				return true;
-				
+
 			}
-			
-			
-			
-		
-			// System.out.println("User"+ usuariosList.get(0).getPosx());
-			// System.out.println("User"+ usuariosList.get(0).getPosy());
-			// System.out.println("poke"+ p.getPosx());
-			// System.out.println("poke"+ p.getPosy());
+
 		}
 		return false;
 
 	}
-	
-	//este metodo conoce que pokemon ha tocado 
-	public Pokemon cualpokemon() {
-		
-		return tocado ;
 
-		
+	// este metodo conoce que pokemon ha tocado
+	public Pokemon cualpokemon() {
+
+		return tocado;
+
 	}
-	//elimino al pokemon porque se escapo
+
+	// elimino al pokemon porque se escapo
 	public boolean runPokemon(Pokemon p) {
+
+		pokemonSalList.remove(p);
+		System.out.println(pokemonSalList.size() + "hablamos Social");
+
+		return true;
+
+	}
+
+	public boolean capturar(Pokemon p) throws NoCapturadoException{
+		int pCap = (int) app.random(0, 101);
+		//System.out.println(userActivo.getPokedex().size() + "aloo");
+		//System.out.println(contacap + "contadorrrrrpapiiiiii");
 		
-			pokemonSalList.remove(p); 
-			System.out.println(pokemonSalList.size() + "hablamos Social");
+		if (userActivo.getNpokeballs() > 0) {
 			
-			return true;
-	
-		
+			userActivo.setNpokeballs(1);
+			
+			if (pCap < 40) {
+				System.out.println("Probalidad: "+pCap);
+				System.out.println("capturado el pokemon");
+				contacap++;
+				userActivo.getPokedex().add(p);
+				pokemonSalList.remove(p);
+
+				// System.out.println(userActivo.getPokedex().size() + "aloo");
+				//System.out.println(contacap + "contadorrrrrpapiiiiii");
+				return true;
+			}else if(pCap >40){
+				pokemonSalList.remove(p);
+				System.out.println("Fallaste cahmaco");
+				throw new NoCapturadoException("Fallaste cahmaco");
+				
+			}
+
+		}        
+		return false;
 	}
 	
-	public boolean capturar(Pokemon p) {
-		int pCap = (int) app.random(0,101); 
-		System.out.println(userActivo.getPokedex().size() + "aloo");
-		System.out.println(contacap+ "contadorrrrrpapiiiiii");
-		if(pCap<60) {
-			System.out.println("capturaau");
-			contacap++; 
-			userActivo.getPokedex().add(p); 
-			pokemonSalList.remove(p); 
+	
+	public void ataqueUser(int p,Pokemon j) {
+		
+		
+		if(p == 1) {
 			
-			//System.out.println(userActivo.getPokedex().size() + "aloo");
-			System.out.println(contacap+ "contadorrrrrpapiiiiii");
-			return true; 
+			if(j.getVida()>0) {
+				j.setVida(userActivo.getPokedex().get(0).getDano1());
+			}else {
+				
+			}
+			
+			
+																																											
+		}else if(p == 0) {
+			
+			j.setVida(userActivo.getPokedex().get(0).getDano2());
 			
 		}
-		return false; 
+		
 	}
 
 //-------------------------------------------------------------------------------------------
 
-	
 	public static User getUserActivo() {
 		return userActivo;
 	}
@@ -389,6 +410,7 @@ public class Logic {
 	public static void setUserActivo(User userActivo) {
 		Logic.userActivo = userActivo;
 	}
+
 	public LinkedList<User> getUsuariosList() {
 		return usuariosList;
 	}
@@ -420,68 +442,65 @@ public class Logic {
 		// System.out.println(usuariosList.get(0).getNickname());
 
 		// aqui pinto el usuario en cuestion
-		
-			if (userActivo != null) {
 
-				// ANIMACION DERECHA
-				if (userActivo.isDerecha() == true) {
-					app.image(lado[conta],userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 6 == 0) {
-						conta++;
-						if (conta > 2) {
-							conta = 0;
-						}
-					}
-				} /*
-					 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
-					 * usuariosList.get(i).getPosy()); }
-					 */
-				// ANIMACION IZQUIERDA
-				if (userActivo.isIzquierda() == true) {
-					app.image(otrola[conta], userActivo.getPosx(),userActivo.getPosy());
-					if (app.frameCount % 6 == 0) {
-						conta++;
-						if (conta > 2) {
-							conta = 0;
-						}
-					}
-				} /*
-					 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
-					 * usuariosList.get(i).getPosy()); }
-					 */
-				// ANIMACION ARRIBA
-				if (userActivo.isArriba() == true) {
-					app.image(espal[conta], userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 6 == 0) {
-						conta++;
-						if (conta > 2) {
-							conta = 0;
-						}
-					}
-				} /*
-					 * else{ app.image(frente[0], usuariosList.get(i).getPosx(),
-					 * usuariosList.get(i).getPosy()); }
-					 */
-				// ANIMACION ABAJO
-				if (userActivo.isAbajo() == true) {
-					app.image(frente[conta], userActivo.getPosx(), userActivo.getPosy());
-					if (app.frameCount % 6 == 0) {
-						conta++;
-						if (conta > 2) {
-							conta = 0;
-						}
-					}
-				}/*else {
-					app.image(frente[0], usuariosList.get(i).getPosx(), usuariosList.get(i).getPosy());
-				}*/
-			} 
-				//usuariosList.get(i).pintar();
-				app.fill(0);
-				app.text(userActivo.getNickname(), userActivo.getPosx(),
-						userActivo.getPosy());
-			
+		if (userActivo != null) {
 
+			// ANIMACION DERECHA
+			if (userActivo.isDerecha() == true) {
+				app.image(lado[conta], userActivo.getPosx(), userActivo.getPosy());
+				if (app.frameCount % 6 == 0) {
+					conta++;
+					if (conta > 2) {
+						conta = 0;
+					}
+				}
+			} /*
+				 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
+				 * usuariosList.get(i).getPosy()); }
+				 */
+			// ANIMACION IZQUIERDA
+			if (userActivo.isIzquierda() == true) {
+				app.image(otrola[conta], userActivo.getPosx(), userActivo.getPosy());
+				if (app.frameCount % 6 == 0) {
+					conta++;
+					if (conta > 2) {
+						conta = 0;
+					}
+				}
+			} /*
+				 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
+				 * usuariosList.get(i).getPosy()); }
+				 */
+			// ANIMACION ARRIBA
+			if (userActivo.isArriba() == true) {
+				app.image(espal[conta], userActivo.getPosx(), userActivo.getPosy());
+				if (app.frameCount % 6 == 0) {
+					conta++;
+					if (conta > 2) {
+						conta = 0;
+					}
+				}
+			} /*
+				 * else{ app.image(frente[0], usuariosList.get(i).getPosx(),
+				 * usuariosList.get(i).getPosy()); }
+				 */
+			// ANIMACION ABAJO
+			if (userActivo.isAbajo() == true) {
+				app.image(frente[conta], userActivo.getPosx(), userActivo.getPosy());
+				if (app.frameCount % 6 == 0) {
+					conta++;
+					if (conta > 2) {
+						conta = 0;
+					}
+				}
+			} /*
+				 * else { app.image(frente[0], usuariosList.get(i).getPosx(),
+				 * usuariosList.get(i).getPosy()); }
+				 */
 		}
+		// usuariosList.get(i).pintar();
+		app.fill(0);
+		app.text(userActivo.getNickname(), userActivo.getPosx(), userActivo.getPosy());
+
 	}
-
-
+}

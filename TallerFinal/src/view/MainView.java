@@ -89,11 +89,21 @@ public class MainView extends PApplet {
 			regisScreen.escondoInput("name");
 			regisScreen.escondoInput("correo");
 			screen = gameScreen.cambioPantallaChoque();
+			
+			if(fightScreen.isFalloCap()) {
+				//Pa el front
+				text("NO LO CAPTURASTE MANCO",150,100);
+				
+				
+			}
 
 			break;
 		case 4: // pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight(gameScreen.cualpokemon());
+			
+			
+			
 
 			break;
 		case 5: // pantalla pokedex
@@ -158,6 +168,7 @@ public class MainView extends PApplet {
 			break;
 		case 3:// pantalla juego
 			gameScreen.mover();
+			fightScreen.setFalloCap(false);
 
 			break;
 		case 4:
@@ -211,6 +222,21 @@ public class MainView extends PApplet {
 			screen = 4;
 			break;
 		case 4:// pantalla pelea
+			
+			
+			//Habilidad Uno
+			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404) {
+				
+			}
+			
+			//Habilidad Dos
+			if (mouseX > 305 && mouseX < 431 && mouseY > 368 && mouseY < 404) {
+				
+			}
+			
+			
+			
+			
 			if (mouseX > 536 && mouseX < 587 && mouseY > 413 && mouseY < 455) {
 				fightScreen.testRun(gameScreen.cualpokemon());
 				screen = 3;
@@ -219,7 +245,7 @@ public class MainView extends PApplet {
 			}
 			if (mouseX > 661 && mouseX < 777 && mouseY > 362 && mouseY < 405) {
 				fightScreen.testCap('r', gameScreen.cualpokemon());
-				if (fightScreen.testCap('r',gameScreen.cualpokemon())) {
+				if (fightScreen.testCap('r',gameScreen.cualpokemon()) ) {
 					screen = 3;
 				System.out.println("CAPTUREE");
 			}

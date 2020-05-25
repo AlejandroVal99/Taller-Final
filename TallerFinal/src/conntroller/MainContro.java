@@ -101,7 +101,7 @@ public class MainContro {
 		return logic.runPokemon(p); 
 	}
 	
-	public boolean capturar(Pokemon p) {
+	public boolean capturar(Pokemon p) throws NoCapturadoException {
 		return logic.capturar(p); 
 	}
 	

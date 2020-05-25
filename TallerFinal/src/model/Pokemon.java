@@ -5,9 +5,9 @@ import processing.core.PApplet;
 public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	protected PApplet app;
 	protected String name, tipo;
-	protected int dano1, dano2, xp, nivel, posx, posy;
+	protected int dano1, dano2, xp, nivel, posx, posy,vida;
 
-	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy) {
+	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida) {
 
 		this.app = app;
 		this.name = name;
@@ -18,6 +18,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		this.nivel = nivel;
 		this.posx = posx;
 		this.posy = posy;
+		this.vida = vida;
 
 	}
 
@@ -29,6 +30,14 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	}
 
 	// Metodo hecho para pintar la informacion del pokemon en la pokedex
+
+	public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida -= vida;
+	}
 
 	public void drawPokemonOrden(int posy) {
 		this.posx = 150;
@@ -111,7 +120,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	}
 
 	public int getDano1() {
-		return dano1;
+		return dano1 * nivel;
 	}
 
 	public void setDano1(int dano1) {
@@ -119,7 +128,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	}
 
 	public int getDano2() {
-		return dano2;
+		return dano2 * nivel;
 	}
 
 	public void setDano2(int dano2) {
