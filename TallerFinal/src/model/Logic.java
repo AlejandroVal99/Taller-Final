@@ -166,9 +166,9 @@ public class Logic {
 			if (datosPokemons[1].equals("Agua")) {
 				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			} else if (datosPokemons[1].equals("Fuego")) {
-				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy,vida));
+				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			} else {
-				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy,vida));
+				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida));
 			}
 
 		}
@@ -321,7 +321,7 @@ public class Logic {
 		for (Pokemon p : pokemonSalList) {
 
 			if (PApplet.dist(userActivo.getPosx(), userActivo.getPosy(), p.getPosx(), p.getPosy()) <= 15) {
-				//System.out.println(p.getTipo() + "el pokemooooonaleta");
+				// System.out.println(p.getTipo() + "el pokemooooonaleta");
 				tocado = p;
 				return true;
 
@@ -349,57 +349,70 @@ public class Logic {
 
 	}
 
-	public boolean capturar(Pokemon p) throws NoCapturadoException{
-		//System.out.println(userActivo.getPokedex().size() + "aloo");
-		//System.out.println(contacap + "contadorrrrrpapiiiiii");
-		
+	public boolean capturar(Pokemon p) throws NoCapturadoException {
+
+		// System.out.println(userActivo.getPokedex().size() + "aloo");
+		// System.out.println(contacap + "contadorrrrrpapiiiiii");
+
 		if (userActivo.getNpokeballs() > 0) {
+			int pCap = (int) app.random(0, 101);
 			userActivo.setNpokeballs(1);
-			
-			if(pCap > 40) {
+
+			if (pCap > 40) {
 				pokemonSalList.remove(p);
 				System.out.println("Fallaste cahmaco");
 				throw new NoCapturadoException("Fallaste cahmaco");
-				
-			}else{
-				System.out.println("Probalidad: "+pCap);
+
+			} else {
+				System.out.println("Probalidad: " + pCap);
 				System.out.println("capturado el pokemon");
 				contacap++;
 				userActivo.getPokedex().add(p);
-				System.out.println("Pokemones del usuario: "+ userActivo.getPokedex().size());
+				System.out.println("Pokemones del usuario: " + userActivo.getPokedex().size());
 				pokemonSalList.remove(p);
-					return true;
+				return true;
 				// System.out.println(userActivo.getPokedex().size() + "aloo");
-				//System.out.println(contacap + "contadorrrrrpapiiiiii");
-				
+				// System.out.println(contacap + "contadorrrrrpapiiiiii");
+
 			}
 
-		}        
+		}
 		return false;
 	}
-	
-	
-	public void ataqueUser(int p,Pokemon j) {
-		
-		
-		if(p == 1) {
-			
-			if(j.getVida()>0) {
+
+	public void ataqueUser(int p, Pokemon j) {
+
+		if (p == 1) {
+
+			if (j.getVida() > 0) {
 				j.setVida(userActivo.getPokedex().get(0).getDano1());
-			}else {
-				
 			}
-			
-			
-																																											
-		}else if(p == 0) {
-			
-			j.setVida(userActivo.getPokedex().get(0).getDano2());
-			
+
+		} else if (p == 0) {
+
+			if (j.getVida() > 0) {
+				j.setVida(userActivo.getPokedex().get(0).getDano2());
+			}
 		}
-		
+
 	}
 
+	public void primerPokemon(int r) {
+
+		if (r == 0) {
+			
+			userActivo.getPokedex().add(pokemonList.get(0));
+
+		} else if (r == 1){
+			userActivo.getPokedex().add(pokemonList.get(1));
+			
+
+		}else if (r == 2){
+			
+			userActivo.getPokedex().add(pokemonList.get(2));
+
+		}
+	}
 //-------------------------------------------------------------------------------------------
 
 	public static User getUserActivo() {
