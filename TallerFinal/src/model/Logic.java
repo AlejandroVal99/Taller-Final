@@ -14,7 +14,7 @@ public class Logic {
 	private String infoPokemonSal[];
 	private String infoUsuarios[];
 	private static LinkedList<User> usuariosList;
-	private LinkedList<Pokemon> pokemonList;
+	private static LinkedList<Pokemon> pokemonList;
 	private static LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
@@ -135,8 +135,9 @@ public class Logic {
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
 			int vida = Integer.parseInt(datosPokemons[8]);
+			System.out.println(nombre);
 			PImage salvaje = app.loadImage("Imagenes/Personaje/otrola1.png");
-			PImage combate = app.loadImage("Imagenes/Pokemones/"+ nombre+ "b.png");
+			//PImage combate = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ "b0.png");
 
 			/*if (datosPokemons[1].equals("Agua")) {
 				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
@@ -164,8 +165,9 @@ public class Logic {
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
 			int vida = Integer.parseInt(datosPokemons[8]);
-			PImage salvaje = app.loadImage("Imagenes/Pokemones/"+nombre+".png");
-			PImage combate = app.loadImage("Imagenes/Pokemones/"+nombre+"b.png");
+			//PImage salvaje = app.loadImage("Imagenes/pokemonsitos/"+nombre+"0.png");
+			//PImage combate = app.loadImage("Imagenes/pokemonsitos/"+nombre+"b0.png");
+			System.out.println(nombre);
 
 			/*if (datosPokemons[1].equals("Agua")) {
 				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,false));
