@@ -85,13 +85,15 @@ public class FigthScreen {
 	}
 
 	public boolean testCap(char k, Pokemon p) {
-
+		
+		
 		if (turno) {
 
 			if (k == 'r') {
 				try {
 					
 					mainContro.capturar(p);
+					falloCap = false;
 					
 				} catch (NoCapturadoException e) {
 					

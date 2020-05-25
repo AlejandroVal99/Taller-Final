@@ -350,28 +350,27 @@ public class Logic {
 	}
 
 	public boolean capturar(Pokemon p) throws NoCapturadoException{
-		int pCap = (int) app.random(0, 101);
 		//System.out.println(userActivo.getPokedex().size() + "aloo");
 		//System.out.println(contacap + "contadorrrrrpapiiiiii");
 		
 		if (userActivo.getNpokeballs() > 0) {
-			
 			userActivo.setNpokeballs(1);
 			
-			if (pCap < 40) {
+			if(pCap > 40) {
+				pokemonSalList.remove(p);
+				System.out.println("Fallaste cahmaco");
+				throw new NoCapturadoException("Fallaste cahmaco");
+				
+			}else{
 				System.out.println("Probalidad: "+pCap);
 				System.out.println("capturado el pokemon");
 				contacap++;
 				userActivo.getPokedex().add(p);
+				System.out.println("Pokemones del usuario: "+ userActivo.getPokedex().size());
 				pokemonSalList.remove(p);
-
+					return true;
 				// System.out.println(userActivo.getPokedex().size() + "aloo");
 				//System.out.println(contacap + "contadorrrrrpapiiiiii");
-				return true;
-			}else if(pCap >40){
-				pokemonSalList.remove(p);
-				System.out.println("Fallaste cahmaco");
-				throw new NoCapturadoException("Fallaste cahmaco");
 				
 			}
 
