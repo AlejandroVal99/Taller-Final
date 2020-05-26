@@ -176,6 +176,7 @@ public class MainView extends PApplet {
 
 			break;
 		case 4:
+			fightScreen.teclas(key);
 
 			break;
 		case 5:
@@ -241,9 +242,13 @@ public class MainView extends PApplet {
 		case 4:// pantalla pelea
 			
 			
+			
 			//Habilidad Uno
-			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404) {
+			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404 ) {
 				fightScreen.ataqueUser(1,gameScreen.cualpokemon() );
+				
+				fightScreen.setUltimo(millis());
+			
 				
 				
 			}
@@ -251,6 +256,9 @@ public class MainView extends PApplet {
 			//Habilidad Dos
 			if (mouseX > 305 && mouseX < 431 && mouseY > 368 && mouseY < 404) {
 				fightScreen.ataqueUser(2,gameScreen.cualpokemon() );
+				fightScreen.setUltimo(millis());
+				
+				
 			}
 			
 			
