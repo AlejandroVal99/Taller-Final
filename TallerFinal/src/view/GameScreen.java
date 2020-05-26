@@ -67,11 +67,11 @@ public class GameScreen {
 	}
 	}
 	
-	public boolean encuentroUserSound() {
+	public int encuentroUserSound() {
 		if(mainContro.encuentroUserSound()==true) {
-			return true;
+			return 4;
 		}
-		return false;
+		return 3;
 	}
 	
 	

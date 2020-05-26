@@ -485,7 +485,7 @@ public class Logic {
 	
 	
 	public void winPokemon() throws pokemonWinException{
-		System.out.println("ENTRO 1");
+		//System.out.println("ENTRO 1");
 		if(userActivo.getPokedex().get(0).getVida()<= 0) {
 			System.out.println("ENTRO 222");
 			throw new pokemonWinException("Te pelaron papi");

@@ -13,7 +13,7 @@ import exceptions.pokemonWinException;
 public class MainView extends PApplet {
 
 	int screen;
-	SoundFile soni, fight, tap, intro2,chari,blat,saur ;
+	SoundFile soni, fight2, tap, intro2,chari,blat,saur ;
 	private ControlP5 cp5;
 	private PFont font;
 	PImage noLo,mori;
@@ -39,12 +39,12 @@ public class MainView extends PApplet {
 
 	public void setup() {
 		
-		screen = 2;
+		//screen = 2;
 		ex = false;
 		noLo = loadImage("Imagenes/Exception/noLoAtra.png");
 		mori = loadImage("Imagenes/Exception/mori.png");
 		soni = new SoundFile(this,"sfx/info.wav");
-		fight= new SoundFile(this,"sfx/fight3.wav");
+		fight2= new SoundFile(this,"sfx/fight3.wav");
 		tap= new SoundFile(this,"sfx/tap2.wav");
 		intro2= new SoundFile(this,"sfx/intro4.wav");
 		chari= new SoundFile(this,"sfx/chari.wav");
@@ -217,9 +217,10 @@ public class MainView extends PApplet {
 				screen = 6;
 			}
 			gameScreen.encuentroUserSound();
-			if(gameScreen.encuentroUserSound()==true) {
-				fight.amp((float) 0.1);
-				fight.play();
+			if(gameScreen.encuentroUserSound()==4) {
+				System.out.println("entroo el sonido");
+				fight2.amp((float) 0.1);
+				fight2.play();
 			}
 
 			break;
@@ -270,7 +271,7 @@ public class MainView extends PApplet {
 				selPokemonScreen.primerPokemon(2);
 				screen = 3;// pasa a pantalla de juego -FUEGO
 				
-				chari.amp((float) 0.1);
+				chari.amp((float) 0.3);
 				chari.play();
 				soni.amp((float) 0.1);
 				soni.play();
@@ -280,7 +281,7 @@ public class MainView extends PApplet {
 				selPokemonScreen.primerPokemon(1);
 				screen = 3;// pasa a pantalla de juego - AGUA
 				
-				blat.amp((float) 0.1);
+				blat.amp((float) 0.3);
 				blat.play();
 				soni.amp((float) 0.1);
 				soni.play();
@@ -290,7 +291,7 @@ public class MainView extends PApplet {
 				selPokemonScreen.primerPokemon(0);
 				screen = 3;// pasa a pantalla de juego - HIERBA
 				
-				saur.amp((float) 0.1);
+				saur.amp((float) 0.2);
 				saur.play();
 				soni.amp((float) 0.1);
 				soni.play();
