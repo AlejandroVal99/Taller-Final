@@ -25,8 +25,8 @@ public class MainContro {
 		logic.cargaPersoUser();
 	}
 
-	public void registrarmetodo(String userName, String name) {
-		logic.registrarmetodo(userName, name);
+	public void registrarmetodo(String userName,String fecha, String name) {
+		logic.registrarmetodo(userName,fecha,name);
 
 	}
 	public void pintarUserOrden() {

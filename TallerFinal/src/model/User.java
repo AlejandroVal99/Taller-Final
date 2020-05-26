@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 public class User implements Comparable<User>{
 
 	 PApplet app; 
+	 private PFont font;
 	 boolean toco; 
 	 String password, nickname,fecha; 
 	 Date fechadeRegistro; 
@@ -38,7 +40,7 @@ public class User implements Comparable<User>{
 	private PImage espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 */
 
-	public User(PApplet app, String nickname, String password, String fecha){
+	public User(PApplet app, String nickname, String fecha, String password){
 		
 		this.app= app; 
 		this.nickname = nickname; 
@@ -48,6 +50,8 @@ public class User implements Comparable<User>{
 		posy = 400;
 		pokedex = new  LinkedList<Pokemon>(); 
 		npokeballs = 200;
+		font = app.createFont("Fuentes/Pokemon" + " " + " X" + " " + " and" + " " + " Y.tff", 20);
+
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
 		
 	}
@@ -69,10 +73,11 @@ public class User implements Comparable<User>{
 	//Metodo hecho para pintar la informacion del los usuarios en la pantLL de historial de usuarios
 	public void pintarUserOrdenados(int posy) {
 		
-		this.posx = 150;
-    	app.text(nickname, posx,posy);
-    	app.text(pokedex.size(), posx,posy+50);
-    	app.text("Fecha: " + fechadeRegistro, posx, posy+100);
+		app.textFont(font);
+		//this.posx = 78;
+    	app.text(nickname, 88,posy);
+    	app.text(password, 483,posy);
+    	app.text("Fecha: " + fechadeRegistro, 295, posy);
 		
 	}
 	

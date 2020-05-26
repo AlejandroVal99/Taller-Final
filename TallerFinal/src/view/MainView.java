@@ -1,14 +1,18 @@
 package view;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 import controlP5.*;
 import exceptions.NoCapturadoException;
 import exceptions.pokemonWinException;
+
+
 
 public class MainView extends PApplet {
 
 	int screen;
 	private ControlP5 cp5;
+	private PFont font;
 	RegisterScreen regisScreen;
 	IntroScreen introScreen;
 	GameScreen gameScreen;
@@ -29,7 +33,9 @@ public class MainView extends PApplet {
 	}
 
 	public void setup() {
+		
 		screen = 2;
+		font = createFont("Fuentes/Pokemon X and Y.tff",20);
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
 		introScreen = new IntroScreen(this);
@@ -60,6 +66,8 @@ public class MainView extends PApplet {
 	}
 
 	public void draw() {
+		textFont(font);
+		textSize(20);
 		switch (screen) {
 
 		case 0: // pantalla intro
@@ -113,6 +121,7 @@ public class MainView extends PApplet {
 		case 5: // pantalla pokedex
 			background(40, 203, 0);
 			pokedexScreen.drawPokedex();
+			
 			break;
 		case 6:// pantalla historial
 			background(20, 20, 200);
@@ -144,11 +153,6 @@ public class MainView extends PApplet {
 	}
 
 	public void keyPressed() {
-		// por motivos de pruebas me muevo entre pantallas con la b
-		if (key == 'b') {
-			screen = 3;
-
-		}
 
 		switch (screen) {
 
@@ -173,15 +177,22 @@ public class MainView extends PApplet {
 		case 3:// pantalla juego
 			gameScreen.mover();
 			fightScreen.setFalloCap(false);
+			
+			if(key == 'p') {
+				screen=5;
+			}
+			if(key == 'h') {
+				screen = 6;
+			}
 
 			break;
 		case 4:
 
 			break;
-		case 5:
+		case 5://Pantalla pokedex
 
 			break;
-		case 6:
+		case 6://Pantalla historial
 
 			break;
 		case 7:
@@ -285,7 +296,9 @@ public class MainView extends PApplet {
 			if (mouseX > 329 && mouseX < 429 && mouseY > 426 && mouseY < 459) {
 				pokedexScreen.ordenTipo();
 			}
-			screen = 6;
+			if (mouseX > 5 && mouseX < 103 && mouseY > 376 && mouseY < 410) {
+			screen = 3; //boton back
+			}
 			break;
 		case 6:// pantalla historial
 			if (mouseX > 668 && mouseX < 760 && mouseY > 140 && mouseY < 202) {
@@ -294,7 +307,10 @@ public class MainView extends PApplet {
 			if (mouseX > 668 && mouseX < 760 && mouseY > 252 && mouseY < 314) {
 				historialScreen.ordenNick();
 			}
-			screen = 3;
+			if (mouseX > 677 && mouseX < 767 && mouseY > 394 && mouseY < 424) {
+				
+				screen = 3; //boton back
+			}
 			break;
 		case 7:
 

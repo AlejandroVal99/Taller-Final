@@ -217,9 +217,9 @@ public class Logic {
 	}
 
 	// @ añade usuarios a la lista
-	public void registrarmetodo(String userName, String name) {
+	public void registrarmetodo(String userName, String name, String fecha) {
 		// System.out.println("SISAS MANO");
-		usuariosList.addFirst(new User(app, userName, name, name));// ojo con la fecha
+		usuariosList.addFirst(new User(app, userName, fecha, name));// ojo con la fecha
 		userActivo = usuariosList.get(0);
 
 		for (int i = 0; i < usuariosList.size(); i++) {
@@ -316,7 +316,7 @@ public class Logic {
 	public void pintarUserOrden() {
 		for (int r = 0; r < usuariosList.size(); r++) {
 
-			usuariosList.get(r).pintarUserOrdenados(r * 50);
+			usuariosList.get(r).pintarUserOrdenados((r * 50)+140);
 		}
 	}
 

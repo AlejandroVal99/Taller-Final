@@ -16,6 +16,8 @@ public class GameScreen {
 	private PImage [] espal, frente, lado, otrola;
 	private MainContro mainContro;
 	private boolean finalBeta;
+	private boolean pPoke;
+	private boolean pHisto;
 	
 	//esta parte de codigo es muy muy muy muy importante, este metodo
 		//recibe por parametro la lista de usuarios
@@ -27,6 +29,8 @@ public class GameScreen {
 		mainContro = new MainContro(app);
 		this.app = app;
 		finalBeta = false;
+		pPoke = false;
+		pHisto = false;
  
 	}
 	
@@ -42,18 +46,15 @@ public class GameScreen {
 		System.out.println(mainContro.getMapaJuego()[0][15]+"------------");
 			
 	}
-	public void ani() {
-		/*app.image(espal[conta],posx, posy);
-		if(app.frameCount % 6 == 0) {
-		    
-		    conta++; 
-		    if(conta > 2){
-		        
-		        conta = 0;
-		       
-		    } 
-		}*/
+	public void cambioPantallas(char r) {
+		if(r=='p') {
+			pPoke =true;
+		}
+		if(r=='h') {
+			pHisto = true;
+		}
 	}
+	
 	public int cambioPantallaChoque() {
 		if(mainContro.encuentroUserPoke() ==true) {
 			return 4;

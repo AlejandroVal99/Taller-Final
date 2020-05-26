@@ -46,18 +46,10 @@ public class RegisterScreen {
 		this.regis2 = new PImage[69];
 		this.regis3 = new PImage[61];
 		this.regis4 = new PImage[58];
-		/*this.regis5 = new PImage[97];
-		this.regis6 = new PImage[65];
-		this.regis7 = new PImage[87];
-		this.regis8 = new PImage[49];
-		this.regis9 = new PImage[57];
-		this.regis10 = new PImage[92];
-		this.regis11 = new PImage[93];
-		this.regis12 = new PImage[82];*/
 		this.regis13 = new PImage[62];
 		this.Registro = app.loadImage("Imagenes/start.jpg");
 
-		font = app.createFont("Fuentes/Pokemon" + " " + " X" + " " + " and" + " " + " Y.tff", 20);
+		font = app.createFont("Fuentes/Pokemon" + " " + " X" + " " + " and" + " " + " Y.tff",20);
 		carga2();
 
 	}
@@ -156,7 +148,7 @@ public class RegisterScreen {
 		.setPosition(299 , posy)
 		.setSize(200, 40)
 		.setFocus(true)
-		.setFont(font) //mirar bien por que no carga la fuente
+		//.setFont(font) //mirar bien por que no carga la fuente
 		.setCaptionLabel(" ")
 		.setColor(app.color(0))
 		.setColorActive(app.color(248, 248, 248))
@@ -185,8 +177,8 @@ public class RegisterScreen {
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText();
 		String name = cp5.get(Textfield.class, "correo").getText();
-
-		mainContro.registrarmetodo(userName, name);
+		String fecha = "11/02/2019";
+		mainContro.registrarmetodo(userName,name, fecha);
 	}	
 	//@
 	
