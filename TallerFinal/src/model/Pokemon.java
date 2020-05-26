@@ -54,11 +54,21 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		if(capturado) {
 			app.fill(105,217,160);
 			app.rect(590,271,(float)((vida*158)/vidaTotal),7);
+			app.fill(0);
+			app.text(name, 498, 236+20);
+			app.text(nivel, 722, 236+20);
+			
+			
+			
 			//System.out.println("valor barra: "+(vida*158)/vidaTotal);
 		}else {
 			app.image(salvaje,525 , 37);
 			app.fill(105,217,160);
 			app.rect(180,101,(float)((vida*158)/vidaTotal),7);
+			app.fill(0);
+			app.text(name, 78, 63+20);
+			app.text(nivel, 306, 63+20);
+			
 		}
 	}
 
