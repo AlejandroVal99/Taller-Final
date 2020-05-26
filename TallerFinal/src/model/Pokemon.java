@@ -73,10 +73,10 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	}
 
 	public void drawPokemonOrden(int posy) {
-		this.posx = 150;
-		app.text(name, posx, posy);
-		app.text(tipo, posx, posy + 50);
-		app.text(nivel, posx, posy + 100);
+	
+		app.text(name, 517, posy);
+		app.text(tipo, 731, posy);
+		//app.text(nivel, posx, posy);
 
 	}
 

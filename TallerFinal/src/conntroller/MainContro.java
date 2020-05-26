@@ -138,6 +138,10 @@ public class MainContro {
 		logic.ataquePokemon(r, p);
 	}
 
+	public void pintarPokeOrdenados() {
+		logic.pintarPokemonOrden();
+	}
+
 	
 	
 	

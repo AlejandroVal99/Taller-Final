@@ -2,6 +2,7 @@ package view;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.sound.SoundFile;
 import controlP5.*;
 import exceptions.NoCapturadoException;
 import exceptions.pokemonWinException;
@@ -11,6 +12,7 @@ import exceptions.pokemonWinException;
 public class MainView extends PApplet {
 
 	int screen;
+	SoundFile soni;
 	private ControlP5 cp5;
 	private PFont font;
 	RegisterScreen regisScreen;
@@ -35,6 +37,7 @@ public class MainView extends PApplet {
 	public void setup() {
 		
 		screen = 2;
+		soni = new SoundFile(this,"Imagenes/info.wav");
 		font = createFont("Fuentes/Pokemon X and Y.tff",20);
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
@@ -99,6 +102,7 @@ public class MainView extends PApplet {
 			regisScreen.escondoInput("name");
 			regisScreen.escondoInput("correo");
 			screen = gameScreen.cambioPantallaChoque();
+			
 			
 			if(fightScreen.isFalloCap()) {
 				//Pa el front
@@ -228,16 +232,22 @@ public class MainView extends PApplet {
 			if (mouseX > 335 && mouseX < 480 && mouseY > 25 && mouseY < 214) {
 				selPokemonScreen.primerPokemon(2);
 				screen = 3;// pasa a pantalla de juego -FUEGO
+				soni.amp((float) 0.1);
+				soni.play();
 			}
 			//El de la izq
 			if (mouseX > 146 && mouseX < 260 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.primerPokemon(1);
 				screen = 3;// pasa a pantalla de juego - AGUA
+				soni.amp((float) 0.1);
+				soni.play();
 			}
 			//El de la derecha
 			if (mouseX > 555 && mouseX < 670 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.primerPokemon(0);
 				screen = 3;// pasa a pantalla de juego - HIERBA
+				soni.amp((float) 0.1);
+				soni.play();
 			}
 			break;
 		case 2:// pantalla registro

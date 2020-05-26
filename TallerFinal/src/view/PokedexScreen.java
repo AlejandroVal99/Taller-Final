@@ -22,6 +22,7 @@ public class PokedexScreen {
 
 	public void drawPokedex() {
 		app.image(this.pokedex,0,0);
+		mainContro.pintarPokeOrdenados();
 	}
 
 	public void ordenNombrePoke() {

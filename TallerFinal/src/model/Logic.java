@@ -304,7 +304,7 @@ public class Logic {
 
 		for (int j = 0; j < userActivo.getPokedex().size(); j++) {
 
-			userActivo.getPokedex().get(j).drawPokemonOrden(j * 50);
+			userActivo.getPokedex().get(j).drawPokemonOrden((j * 50)+125);
 			//System.out.println(userActivo.getPokedex().get(j));
 
 		}
