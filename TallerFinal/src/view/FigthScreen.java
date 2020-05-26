@@ -19,6 +19,12 @@ public class FigthScreen {
 	private boolean h1;
 	private boolean h2;
 
+	private float ultimo;
+	private float maximo;
+	private float velx; 
+	private float enx; 
+	private boolean reinicio; 
+
 	public FigthScreen(PApplet app) {
 
 		this.app = app;
@@ -30,6 +36,12 @@ public class FigthScreen {
 		falloCap = false;
 		h1 = false;
 		h2 = false;
+		
+		  maximo = 5000;
+		  ultimo = app.millis();
+		  velx = 10; 
+		  enx += velx;
+		  reinicio = false; 
 	}
 
 	public void cargaFS() {
@@ -77,46 +89,56 @@ public class FigthScreen {
 		}
 		
 		mainContro.pintarPokemonUser();
-		
+		float pasado = app.millis() - ultimo;
+		float restante = (int)(maximo - pasado)/1000;
+
+	
 		if(!turno) {
+			
 			int r = (int)app.random(1,3);
-			mainContro.ataquePokemon(r,p);
-			turno = !turno;
+			if(restante<0) {
+				
+				mainContro.ataquePokemon(r,p);
+			    turno = !turno;
+			    restante=10;  
+			   
+			}
+			
+			
+			
 		}
+		//PRUEBO MILLLISSSSS-----------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		
+		 app. text(""+restante,50,50);
 	}
 
-	public void setH1(boolean h1) {
-		this.h1 = h1;
-	}
-
-	public void setH2(boolean h2) {
-		this.h2 = h2;
-	}
-
-	public void setDos(boolean dos) {
-		this.dos = dos;
-	}
-
-	public void setContador1(int contador1) {
-		this.contador1 = contador1;
-	}
 
 	public boolean testRun(Pokemon p) {
 
 		if (turno) {
-
+			  
 			System.out.println("Me cague");
 			turno = true;
 			return mainContro.runPokemon(p);
 
 		}
+		
 
 		return false;
 
 	}
+	
+	public void teclas (char k) {
+		
+		if(k == 'l') {
+			  ultimo = app.millis();
+		}
+		
+	}
 
 	public boolean testCap(char k, Pokemon p) {
 
+		
 		if (turno) {
 
 			if (k == 'r') {
@@ -155,6 +177,8 @@ public class FigthScreen {
 		mainContro.ataquePokemon(r, n);
 		
 	}
+	
+	//-------------------------------------
 
 	public boolean isTurno() {
 		return turno;
@@ -171,5 +195,31 @@ public class FigthScreen {
 	public void setFalloCap(boolean falloCap) {
 		this.falloCap = falloCap;
 	}
+
+	public void setH1(boolean h1) {
+		this.h1 = h1;
+	}
+
+	public void setH2(boolean h2) {
+		this.h2 = h2;
+	}
+
+	public void setDos(boolean dos) {
+		this.dos = dos;
+	}
+
+	public void setContador1(int contador1) {
+		this.contador1 = contador1;
+	}
+
+	public float getUltimo() {
+		return ultimo;
+	}
+
+	public void setUltimo(float ultimo) {
+		this.ultimo = ultimo;
+	}
+	
+	
 
 }
