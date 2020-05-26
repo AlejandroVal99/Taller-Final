@@ -43,7 +43,13 @@ public class IntroScreen {
 			app.image(this.ini2,1,0);
 		}
 		if(contador1!=522) {
-			animation(); 
+			
+			
+			try {
+				animation(); 
+			} catch (OutOfMemoryError E) {
+			   System.out.println("EFE mi SOCIAL");
+			}
 		}
 		
 	}

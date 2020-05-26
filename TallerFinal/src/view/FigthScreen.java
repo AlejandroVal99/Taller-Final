@@ -90,8 +90,7 @@ public class FigthScreen {
 				app.image(this.ha2, 0, 0);
 			}
 		}
-		app.text(p.getNivel(), 200, 100);
-
+		
 		if (p != null) {
 			p.pintarPokemon();
 			p.pintarBarra();
