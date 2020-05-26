@@ -142,13 +142,13 @@ public class Logic {
 
 			if (datosPokemons[1].equals("Agua")) {
 				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
-						combate, true));
+						combate, true, mapaJuego));
 			} else if (datosPokemons[1].equals("Fuego")) {
 				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
-						combate, true));
+						combate, true, mapaJuego));
 			} else {
 				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
-						combate, true));
+						combate, true, mapaJuego));
 			}
 
 		}
@@ -189,13 +189,13 @@ public class Logic {
 
 			if (tipo.equals("Agua")) {
 				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
-						combat, false));
+						combat, false, mapaJuego));
 			} else if (tipo.equals("Fuego")) {
 				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
-						combat, false));
+						combat, false, mapaJuego));
 			} else {
 				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
-						combat, false));
+						combat, false, mapaJuego));
 			}
 
 		}
@@ -205,8 +205,9 @@ public class Logic {
 	public void pintoprueba() {
 		for (Pokemon p : pokemonSalList) {
 			p.pintar();
-			p.moverPokemon(mapaJuego);
-			pintarPokemonOrden();
+			Thread hiloPok = new Thread (p);
+			hiloPok.start();
+			
 
 		}
 
@@ -327,7 +328,7 @@ public class Logic {
 			// Falta definir si tendremos una lista de los pokemones que estan dentro del
 			// juego
 			// REVISARRRRRRR
-			pokemonList.get(0).moverPokemon(mapaJuego);
+			//pokemonList.get(0).moverPokemon(mapaJuego);
 		}
 
 	}
@@ -467,7 +468,11 @@ public class Logic {
 	
 	
 	public void winPokemon() throws pokemonWinException{
-		
+		if(userActivo.getPokedex().get(0).getVida()<= 0) {
+			
+			throw new pokemonWinException("Te pelaron papi");
+			
+		}
 	}
 //-------------------------------------------------------------------------------------------
 

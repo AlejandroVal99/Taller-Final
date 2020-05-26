@@ -11,7 +11,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	protected boolean capturado;
 	protected int[][] mapa;
 
-	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida,PImage salvaje, PImage combate, boolean capturado) {
+	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida,PImage salvaje, PImage combate, boolean capturado, int[][] mapa) {
 
 		this.app = app;
 		this.name = name;
@@ -27,14 +27,14 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		this.combate = combate;
 		this.salvaje = salvaje;
 		this.capturado = capturado;
-		//this.mapa = mapa;
+		this.mapa = mapa;
 
 	}
 
 	// Run aqu� debido a que todos hacen lo mismo por lo tanto la podemos declarar
 	// en la padre para qeu todos lo hagan
 	public void run() {
-	
+	moverPokemon();
 
 	}
 	
@@ -82,7 +82,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 
 	// Metodo hecho para mvoer el pokemon, recibe un int y el mapa para hacer las
 	// validaciones del movimeinto. ESTE ES EL METO
-	public void moverPokemon(int[][] matriz) {
+	public void moverPokemon() {
 
 		int y = (int) app.random(0, 5);
 
@@ -95,27 +95,27 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		int col = app.height / 19;
 
 		if (y == 2 && posy - 10 > 0) {
-			if (matriz[(int) (posy - 10) / col][(int) (posx) / fila] == 2) {
+			if (mapa[(int) (posy - 10) / col][(int) (posx) / fila] == 2) {
 				posy -= 10;
 			}
 		}
 
 		if (y == 1 && posy + 10 < app.height) {
-			if (matriz[(int) (posy + 10) / col][(int) (posx) / fila] == 2) {
+			if (mapa[(int) (posy + 10) / col][(int) (posx) / fila] == 2) {
 				posy += 10;
 			}
 
 		}
 
 		if (y == 4) {
-			if (matriz[(int) (posy) / col][(int) (posx - 10) / fila] == 2) {
+			if (mapa[(int) (posy) / col][(int) (posx - 10) / fila] == 2) {
 				posx -= 10;
 			}
 
 		}
 
 		if (y == 3) {
-			if (matriz[(int) (posy) / col][(int) (posx + 10) / fila] == 2) {
+			if (mapa[(int) (posy) / col][(int) (posx + 10) / fila] == 2) {
 				posx += 10;
 			}
 
