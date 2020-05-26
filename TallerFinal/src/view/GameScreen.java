@@ -3,6 +3,7 @@ package view;
 import java.util.LinkedList;
 
 import conntroller.MainContro;
+import exceptions.FullPokes;
 import model.Pokemon;
 import model.User;
 import processing.core.PApplet;
@@ -14,6 +15,7 @@ public class GameScreen {
 	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 	private PImage [] espal, frente, lado, otrola;
 	private MainContro mainContro;
+	private boolean finalBeta;
 	
 	//esta parte de codigo es muy muy muy muy importante, este metodo
 		//recibe por parametro la lista de usuarios
@@ -24,12 +26,15 @@ public class GameScreen {
 	public GameScreen(PApplet app) {
 		mainContro = new MainContro(app);
 		this.app = app;
+		finalBeta = false;
  
 	}
 	
 
 	public void cargaImagenesGS() {
-		//mainContro.crearPokemones();
+		mainContro.crearPokemones();
+		mainContro.crearPokesal();
+		
 		mainContro.cargaImaPerso();
 		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
 		
@@ -107,6 +112,10 @@ public class GameScreen {
 		int fila= app.width/34; 
 		app.text(app.mouseX+" "+app.mouseY, app.mouseX, app.mouseY+50);
 		
+		if(finalBeta) {
+			
+			app.text("Final del juego, nos vemos en prodigos",150,200);
+		}
 		
 		
       
@@ -116,6 +125,13 @@ public class GameScreen {
 	
 	
 	public void mover() {
+		try {
+			mainContro.fullPokes();
+		} catch (FullPokes e) {
+			// TODO Auto-generated catch block
+			
+			finalBeta = true;
+		}
 		mainContro.moverPerso(app.key);
 		
 	

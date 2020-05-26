@@ -25,7 +25,8 @@ public class FigthScreen {
 		turno = true;
 		mainContro = new MainContro(app);
 		this.contador1 = 1;
-		//mainContro.crearPokemones();
+		mainContro.crearPokemones();
+		mainContro.crearPokesal();
 		falloCap = false;
 		h1 = false;
 		h2 = false;
@@ -46,6 +47,9 @@ public class FigthScreen {
 
 	public void drawFight(Pokemon p) {
 		app.image(this.aniFight[this.contador1], 0, 0);
+		
+		
+		
 		if (app.frameCount % 5 == 0) {
 			if (this.contador1 < 43) {
 				this.contador1++;
@@ -66,10 +70,13 @@ public class FigthScreen {
 			}
 		}
 		app.text(p.getNivel(), 200, 100);
-		//
+		
 		if (p != null) {
-			p.pintar();
+			p.pintarPokemon();
+			p.pintarBarra();
 		}
+		
+		mainContro.pintarPokemonUser();
 	}
 
 	public void setH1(boolean h1) {
@@ -126,6 +133,16 @@ public class FigthScreen {
 		}
 
 		return false;
+	}
+	
+	public void ataqueUser(int r, Pokemon p) {
+		
+		if(turno) {
+			mainContro.ataqueDelUser(r, p);
+			turno = !turno;
+		}
+		
+		
 	}
 
 	public boolean isFalloCap() {

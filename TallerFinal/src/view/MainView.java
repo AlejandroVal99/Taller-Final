@@ -241,12 +241,12 @@ public class MainView extends PApplet {
 			
 			//Habilidad Uno
 			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404) {
-				
+				fightScreen.ataqueUser(1,gameScreen.cualpokemon() );
 			}
 			
 			//Habilidad Dos
 			if (mouseX > 305 && mouseX < 431 && mouseY > 368 && mouseY < 404) {
-				
+				fightScreen.ataqueUser(2,gameScreen.cualpokemon() );
 			}
 			
 			
@@ -262,6 +262,7 @@ public class MainView extends PApplet {
 				fightScreen.testCap('r', gameScreen.cualpokemon());
 				if (fightScreen.testCap('r',gameScreen.cualpokemon()) ) {
 					screen = 3;
+					fightScreen.setContador1(1);
 				System.out.println("CAPTUREE");
 			}
 			}

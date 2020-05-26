@@ -6,7 +6,7 @@ import processing.core.PImage;
 public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	protected PApplet app;
 	protected String name, tipo;
-	protected int dano1, dano2, xp, nivel, posx, posy,vida;
+	protected int dano1, dano2, xp, nivel, posx, posy,vida,vidaTotal;
 	protected PImage salvaje, combate;
 	protected boolean capturado;
 
@@ -22,6 +22,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		this.posx = posx;
 		this.posy = posy;
 		this.vida = vida;
+		vidaTotal=vida;
 		this.combate = combate;
 		this.salvaje = salvaje;
 		this.capturado = capturado;
@@ -33,6 +34,30 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	public void run() {
 	
 
+	}
+	
+	//Metodo para pintar los pokemones
+	
+	public void pintarPokemon() {
+		if(capturado) {
+			app.image(combate,141 , 177);
+		}else {
+			app.image(salvaje,525 , 37);
+		}
+		
+	}
+	
+	public void pintarBarra() {
+		
+		if(capturado) {
+			app.fill(105,217,160);
+			app.rect(590,271,(float)((vida*158)/vidaTotal),7);
+			//System.out.println("valor barra: "+(vida*158)/vidaTotal);
+		}else {
+			app.image(salvaje,525 , 37);
+			app.fill(105,217,160);
+			app.rect(180,101,(float)((vida*158)/vidaTotal),7);
+		}
 	}
 
 	// Metodo hecho para pintar la informacion del pokemon en la pokedex

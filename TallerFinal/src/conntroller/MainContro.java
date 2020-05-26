@@ -2,6 +2,7 @@ package conntroller;
 
 import java.util.LinkedList;
 
+import exceptions.FullPokes;
 import exceptions.NoCapturadoException;
 import exceptions.pokemonWinException;
 import model.Logic;
@@ -118,6 +119,19 @@ public class MainContro {
 
 	public void setPokemonList(LinkedList<Pokemon> pokemonList) {
 		logic.setPokemonList(pokemonList);
+	}
+
+	public void fullPokes() throws FullPokes {
+		
+		logic.finalBeta();
+		
+		
+	}
+	public void pintarPokemonUser() {
+		logic.pintarPokUser();
+	}
+	public void ataqueDelUser(int t,Pokemon p) {
+		logic.ataqueUser(t,p);
 	}
 
 	

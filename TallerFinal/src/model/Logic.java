@@ -2,6 +2,7 @@ package model;
 
 import java.util.*;
 
+import exceptions.FullPokes;
 import exceptions.NoCapturadoException;
 import exceptions.pokemonWinException;
 import processing.core.PApplet;
@@ -14,7 +15,7 @@ public class Logic {
 	private String infoPokemonSal[];
 	private String infoUsuarios[];
 	private static LinkedList<User> usuariosList;
-	private  LinkedList<Pokemon> pokemonList;
+	private LinkedList<Pokemon> pokemonList;
 	private static LinkedList<Pokemon> pokemonSalList;
 	private UserNicknameCompare userNick;
 	private PokemonTipoCompare pokemonTipo;
@@ -128,29 +129,31 @@ public class Logic {
 			String[] datosPokemons = infoPokemons[i].split(",");
 			String nombre = datosPokemons[0];
 			String tipo = datosPokemons[1];
-			int nivel = Integer.parseInt(datosPokemons[2]);
-			int dano1 = Integer.parseInt(datosPokemons[3]);
-			int dano2 = Integer.parseInt(datosPokemons[4]);
-			int xP = Integer.parseInt(datosPokemons[5]);
+			int dano1 = Integer.parseInt(datosPokemons[2]);
+			int dano2 = Integer.parseInt(datosPokemons[3]);
+			int xP = Integer.parseInt(datosPokemons[4]);
+			int nivel = Integer.parseInt(datosPokemons[5]);
 			int posx = Integer.parseInt(datosPokemons[6]);
 			int posy = Integer.parseInt(datosPokemons[7]);
 			int vida = Integer.parseInt(datosPokemons[8]);
-			
-			PImage salvaje = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ ".png");
-			PImage combate = app.loadImage("Imagenes/pokemonsitos/"+ nombre+ "b.png");
+
+			PImage salvaje = app.loadImage("Imagenes/pokemonsitos/" + nombre + ".png");
+			PImage combate = app.loadImage("Imagenes/pokemonsitos/" + nombre + "b.png");
 
 			if (datosPokemons[1].equals("Agua")) {
-				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
+				pokemonList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
+						combate, true));
 			} else if (datosPokemons[1].equals("Fuego")) {
-				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
+				pokemonList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
+						combate, true));
 			} else {
-				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje, combate,true));
+				pokemonList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, salvaje,
+						combate, true));
 			}
 
 		}
 		// System.out.println(pokemonList.size() +
 		// "infopokemoooooooooooooooooooooooooooooon");
-
 
 		// Metodo para registrar la info de los usuarios
 
@@ -163,38 +166,40 @@ public class Logic {
 		}
 
 	}
-	
-	public void crearPokeSal(){
-		
+
+	public void crearPokeSal() {
+
 		// RecorrerTxt de pokemones Salvajes
 
-				for (int i = 0; i < infoPokemonSal.length; i++) {
+		for (int i = 0; i < infoPokemonSal.length; i++) {
 
-					String[] datosPokemon = infoPokemonSal[i].split(",");
-					String nombre = datosPokemon[0];
-					String tipo = datosPokemon[1];
-					int nivel = Integer.parseInt(datosPokemon[2]);
-					int dano1 = Integer.parseInt(datosPokemon[3]);
-					int dano2 = Integer.parseInt(datosPokemon[4]);
-					int xP = Integer.parseInt(datosPokemon[5]);
-					int posx = Integer.parseInt(datosPokemon[6]);
-					int posy = Integer.parseInt(datosPokemon[7]);
-					int vida = Integer.parseInt(datosPokemon[8]);
-					PImage frente = app.loadImage("Imagenes/pokemonsitos/"+nombre+".png");
-					PImage combat = app.loadImage("Imagenes/pokemonsitos/"+nombre+"b.png");
-					System.out.println(nombre);
+			String[] datosPokemon = infoPokemonSal[i].split(",");
+			String nombre = datosPokemon[0];
+			String tipo = datosPokemon[1];
+			int dano1 = Integer.parseInt(datosPokemon[2]);
+			int dano2 = Integer.parseInt(datosPokemon[3]);
+			int xP = Integer.parseInt(datosPokemon[4]);
+			int nivel = Integer.parseInt(datosPokemon[5]);
+			int posx = Integer.parseInt(datosPokemon[6]);
+			int posy = Integer.parseInt(datosPokemon[7]);
+			int vida = Integer.parseInt(datosPokemon[8]);
+			PImage frente = app.loadImage("Imagenes/pokemonsitos/" + nombre + ".png");
+			PImage combat = app.loadImage("Imagenes/pokemonsitos/" + nombre + "b.png");
+			System.out.println(nombre);
 
-					if (tipo.equals("Agua")) {
-						pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
-					} else if (tipo.equals("Fuego")) {
-						pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
-					} else {
-						pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente, combat,false));
-					}
+			if (tipo.equals("Agua")) {
+				pokemonSalList.add(new Agua(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
+						combat, false));
+			} else if (tipo.equals("Fuego")) {
+				pokemonSalList.add(new Fuego(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
+						combat, false));
+			} else {
+				pokemonSalList.add(new Hierva(nombre, tipo, this.app, dano1, dano2, xP, nivel, posx, posy, vida, frente,
+						combat, false));
+			}
 
-				}
-		
-		
+		}
+
 	}
 
 	public void pintoprueba() {
@@ -370,7 +375,7 @@ public class Logic {
 			int pCap = (int) app.random(0, 101);
 			userActivo.setNpokeballs(1);
 
-			if (pCap > 40) {
+			if (pCap > 20) {
 				pokemonSalList.remove(p);
 				System.out.println("Fallaste cahmaco");
 				throw new NoCapturadoException("Fallaste cahmaco");
@@ -398,29 +403,39 @@ public class Logic {
 
 			if (j.getVida() > 0) {
 				j.setVida(userActivo.getPokedex().get(0).getDano1());
+				System.out.println(userActivo.getPokedex().get(0).getNivel());
+				System.out.println(userActivo.getPokedex().get(0).getDano1());
+				System.out.println("Vida del pokemon: " + j.getVida());
+				
 			}
 
-		} else if (p == 0) {
+		} else if (p == 2) {
 
 			if (j.getVida() > 0) {
 				j.setVida(userActivo.getPokedex().get(0).getDano2());
+				System.out.println(userActivo.getPokedex().get(0).getDano2());
+				System.out.println("Vida del pokemon: " + j.getVida());
 			}
 		}
 
 	}
 
+	public void pintarPokUser() {
+		userActivo.getPokedex().get(0).pintarPokemon();
+		userActivo.getPokedex().get(0).pintarBarra();
+	}
+
 	public void primerPokemon(int r) {
 
-		if (r == 0) {//El del medio
-			
+		if (r == 0) {// El del medio
+
 			userActivo.getPokedex().add(pokemonList.get(0));
 
-		} else if (r == 1){//EL de la izq
+		} else if (r == 1) {// EL de la izq
 			userActivo.getPokedex().add(pokemonList.get(1));
-			
 
-		}else if (r == 2){// El de la der
-			
+		} else if (r == 2) {// El de la der
+
 			userActivo.getPokedex().add(pokemonList.get(2));
 
 		}
@@ -461,10 +476,16 @@ public class Logic {
 		}
 
 	}
-	
-	
-	
-	
+
+	public void finalBeta() throws FullPokes {
+
+		if (pokemonSalList.size() == 0) {
+
+			throw new FullPokes("En prodigos para ver el juego completo");
+
+		}
+
+	}
 
 	public LinkedList<Pokemon> getPokemonList() {
 		return pokemonList;
@@ -474,7 +495,7 @@ public class Logic {
 		this.pokemonList = pokemonList;
 	}
 
-	public void pintarUsuarios() { 
+	public void pintarUsuarios() {
 		// System.out.println(usuariosList.get(0).getNickname());
 
 		// aqui pinto el usuario en cuestion
