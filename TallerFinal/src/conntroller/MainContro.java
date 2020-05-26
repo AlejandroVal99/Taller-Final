@@ -137,6 +137,9 @@ public class MainContro {
 	public void ataquePokemon(int r,Pokemon p) {
 		logic.ataquePokemon(r, p);
 	}
+	public boolean ganePelea(Pokemon p) {
+		return logic.ganePelea(p); 
+	}
 
 	
 	

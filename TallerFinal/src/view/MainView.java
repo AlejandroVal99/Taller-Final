@@ -111,7 +111,9 @@ public class MainView extends PApplet {
 		case 4: // pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight(gameScreen.cualpokemon());
-			
+			if(fightScreen.isPaso()) {
+				screen= 3; 
+			}
 			
 			
 			
@@ -188,6 +190,7 @@ public class MainView extends PApplet {
 			break;
 		case 4:
 			fightScreen.teclas(key);
+			
 
 			break;
 		case 5://Pantalla pokedex

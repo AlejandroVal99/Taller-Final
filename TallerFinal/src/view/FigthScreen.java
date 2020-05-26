@@ -18,6 +18,7 @@ public class FigthScreen {
 	private boolean falloCap;
 	private boolean h1;
 	private boolean h2;
+	private boolean paso; 
 
 	private float ultimo;
 	private float maximo;
@@ -58,6 +59,12 @@ public class FigthScreen {
 	}
 
 	public void drawFight(Pokemon p) {
+		mainContro.ganePelea(p);
+		paso = mainContro.ganePelea(p);
+		
+		if(mainContro.ganePelea(p)) {
+			System.out.println("saquenmeee");
+		}
 		app.image(this.aniFight[this.contador1], 0, 0);
 		
 		
@@ -92,6 +99,7 @@ public class FigthScreen {
 		float pasado = app.millis() - ultimo;
 		float restante = (int)(maximo - pasado)/1000;
 
+		
 	
 		if(!turno) {
 			
@@ -219,6 +227,16 @@ public class FigthScreen {
 	public void setUltimo(float ultimo) {
 		this.ultimo = ultimo;
 	}
+
+	public boolean isPaso() {
+		return paso;
+	}
+
+	public void setPaso(boolean paso) {
+		this.paso = paso;
+	}
+	
+
 	
 	
 
