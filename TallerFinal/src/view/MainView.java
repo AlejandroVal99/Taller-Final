@@ -106,6 +106,8 @@ public class MainView extends PApplet {
 			
 			
 			
+			
+			
 
 			break;
 		case 5: // pantalla pokedex
@@ -242,6 +244,8 @@ public class MainView extends PApplet {
 			//Habilidad Uno
 			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404) {
 				fightScreen.ataqueUser(1,gameScreen.cualpokemon() );
+				
+				
 			}
 			
 			//Habilidad Dos
@@ -259,7 +263,7 @@ public class MainView extends PApplet {
 				System.out.println("RUN");
 			}
 			if (mouseX > 661 && mouseX < 777 && mouseY > 362 && mouseY < 405) {
-				fightScreen.testCap('r', gameScreen.cualpokemon());
+				//fightScreen.testCap('r', gameScreen.cualpokemon());
 				if (fightScreen.testCap('r',gameScreen.cualpokemon()) ) {
 					screen = 3;
 					fightScreen.setContador1(1);

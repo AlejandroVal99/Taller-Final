@@ -133,6 +133,10 @@ public class MainContro {
 	public void ataqueDelUser(int t,Pokemon p) {
 		logic.ataqueUser(t,p);
 	}
+	
+	public void ataquePokemon(int r,Pokemon p) {
+		logic.ataquePokemon(r, p);
+	}
 
 	
 	

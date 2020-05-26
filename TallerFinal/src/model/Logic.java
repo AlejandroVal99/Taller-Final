@@ -206,6 +206,7 @@ public class Logic {
 		for (Pokemon p : pokemonSalList) {
 			p.pintar();
 			p.moverPokemon(mapaJuego);
+			pintarPokemonOrden();
 
 		}
 
@@ -300,10 +301,11 @@ public class Logic {
 	// VALORES A SUJETOS A CAMBIO
 	public void pintarPokemonOrden() {
 
-		for (int j = 0; j < pokemonList.size(); j++) {
+		for (int j = 0; j < userActivo.getPokedex().size(); j++) {
 
-			pokemonList.get(j).drawPokemonOrden(j * 50);
-			;
+			userActivo.getPokedex().get(j).drawPokemonOrden(j * 50);
+			//System.out.println(userActivo.getPokedex().get(j));
+
 		}
 	}
 
@@ -368,14 +370,14 @@ public class Logic {
 
 	public boolean capturar(Pokemon p) throws NoCapturadoException {
 
-		// System.out.println(userActivo.getPokedex().size() + "aloo");
-		// System.out.println(contacap + "contadorrrrrpapiiiiii");
+		
+		System.out.println("ME LANZO UNA VEZ");
 
 		if (userActivo.getNpokeballs() > 0) {
 			int pCap = (int) app.random(0, 101);
 			userActivo.setNpokeballs(1);
 
-			if (pCap > 20) {
+			if (pCap > 60) {
 				pokemonSalList.remove(p);
 				System.out.println("Fallaste cahmaco");
 				throw new NoCapturadoException("Fallaste cahmaco");
@@ -403,21 +405,43 @@ public class Logic {
 
 			if (j.getVida() > 0) {
 				j.setVida(userActivo.getPokedex().get(0).getDano1());
-				System.out.println(userActivo.getPokedex().get(0).getNivel());
-				System.out.println(userActivo.getPokedex().get(0).getDano1());
-				System.out.println("Vida del pokemon: " + j.getVida());
-				
+				// System.out.println(userActivo.getPokedex().get(0).getNivel());
+				// System.out.println(userActivo.getPokedex().get(0).getDano1());
+				// System.out.println("Vida del pokemon: " + j.getVida());
+
 			}
 
 		} else if (p == 2) {
 
 			if (j.getVida() > 0) {
 				j.setVida(userActivo.getPokedex().get(0).getDano2());
-				System.out.println(userActivo.getPokedex().get(0).getDano2());
-				System.out.println("Vida del pokemon: " + j.getVida());
+				// System.out.println(userActivo.getPokedex().get(0).getDano2());
+				// System.out.println("Vida del pokemon: " + j.getVida());
 			}
 		}
 
+	}
+
+	public void ataquePokemon(int r, Pokemon p) {
+
+		if (r == 1) {
+
+			if (userActivo.getPokedex().get(0).getVida() > 0) {
+				userActivo.getPokedex().get(0).setVida(p.getDano1());
+				// System.out.println(userActivo.getPokedex().get(0).getNivel());
+				// System.out.println(userActivo.getPokedex().get(0).getDano1());
+				// System.out.println("Vida del pokemon: " + j.getVida());
+
+			}
+
+		} else if (r == 2) {
+
+			if (userActivo.getPokedex().get(0).getVida() > 0) {
+				userActivo.getPokedex().get(0).setVida(p.getDano2());
+				// System.out.println(userActivo.getPokedex().get(0).getDano2());
+				// System.out.println("Vida del pokemon: " + j.getVida());
+			}
+		}
 	}
 
 	public void pintarPokUser() {
@@ -439,6 +463,11 @@ public class Logic {
 			userActivo.getPokedex().add(pokemonList.get(2));
 
 		}
+	}
+	
+	
+	public void winPokemon() throws pokemonWinException{
+		
 	}
 //-------------------------------------------------------------------------------------------
 

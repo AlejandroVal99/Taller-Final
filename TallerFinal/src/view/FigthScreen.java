@@ -77,6 +77,12 @@ public class FigthScreen {
 		}
 		
 		mainContro.pintarPokemonUser();
+		
+		if(!turno) {
+			int r = (int)app.random(1,3);
+			mainContro.ataquePokemon(r,p);
+			turno = !turno;
+		}
 	}
 
 	public void setH1(boolean h1) {
@@ -100,7 +106,7 @@ public class FigthScreen {
 		if (turno) {
 
 			System.out.println("Me cague");
-			// turno = !turno;
+			turno = true;
 			return mainContro.runPokemon(p);
 
 		}
@@ -123,7 +129,7 @@ public class FigthScreen {
 
 					System.out.println("No capture");
 					falloCap = true;
-					// turno = !turno;
+					turno = true;
 					// return true;
 
 				}
@@ -141,8 +147,21 @@ public class FigthScreen {
 			mainContro.ataqueDelUser(r, p);
 			turno = !turno;
 		}
+			
+	}
+	
+	public void ataquePok(int r, Pokemon n) {
 		
+		mainContro.ataquePokemon(r, n);
 		
+	}
+
+	public boolean isTurno() {
+		return turno;
+	}
+
+	public void setTurno(boolean turno) {
+		this.turno = turno;
 	}
 
 	public boolean isFalloCap() {

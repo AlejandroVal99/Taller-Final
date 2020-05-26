@@ -9,6 +9,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 	protected int dano1, dano2, xp, nivel, posx, posy,vida,vidaTotal;
 	protected PImage salvaje, combate;
 	protected boolean capturado;
+	protected int[][] mapa;
 
 	public Pokemon(String name, String tipo, PApplet app, int dano1, int dano2, int xp, int nivel, int posx, int posy,int vida,PImage salvaje, PImage combate, boolean capturado) {
 
@@ -26,6 +27,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		this.combate = combate;
 		this.salvaje = salvaje;
 		this.capturado = capturado;
+		//this.mapa = mapa;
 
 	}
 
