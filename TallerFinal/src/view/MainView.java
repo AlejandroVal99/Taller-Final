@@ -147,6 +147,8 @@ public class MainView extends PApplet {
 			
 			
 			
+			
+			
 
 			break;
 		case 5: // pantalla pokedex
