@@ -12,7 +12,7 @@ import processing.core.PImage;
 public class GameScreen {
 
 	private PApplet app;
-	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3, lado1, lado2, lado3, otrola1, otrola2, otrola3;
+	private PImage mapa, espal1, espal2, espal3, frente1, frente2, frente3,fin, lado1, lado2, lado3, otrola1, otrola2, otrola3;
 	private PImage [] espal, frente, lado, otrola;
 	private MainContro mainContro;
 	private boolean finalBeta;
@@ -40,7 +40,8 @@ public class GameScreen {
 		mainContro.crearPokesal();
 		
 		mainContro.cargaImaPerso();
-		this.mapa = app.loadImage("Imagenes/mapaCuadricula.jpg");
+		this.mapa = app.loadImage("Imagenes/mapa.jpg");
+		this.fin = app.loadImage("Imagenes/Exception/fin.png");
 		
 	
 		System.out.println(mainContro.getMapaJuego()[0][15]+"------------");
@@ -75,7 +76,7 @@ public class GameScreen {
 		//app.image(this.espal[1],0,0);
 		
 		//intento pintar la matriz real
-		for (int i = 0; i < 34; i++) {
+		/*for (int i = 0; i < 34; i++) {
 			for (int j = 0; j < 19; j++) {
 				
 				switch (mainContro.getMapaJuego()[j][i]) {
@@ -108,14 +109,14 @@ public class GameScreen {
 				
 			}
 			
-		}
+		}*/
 		//esto es para conocer la exactaposicion del personaje en la matriz
 		int fila= app.width/34; 
-		app.text(app.mouseX+" "+app.mouseY, app.mouseX, app.mouseY+50);
+		//app.text(app.mouseX+" "+app.mouseY, app.mouseX, app.mouseY+50);
 		
 		if(finalBeta) {
 			
-			app.text("Final del juego, nos vemos en prodigos",150,200);
+			app.image(this.fin, 0, 0);
 		}
 		
 		

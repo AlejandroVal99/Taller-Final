@@ -204,7 +204,7 @@ public class Logic {
 
 	public void pintoprueba() {
 		for (Pokemon p : pokemonSalList) {
-			p.pintar();
+			//p.pintar();
 			Thread hiloPok = new Thread (p);
 			hiloPok.start();
 			
@@ -280,11 +280,11 @@ public class Logic {
 
 	// -----Orden Pokemones-------
 	public void ordenNombrePoke() {
-		Collections.sort(pokemonList);
+		Collections.sort(userActivo.getPokedex());
 	}
 
 	public void ordenTipo() {
-		Collections.sort(pokemonList, pokemonTipo);
+		Collections.sort(userActivo.getPokedex(), pokemonTipo);
 	}
 
 	// -------Orden Usuarios---------
@@ -469,8 +469,9 @@ public class Logic {
 	
 	
 	public void winPokemon() throws pokemonWinException{
+		System.out.println("ENTRO 1");
 		if(userActivo.getPokedex().get(0).getVida()<= 0) {
-			
+			System.out.println("ENTRO 222");
 			throw new pokemonWinException("Te pelaron papi");
 			
 		}

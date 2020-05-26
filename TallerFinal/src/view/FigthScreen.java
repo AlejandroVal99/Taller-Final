@@ -2,6 +2,7 @@ package view;
 
 import conntroller.MainContro;
 import exceptions.NoCapturadoException;
+import exceptions.pokemonWinException;
 import model.Pokemon;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -10,7 +11,7 @@ public class FigthScreen {
 
 	private MainContro mainContro;
 	private PApplet app;
-	private PImage fight, fight2, ha1, ha2;
+	private PImage fight, fight2, ha1, ha2, mori;
 	private PImage[] aniFight;
 	private int contador1;
 	private boolean dos = false;
@@ -18,13 +19,14 @@ public class FigthScreen {
 	private boolean falloCap;
 	private boolean h1;
 	private boolean h2;
-	private boolean paso; 
+	private boolean paso;
+	private boolean excep;
 
 	private float ultimo;
 	private float maximo;
-	private float velx; 
-	private float enx; 
-	private boolean reinicio; 
+	private float velx;
+	private float enx;
+	private boolean reinicio;
 
 	public FigthScreen(PApplet app) {
 
@@ -35,14 +37,15 @@ public class FigthScreen {
 		mainContro.crearPokemones();
 		mainContro.crearPokesal();
 		falloCap = false;
+		excep = false;
 		h1 = false;
 		h2 = false;
-		
-		  maximo = 5000;
-		  ultimo = app.millis();
-		  velx = 10; 
-		  enx += velx;
-		  reinicio = false; 
+
+		maximo = 5000;
+		ultimo = app.millis();
+		velx = 10;
+		enx += velx;
+		reinicio = false;
 	}
 
 	public void cargaFS() {
@@ -59,16 +62,15 @@ public class FigthScreen {
 	}
 
 	public void drawFight(Pokemon p) {
+
 		mainContro.ganePelea(p);
 		paso = mainContro.ganePelea(p);
-		
-		if(mainContro.ganePelea(p)) {
+
+		if (mainContro.ganePelea(p)) {
 			System.out.println("saquenmeee");
 		}
 		app.image(this.aniFight[this.contador1], 0, 0);
-		
-		
-		
+
 		if (app.frameCount % 5 == 0) {
 			if (this.contador1 < 43) {
 				this.contador1++;
@@ -89,64 +91,70 @@ public class FigthScreen {
 			}
 		}
 		app.text(p.getNivel(), 200, 100);
-		
+
 		if (p != null) {
 			p.pintarPokemon();
 			p.pintarBarra();
 		}
-		
+
 		mainContro.pintarPokemonUser();
 		float pasado = app.millis() - ultimo;
-		float restante = (int)(maximo - pasado)/1000;
+		float restante = (int) (maximo - pasado) / 1000;
 
-		
-	
-		if(!turno) {
-			
-			int r = (int)app.random(1,3);
-			if(restante<0) {
-				
-				mainContro.ataquePokemon(r,p);
-			    turno = !turno;
-			    restante=10;  
-			   
+		if (!turno) {
+
+			int r = (int) app.random(1, 3);
+			if (restante < 0) {
+
+				mainContro.ataquePokemon(r, p);
+				turno = !turno;
+				restante = 10;
+
 			}
-			
-			
-			
-		}
-		//PRUEBO MILLLISSSSS-----------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-		
-		 app. text(""+restante,50,50);
-	}
 
+		}
+
+		// PRUEBO
+		// MILLLISSSSS-----------------------------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+		// app. text(""+restante,50,50);
+	}
 
 	public boolean testRun(Pokemon p) {
 
 		if (turno) {
-			  
+
 			System.out.println("Me cague");
 			turno = true;
 			return mainContro.runPokemon(p);
 
 		}
-		
 
 		return false;
 
 	}
-	
-	public void teclas (char k) {
-		
-		if(k == 'l') {
-			  ultimo = app.millis();
+
+	public void teclas(char k) {
+
+		if (k == 'l') {
+			ultimo = app.millis();
 		}
-		
+
+	}
+
+	public void winPoke() throws pokemonWinException  {
+		mainContro.winPoke();
+	}
+	public boolean isExcep() {
+		return excep;
+	}
+
+	public void setExcep(boolean excep) {
+		this.excep = excep;
 	}
 
 	public boolean testCap(char k, Pokemon p) {
 
-		
 		if (turno) {
 
 			if (k == 'r') {
@@ -170,23 +178,23 @@ public class FigthScreen {
 
 		return false;
 	}
-	
+
 	public void ataqueUser(int r, Pokemon p) {
-		
-		if(turno) {
+
+		if (turno) {
 			mainContro.ataqueDelUser(r, p);
 			turno = !turno;
 		}
-			
+
 	}
-	
+
 	public void ataquePok(int r, Pokemon n) {
-		
+
 		mainContro.ataquePokemon(r, n);
-		
+
 	}
-	
-	//-------------------------------------
+
+	// -------------------------------------
 
 	public boolean isTurno() {
 		return turno;
@@ -235,9 +243,5 @@ public class FigthScreen {
 	public void setPaso(boolean paso) {
 		this.paso = paso;
 	}
-	
-
-	
-	
 
 }

@@ -145,7 +145,9 @@ public class MainContro {
 		logic.pintarPokemonOrden();
 	}
 
-	
+	public void winPoke() throws pokemonWinException {
+		logic.winPokemon();
+	}
 	
 	
 	

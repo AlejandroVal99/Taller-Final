@@ -2,6 +2,7 @@ package view;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 import processing.sound.SoundFile;
 import controlP5.*;
 import exceptions.NoCapturadoException;
@@ -15,6 +16,8 @@ public class MainView extends PApplet {
 	SoundFile soni;
 	private ControlP5 cp5;
 	private PFont font;
+	PImage noLo,mori;
+	boolean ex;
 	RegisterScreen regisScreen;
 	IntroScreen introScreen;
 	GameScreen gameScreen;
@@ -37,6 +40,9 @@ public class MainView extends PApplet {
 	public void setup() {
 		
 		screen = 2;
+		ex = false;
+		noLo = loadImage("Imagenes/Exception/noLoAtra.png");
+		mori = loadImage("Imagenes/Exception/mori.png");
 		soni = new SoundFile(this,"Imagenes/info.wav");
 		font = createFont("Fuentes/Pokemon X and Y.tff",20);
 		cp5 = new ControlP5(this);
@@ -95,7 +101,7 @@ public class MainView extends PApplet {
 			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 3: // pantalla juego
-			background(200, 20, 50);
+			background(0);
 
 			gameScreen.drawGame();
 			gameScreen.finaltest();
@@ -103,10 +109,12 @@ public class MainView extends PApplet {
 			regisScreen.escondoInput("correo");
 			screen = gameScreen.cambioPantallaChoque();
 			
-			
+			if(ex==true) {
+				image(mori, 0, 0);
+			}
 			if(fightScreen.isFalloCap()) {
 				//Pa el front
-				text("NO LO CAPTURASTE MANCO",150,100);
+				image(noLo, 0, 0);
 				
 				
 			}
@@ -115,6 +123,14 @@ public class MainView extends PApplet {
 		case 4: // pantalla pelea
 			background(30, 20, 0);
 			fightScreen.drawFight(gameScreen.cualpokemon());
+			
+			try {
+				fightScreen.winPoke();
+			} catch (pokemonWinException e) {
+				screen = 3;
+				ex = true;
+			}
+			
 			if(fightScreen.isPaso()) {
 				screen= 3; 
 			}
@@ -183,6 +199,7 @@ public class MainView extends PApplet {
 		case 3:// pantalla juego
 			gameScreen.mover();
 			fightScreen.setFalloCap(false);
+			ex = false;
 			
 			if(key == 'p') {
 				screen=5;
