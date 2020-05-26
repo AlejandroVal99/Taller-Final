@@ -396,6 +396,7 @@ public class Logic {
 
 			}
 
+			
 		}
 		return false;
 	}
@@ -473,6 +474,16 @@ public class Logic {
 			throw new pokemonWinException("Te pelaron papi");
 			
 		}
+	}
+	
+	public boolean ganePelea(Pokemon p) {
+		if(p.getVida()<=0) {
+			pokemonSalList.remove(p); 
+			System.out.println(pokemonSalList.size()+"ganeeeeeeeeeeee");
+			return true; 
+		}
+		return false; 
+		
 	}
 //-------------------------------------------------------------------------------------------
 
