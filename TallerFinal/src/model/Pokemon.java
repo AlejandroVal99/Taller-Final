@@ -136,7 +136,7 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 
 	public int compareTo(Pokemon o) {
 		// TODO Auto-generated method stub
-		return o.getName().compareTo(this.getName());
+		return this.getName().compareTo(o.getName());
 	}
 
 	public String getName() {

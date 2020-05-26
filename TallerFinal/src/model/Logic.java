@@ -280,10 +280,12 @@ public class Logic {
 
 	// -----Orden Pokemones-------
 	public void ordenNombrePoke() {
+		System.out.println("Aloooooo");
 		Collections.sort(userActivo.getPokedex());
 	}
 
 	public void ordenTipo() {
+		System.out.println("Aloooooo");
 		Collections.sort(userActivo.getPokedex(), pokemonTipo);
 	}
 
@@ -356,7 +358,7 @@ public class Logic {
 		for (Pokemon p : pokemonSalList) {
 
 			if (PApplet.dist(userActivo.getPosx(), userActivo.getPosy(), p.getPosx(), p.getPosy()) <= 15) {
-				// System.out.println(p.getTipo() + "el pokemooooonaleta");
+				System.out.println(p.getTipo() + "SONIDOOOOO");
 				tocado = p;
 				return true;
 

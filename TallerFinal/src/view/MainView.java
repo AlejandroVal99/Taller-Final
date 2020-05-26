@@ -217,16 +217,17 @@ public class MainView extends PApplet {
 				screen = 6;
 			}
 			gameScreen.encuentroUserSound();
-			if(gameScreen.encuentroUserSound()==4) {
-				System.out.println("entroo el sonido");
-				fight2.amp((float) 0.1);
-				fight2.play();
-			}
 
 			break;
 		case 4:
 			fightScreen.teclas(key);
 			
+			
+			if(gameScreen.encuentroUserSound()==4) {
+				System.out.println("entroo el sonido");
+				fight2.amp((float) 0.1);
+				fight2.play();
+			}
 
 			break;
 		case 5://Pantalla pokedex
