@@ -44,7 +44,7 @@ public class MainView extends PApplet {
 		noLo = loadImage("Imagenes/Exception/noLoAtra.png");
 		mori = loadImage("Imagenes/Exception/mori.png");
 		soni = new SoundFile(this,"sfx/info.wav");
-		fight2= new SoundFile(this,"sfx/fight3.wav");
+		fight2= new SoundFile(this,"sfx/fight4.wav");
 		tap= new SoundFile(this,"sfx/tap2.wav");
 		intro2= new SoundFile(this,"sfx/intro4.wav");
 		chari= new SoundFile(this,"sfx/chari.wav");
