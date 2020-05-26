@@ -177,7 +177,7 @@ public class RegisterScreen {
 	public void getInfo() {
 		String userName = cp5.get(Textfield.class, "name").getText();
 		String name = cp5.get(Textfield.class, "correo").getText();
-		String fecha = "11/02/2019";
+		String fecha = "29-05-2020";
 		mainContro.registrarmetodo(userName,name, fecha);
 	}	
 	//@

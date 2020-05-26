@@ -387,6 +387,7 @@ public class Logic {
 				System.out.println("Probalidad: " + pCap);
 				System.out.println("capturado el pokemon");
 				contacap++;
+				p.setCapturado(true);
 				userActivo.getPokedex().add(p);
 				System.out.println("Pokemones del usuario: " + userActivo.getPokedex().size());
 				pokemonSalList.remove(p);

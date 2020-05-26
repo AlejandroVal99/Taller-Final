@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
@@ -13,6 +14,7 @@ public class User implements Comparable<User>{
 	 PApplet app; 
 	 private PFont font;
 	 boolean toco; 
+	 String[] fechas ;
 	 String password, nickname,fecha; 
 	 Date fechadeRegistro; 
 	 SimpleDateFormat dateFormat;
@@ -42,6 +44,8 @@ public class User implements Comparable<User>{
 
 	public User(PApplet app, String nickname, String fecha, String password){
 		
+		fechas = fecha.split("-");
+		a = Integer.parseInt(fechas[2]);
 		this.app= app; 
 		this.nickname = nickname; 
 		this.password = password; 
@@ -57,6 +61,16 @@ public class User implements Comparable<User>{
 	}
 
 	
+	public int getA() {
+		return a;
+	}
+
+
+	public void setA(int a) {
+		this.a = a;
+	}
+
+
 	public String getFecha() {
 		return fecha;
 	}
@@ -77,7 +91,7 @@ public class User implements Comparable<User>{
 		//this.posx = 78;
     	app.text(nickname, 88,posy);
     	app.text(password, 483,posy);
-    	app.text("Fecha: " + fechadeRegistro, 295, posy);
+    	app.text(fecha, 295, posy);
 		
 	}
 	
@@ -182,8 +196,8 @@ public class User implements Comparable<User>{
 		
 	}
 
-	public int compareTo(User o) {
-		return 0;
+	public int compareTo(User o1) {
+		return this.a - o1.getA();
 	}
 	
 	// gets y sets	

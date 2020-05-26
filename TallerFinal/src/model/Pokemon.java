@@ -206,6 +206,14 @@ public abstract class Pokemon implements Runnable, Comparable<Pokemon> {
 		return tipo;
 	}
 
+	public boolean isCapturado() {
+		return capturado;
+	}
+
+	public void setCapturado(boolean capturado) {
+		this.capturado = capturado;
+	}
+
 	// gets y sets
 
 }
