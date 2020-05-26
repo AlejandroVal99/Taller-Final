@@ -35,6 +35,9 @@ public class GameScreen {
 	}
 	
 
+
+
+
 	public void cargaImagenesGS() {
 		mainContro.crearPokemones();
 		mainContro.crearPokesal();
@@ -62,6 +65,13 @@ public class GameScreen {
 	}else {
 		return 3;
 	}
+	}
+	
+	public boolean encuentroUserSound() {
+		if(mainContro.encuentroUserSound()==true) {
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -144,8 +154,6 @@ public class GameScreen {
 	}
 	
 	
-	
-
 
 
 }

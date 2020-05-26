@@ -35,6 +35,9 @@ public class MainContro {
 	public boolean encuentroUserPoke() {
 		return logic.encuentroUserPoke();
 	}
+	public boolean encuentroUserSound() {
+		return logic.encuentroUserSound();
+	}
 
 	// ---------
 	public LinkedList<User> getUsuariosList() {

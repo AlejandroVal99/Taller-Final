@@ -351,6 +351,21 @@ public class Logic {
 		return false;
 
 	}
+	
+	public boolean encuentroUserSound() {
+		for (Pokemon p : pokemonSalList) {
+
+			if (PApplet.dist(userActivo.getPosx(), userActivo.getPosy(), p.getPosx(), p.getPosy()) <= 15) {
+				// System.out.println(p.getTipo() + "el pokemooooonaleta");
+				tocado = p;
+				return true;
+
+			}
+
+		}
+		return false;
+
+	}
 
 	// este metodo conoce que pokemon ha tocado
 	public Pokemon cualpokemon() {

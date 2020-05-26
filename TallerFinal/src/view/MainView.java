@@ -13,7 +13,7 @@ import exceptions.pokemonWinException;
 public class MainView extends PApplet {
 
 	int screen;
-	SoundFile soni;
+	SoundFile soni, fight, tap, intro2,chari,blat,saur ;
 	private ControlP5 cp5;
 	private PFont font;
 	PImage noLo,mori;
@@ -43,7 +43,14 @@ public class MainView extends PApplet {
 		ex = false;
 		noLo = loadImage("Imagenes/Exception/noLoAtra.png");
 		mori = loadImage("Imagenes/Exception/mori.png");
-		soni = new SoundFile(this,"Imagenes/info.wav");
+		soni = new SoundFile(this,"sfx/info.wav");
+		fight= new SoundFile(this,"sfx/fight3.wav");
+		tap= new SoundFile(this,"sfx/tap2.wav");
+		intro2= new SoundFile(this,"sfx/intro4.wav");
+		chari= new SoundFile(this,"sfx/chari.wav");
+		blat= new SoundFile(this,"sfx/blat.wav");
+		saur= new SoundFile(this,"sfx/saur.wav");
+		
 		font = createFont("Fuentes/Pokemon X and Y.tff",20);
 		cp5 = new ControlP5(this);
 		regisScreen = new RegisterScreen(this);
@@ -71,7 +78,9 @@ public class MainView extends PApplet {
 		introScreen.cargaImagenesIS();
 
 		// regisScreen.carga3();
-
+		intro2.amp((float) 0.1);
+		intro2.play();
+	
 	}
 
 	public void draw() {
@@ -98,7 +107,7 @@ public class MainView extends PApplet {
 			regisScreen.muestroInput(1, "correo");
 			fill(0);
 			textSize(30);
-			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
+		//	text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 3: // pantalla juego
 			background(0);
@@ -150,7 +159,7 @@ public class MainView extends PApplet {
 			historialScreen.drawHisto();
 			fill(0);
 			textSize(30);
-			text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
+			//text("X: " + mouseX + " Y: " + mouseY, mouseX, mouseY);
 			break;
 		case 7:
 
@@ -207,6 +216,11 @@ public class MainView extends PApplet {
 			if(key == 'h') {
 				screen = 6;
 			}
+			gameScreen.encuentroUserSound();
+			if(gameScreen.encuentroUserSound()==true) {
+				fight.amp((float) 0.1);
+				fight.play();
+			}
 
 			break;
 		case 4:
@@ -238,11 +252,14 @@ public class MainView extends PApplet {
 	}
 
 	public void mousePressed() {
-
+		tap.amp((float) 0.3);
+		tap.play();
+		
 		switch (screen) {
 
 		case 0:
 			if (mouseX > 285 && mouseX < 529 && mouseY > 312 && mouseY < 387) {
+				intro2.pause();
 				screen = 2;// pasa a pantalla loggeo
 			}
 			break;
@@ -252,6 +269,9 @@ public class MainView extends PApplet {
 			if (mouseX > 335 && mouseX < 480 && mouseY > 25 && mouseY < 214) {
 				selPokemonScreen.primerPokemon(2);
 				screen = 3;// pasa a pantalla de juego -FUEGO
+				
+				chari.amp((float) 0.1);
+				chari.play();
 				soni.amp((float) 0.1);
 				soni.play();
 			}
@@ -259,6 +279,9 @@ public class MainView extends PApplet {
 			if (mouseX > 146 && mouseX < 260 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.primerPokemon(1);
 				screen = 3;// pasa a pantalla de juego - AGUA
+				
+				blat.amp((float) 0.1);
+				blat.play();
 				soni.amp((float) 0.1);
 				soni.play();
 			}
@@ -266,6 +289,9 @@ public class MainView extends PApplet {
 			if (mouseX > 555 && mouseX < 670 && mouseY > 9 && mouseY < 158) {
 				selPokemonScreen.primerPokemon(0);
 				screen = 3;// pasa a pantalla de juego - HIERBA
+				
+				saur.amp((float) 0.1);
+				saur.play();
 				soni.amp((float) 0.1);
 				soni.play();
 			}
@@ -281,8 +307,6 @@ public class MainView extends PApplet {
 			
 			break;
 		case 4:// pantalla pelea
-			
-			
 			
 			//Habilidad Uno
 			if (mouseX > 59  && mouseX < 179 && mouseY > 368 && mouseY < 404 ) {
