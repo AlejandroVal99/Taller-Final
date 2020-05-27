@@ -39,7 +39,7 @@ public class MainView extends PApplet {
 
 	public void setup() {
 		
-		//screen = 2;
+		screen = 0;
 		ex = false;
 		noLo = loadImage("Imagenes/Exception/noLoAtra.png");
 		mori = loadImage("Imagenes/Exception/mori.png");
